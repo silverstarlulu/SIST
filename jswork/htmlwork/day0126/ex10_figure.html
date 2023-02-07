@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .a {
+        font-size: 2em;
+        font-family: "Times New Roman", Times, serif;
+        margin-left: 30px;
+      }
+      div.b > figure {
+        float: left;
+      }
+      div.b > figure > img {
+        border: 1px solid salmon;
+        border-radius: 30px 60px 100px 0px;
+      }
+      div.b > figure > figcaption {
+        font-size: 8px;
+        margin-left: 100px;
+        margin-right: 100px;
+        font-family: "굴림";
+        border: 2px solid black;
+      }
+      hr.c {
+        clear: both;
+      }
+      div.d {
+        width: 800px;
+        height: 300px;
+        border: 2px solid green;
+        display: flex;
+        flex-direction: row; /*왼쪽정렬*/
+      }
+      div.d img {
+        border: 2px solid black;
+        box-shadow: 10px 10px 10px gray;
+        border-radius: 100px;
+      }
+      div.d figcaption {
+        margin-left: 40px;
+        font-size: 30px;
+        margin-top: 10px;
+        color: mediumpurple;
+        text-shadow: 3px 3px 3px lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../html_img/dog1.jpg" width="200" border="10" hspace="20" />
+    <div class="a">java<br />oracle<br />html<br />jquery</div>
+
+    <hr />
+
+    <div class="b">
+      <figure>
+        <img src="../html_img/dog2.jpg" width="300" />
+        <figcaption>강아지얌</figcaption>
+      </figure>
+      <figure>
+        <img src="../html_img/dog3.jpg" width="300" />
+        <figcaption>강아지얌2</figcaption>
+      </figure>
+      <figure>
+        <img src="../html_img/dog4.jpg" width="300" />
+        <figcaption>강아지얌3</figcaption>
+      </figure>
+    </div>
+
+    <hr class="c" />
+
+    <div class="d">
+      <figure>
+        <img src="../html_img/image_01.png" width="150" />
+        <figcaption>뿌</figcaption>
+      </figure>
+      <figure>
+        <img src="../html_img/image_02.png" width="150" />
+        <figcaption>뿌뿌</figcaption>
+      </figure>
+      <figure>
+        <img src="../html_img/image_03.png" width="150" />
+        <figcaption>뿌뿌뿌</figcaption>
+      </figure>
+    </div>
+  </body>
+</html>

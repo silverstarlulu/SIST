@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tb1 {
+        width: 500px;
+        border: 5px groove gray;
+      }
+
+      .tb1 > thead > tr > th {
+        border: 1px solid gray;
+        background-color: seagreen;
+        font-weight: bold;
+      }
+
+      .tb1 > thead > tr {
+        height: 30px;
+        font-size: 1.2em;
+      }
+
+      .tb1 > tbody > tr {
+        height: 30px;
+        text-align: center;
+      }
+
+      .tb1 > tbody > tr > td {
+        border-bottom: 3px solid black;
+        background-color: goldenrod;
+        color: wheat;
+      }
+
+      .tb2 {
+        width: 500px;
+        border: 2px solid slateblue;
+        border-collapse: collapse;
+      }
+
+      caption {
+        margin-bottom: 5px;
+      }
+
+      .tb2 th,
+      .tb2 td {
+        border: 1px solid slateblue;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .tb2 thead tr {
+        height: 50px;
+        color: brown;
+      }
+
+      .tb2 img {
+        width: 100px;
+      }
+
+      .tb2 td:first-child {
+        width: 70px;
+      }
+
+      .tb2 td:nth-child(3) {
+        width: 100px;
+        color: blue;
+        text-align: right;
+      }
+
+      .tb1 td:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .tb2 tbody tr:hover {
+        background-color: seagreen;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="tb1">
+      <caption>
+        <b>[표연습_1]</b>
+      </caption>
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>나이</th>
+          <th>주소</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>김예림</td>
+          <td>22</td>
+          <td>부산시 해운대구</td>
+        </tr>
+        <tr>
+          <td>강호동</td>
+          <td>30</td>
+          <td>천안시 동남구</td>
+        </tr>
+        <tr>
+          <td>유재석</td>
+          <td>38</td>
+          <td>대구시 유성구</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+
+    <table class="tb2">
+      <caption>
+        <b>[표연습_2]</b>
+      </caption>
+      <thead>
+        <tr>
+          <th>상품명</th>
+          <th>이미지</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>향수</td>
+          <td><img src="../logoImg/acc03.png" /></td>
+          <td>200만원</td>
+        </tr>
+        <tr>
+          <td>시계</td>
+          <td><img src="../logoImg/acc01.png" /></td>
+          <td>300만원</td>
+        </tr>
+        <tr>
+          <td>스카프</td>
+          <td><img src="../logoImg/acc02.png" /></td>
+          <td>500만원</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

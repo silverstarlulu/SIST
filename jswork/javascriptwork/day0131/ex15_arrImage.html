@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var tag = "<h2>Hello JavaScript~~</h2>";
+      document.write(tag);
+
+      for (var i = 1; i <= 10; i++) {
+        document.write("<b>" + i + "&nbsp</b>");
+      }
+
+      document.write("<br><br>");
+      document.write("==========================");
+    </script>
+
+    <h2>[연속된 번호의 이미지 출력]</h2>
+    <script>
+      for (var i = 1; i <= 10; i++) {
+        document.write("<img src='../flower_ani/s" + i + ".jpg' width='100'>");
+      }
+
+      document.write("<br><br>");
+      document.write("==========================");
+    </script>
+
+    <h2>Q. 배열 선언 후 이미지 출력</h2>
+    <script>
+      var arr = ["된장찌개", "떡볶이", "라면", "비빔밥", "피자"];
+
+      for (var i = 0; i < arr.length; i++) {
+        var f =
+          "<img src='../flower_ani/" + arr[i] + ".PNG' width='100' border='1'>";
+        document.write(f);
+      }
+
+      document.write("<br><br>");
+      document.write("==========================");
+    </script>
+
+    <h2>Q. 5명씩 4줄로 20명 이미지 출력</h2>
+    <script>
+      for (var i = 1; i <= 20; i++) {
+        // document.write(
+        //   "<img src='../만화이미지/" + arr[i] + ".png' width='100' />"
+        // );
+
+        var imgname = "../만화이미지/" + (i < 10 ? "0" : "") + i + ".png";
+        var s = "<img src='" + imgname + "' width='100'>";
+        document.write(s);
+
+        if (i % 5 == 0) document.write("<br>");
+      }
+
+      document.write("<br><br>");
+      document.write("==========================");
+    </script>
+
+    <h2>내가 한 코드_망 코드</h2>
+    <script>
+      var arr = ["01", "02", "03"];
+      for (var i = 0; i < arr.length; i++) {
+        document.write(
+          "<img src='../만화이미지/" + arr[i] + ".png' width='" + 200 + "'>"
+        );
+      }
+      //   document.write(typeof arr[0]);
+    </script>
+  </body>
+</html>

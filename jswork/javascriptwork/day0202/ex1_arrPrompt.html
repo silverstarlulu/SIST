@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .a {
+        width: 400px;
+        position: absolute;
+        top: 20px;
+        left: 300px;
+      }
+
+      #btn {
+        width: 100%;
+      }
+
+      #result {
+        display: flex;
+        background-color: #ffc;
+        margin: 20px 0;
+        width: 400px;
+        justify-content: center;
+      }
+
+      img {
+        border: 3px solid black;
+        width: 100%;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var imgArr = new Array();
+        imgArr.push("../div_img/actor1.jpg");
+        imgArr.push("../div_img/beauty1.jpg");
+        imgArr.push("../div_img/beauty2.jpg");
+        imgArr.push("../div_img/beauty3.jpg");
+        imgArr.push("../div_img/beauty4.jpg");
+
+        var result = document.getElementById("result");
+        var btn = document.getElementById("btn");
+
+        btn.onclick = function () {
+          var a = prompt("출력할 이미지의 인덱스 번호(0 ~ 4)를 입력해주세요");
+          if (a < imgArr.length)
+            result.innerHTML = "<img src='" + imgArr[a] + "'/>";
+          else result.innerHTML = "해당 번호의 이미지는 없습니다.";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="a">
+      <button type="button" id="btn" class="btn btn-pink">이미지 생성</button>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

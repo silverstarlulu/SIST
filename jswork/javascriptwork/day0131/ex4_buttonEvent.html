@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      window.onload = function () {
+        //버튼 btn에 이벤트 주기
+        var b = document.getElementById("btn1"); //btn1에 접근한 b에 아이디값 가져옴
+        b.onclick = function () {
+          alert("3번째 버튼 클릭");
+        }; //id 접근은 head단에 두면 접근 x, 이벤트는 언제나 body단이 끝나기 전에
+      };
+    </script>
+  </head>
+  <body>
+    <button type="button" onclick="alert('안녕 오늘은 ~~')">
+      함수호출_직접이벤트호출
+    </button>
+
+    <br /><br />
+
+    <button type="button" onclick="hello()">자바스크립트 사용자함수호출</button>
+
+    <br /><br />
+
+    <button type="button" id="btn1">이벤트를 자바스크립트로</button>
+
+    <br /><br />
+
+    <script>
+      function hello() {
+        alert("두번째 버튼 누름");
+      }
+
+      //   //버튼 btn에 이벤트 주기
+      //   var b = document.getElementById("btn1"); //btn1에 접근한 b에 아이디값 가져옴
+      //   b.onclick = function () {
+      //     alert("3번째 버튼 클릭");
+      //   }; //id 접근은 head단에 두면 접근 x, 이벤트는 언제나 body단이 끝나기 전에
+    </script>
+  </body>
+</html>

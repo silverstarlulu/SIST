@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function showName(name) {
+        document.write(
+          "안녕하세요 " + name + "님~ 자바스크립트 수업에 온 걸 환영합니다!<br>"
+        );
+      }
+
+      showName("예은");
+      showName("영은");
+      showName("다은");
+
+      function showInfo(name, age) {
+        document.write("이름: " + name + ", 나이: " + age + "살<br>");
+      }
+
+      showInfo("박예은", 25);
+      showInfo("권은지", 27);
+      showInfo("이채림", 22);
+
+      myInfo = function (height, weight) {
+        document.write(
+          "키는 " + height + "cm이며 몸무게는 " + weight + "kg입니다<br>"
+        );
+      };
+
+      myInfo(180, 93);
+      myInfo(163, 65);
+    </script>
+  </body>
+</html>

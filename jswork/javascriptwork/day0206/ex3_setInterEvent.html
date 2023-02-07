@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myimg {
+        position: absolute;
+      }
+
+      #btnStart {
+        margin-left: 400px;
+        position: relative;
+        width: 150px;
+        font-size: 20pt;
+        top: 200px;
+      }
+
+      #btnStop {
+        position: relative;
+        margin-left: 10px;
+        width: 150px;
+        font-size: 20pt;
+        top: 200px;
+      }
+    </style>
+    <script>
+      var myimg;
+      var xpos = 0;
+      var ms = 100; //0.1초(스윽 움직임)
+      var inter;
+
+      window.onload = function () {
+        myimg = document.getElementById("myimg");
+
+        //gogo
+        document.getElementById("btnStart").onclick = function () {
+          inter = setInterval(function () {
+            //clear할 때도 set할 때의 값을 줘야하므로 변수로 주기, 따라서 선언은 지역이 아닌 전역으로!
+            myimg.style.left = xpos + "px";
+            xpos += 10;
+          }, ms);
+        };
+
+        //stop
+        document.getElementById("btnStop").onclick = function () {
+          clearInterval(inter);
+        };
+
+        //키보드의 아스키코드값
+        window.onkeydown = function (e) {
+          //이벤트 확인 시 e 쓰기
+          console.log(e.keyCode); //아스키 코드 확인
+          //좌: 37 상: 38 우: 39 하: 40 엔터: 13
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <img src="../만화이미지/15.png" id="myimg" /><br /><br />
+    <button type="button" id="btnStart">Go!! Go!!</button>
+    <button type="button" id="btnStop">Stop!!</button>
+  </body>
+</html>

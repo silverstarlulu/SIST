@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>HTML5에 추가된 Audio&Video</h2>
+    <h3>음악듣기</h3>
+    <!-- controls: 재생, 일시정지등 아이콘 보이도록 -->
+    <audio src="../av/audio.wav" controls="controls"></audio><br /><br />
+
+    <h3>동영상재생</h3>
+    <video src="../av/video.m4v" controls width="300"></video>
+    <video
+      src="../av/video.mp4"
+      width="300"
+      onmouseover="this.play()"
+      onmouseout="this.pause()"
+    ></video>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .img-w-modify {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .buttons {
+      margin-bottom: 30px;
+    }
+    .image-select {
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var small = document.getElementById("btnsmall");
+      var large = document.getElementById("btnlarge");
+      var select = document.getElementById("selImage");
+      var photo = document.getElementById("photo");
+      var w = parseInt(photo.getAttribute("width"));
+
+      //초기 이미지
+      photo.setAttribute("src", select.value);
+
+      //사진선택하는대로 이미지 변경
+      select.onchange = function () {
+        photo.setAttribute("src", select.value);
+      };
+
+      //점점작게 버튼 누를 시 사진 작아지도록
+      small.onclick = function () {
+        w -= 10;
+        photo.setAttribute("width", w);
+      };
+
+      //점점크게 버튼 누를 시 사진 커지도록
+      large.onclick = function () {
+        w += 10;
+        photo.setAttribute("width", w);
+      };
+    };
+  </script>
+  <body>
+    <div class="img-w-modify">
+      <div class="buttons">
+        <button class="btn btn-pink" id="btnsmall" type="button">
+          점점작게
+        </button>
+        <button class="btn btn-green" id="btnlarge" type="button">
+          점점크게
+        </button>
+      </div>
+      <div class="image-select">
+        <b>사진선택</b>
+        <select id="selImage">
+          <option value="../연예인사진/10.jpg">김태희</option>
+          <option value="../연예인사진/19.jpg">수지</option>
+          <option value="../연예인사진/20.jpg">유아인</option>
+          <option value="../연예인사진/17.jpg" selected>신민아</option>
+        </select>
+      </div>
+      <div>
+        <img src="../연예인사진/9.jpg" id="photo" width="350px" />
+      </div>
+    </div>
+  </body>
+</html>

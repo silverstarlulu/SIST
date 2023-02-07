@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      width: 100%;
+      margin: 10px;
+    }
+
+    .menu__title {
+      padding: 20px;
+      margin: 20px;
+      background-color: rgba(165, 42, 42, 0.8);
+      color: white;
+      font-family: "Noto Serif KR", serif;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 30px;
+    }
+
+    .menu__lists {
+      text-align: center;
+    }
+
+    .menu__list {
+      width: 150px;
+      float: left;
+      list-style: none;
+      margin: 10px 5px;
+      padding: 3px;
+      text-decoration: underline;
+      color: palevioletred;
+      font-weight: 600;
+      font-family: "Noto Serif KR", serif;
+      border: 1px solid salmon;
+      border-radius: 20px;
+      font-size: 20px;
+    }
+
+    .menu__list:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      box-shadow: 5px 5px 5px gray;
+    }
+  </style>
+  <body>
+    <h3 class="menu__title">ul을 이용한 간단한 메뉴만들기</h3>
+    <ul class="menu__lists">
+      <li class="menu__list">HOME</li>
+      <li class="menu__list">샵소개</li>
+      <li class="menu__list">Q&A게시판</li>
+      <li class="menu__list">방명록</li>
+      <li class="menu__list">후기게시판</li>
+      <li class="menu__list">오시는길</li>
+    </ul>
+  </body>
+</html>

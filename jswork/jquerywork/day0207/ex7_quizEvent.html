@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <title>Document</title>
+    <script>
+      $(function () {
+        $("h3").css({
+          width: "300px",
+          border: "7px inset pink",
+          "margin-bottom": "10px",
+        });
+
+        $("h3>b").css({
+          color: "powderblue",
+          "font-family": "궁서",
+          "background-color": "gray",
+          border: "1px solid orange",
+          "border-radius": "20px",
+          "box-shadow": "2px 2px rgba(0,0,0,0.2)",
+        });
+
+        $("h3>span").css({
+          "font-family": "impact",
+          color: "salmon",
+        });
+
+        //b태그의 음식명을 클릭하면 h2 태그에 음식명이 표시되고
+        //span 태그에 있는 이미지가 photo 클래스에 나타나도록
+        $("b").hover(
+          function () {
+            foodName = $(this).text();
+            $("h2").text(foodName).addClass("alert-info").css("width", "200px");
+
+            foodImg = $(this).next().next().text();
+            $(".photo")
+              .attr({
+                src: foodImg,
+                width: "200px",
+              })
+              .addClass("img-thumbnail img-circle");
+          },
+          function () {
+            $("h2").text("");
+            $(".photo").attr("src", "").removeClass("img-thumbnail img-circle");
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <h3>
+      <b>에그마요</b>
+      <br />
+      <span>../Food/1.jpg</span>
+    </h3>
+    <hr />
+    <h3>
+      <b>클럽샌드위치</b>
+      <br />
+      <span>../Food/8.jpg</span>
+    </h3>
+    <hr />
+    <h3>
+      <b>자몽빙수</b>
+      <br />
+      <span>../Food/11.jpg</span>
+    </h3>
+
+    <hr />
+
+    <img src="" class="photo" />
+    <!-- 에그마요 사진 -->
+    <br />
+    <h2></h2>
+    <!-- 에그마요 -->
+  </body>
+</html>

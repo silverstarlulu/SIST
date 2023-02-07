@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var a = "Hello";
+      var b = 100;
+      var c = 2.14;
+      var d = "30";
+
+      document.write(typeof a + "<br>");
+      document.write(typeof b + "<br>");
+      document.write(typeof c + "<br>");
+      document.write(typeof d + "<br>");
+
+      document.write(b + 100 + "<br>");
+      document.write(d + 100 + "<br>");
+
+      var sum = parseInt(d) + 100; //숫자로 변환 후 계산
+      document.write(sum + "<br>");
+
+      var s = "5*6-10";
+      document.write(s + "<br>");
+      document.write(eval(s) + "<br>"); //수식형태의 문자열을 실제 계산
+
+      //isNaN(Not a Number) _문자일경우 true, 숫자일경우 false
+      document.write(isNaN(100) + "<br>");
+      document.write(isNaN("hello") + "<br>");
+      document.write(isNaN("a100") + "<br>"); //문자형 숫자도 숫자로 인식되어 false 반환
+
+      //현재 날짜출력
+      var date = new Date();
+      document.write(date.getFullYear() + "<br>");
+      document.write(date.getYear() + "<br>"); //제대로 값이 나오지 않음 getFullYear() 사용
+      document.write(date.getMonth() + 1 + "<br>");
+      document.write(date.getDate() + "<br>");
+      document.write(date.getDay() + "<br>"); //요일 (월요일부터 1)
+
+      document.write(
+        "오늘은 " +
+          date.getFullYear() +
+          "년 " +
+          (date.getMonth() + 1) +
+          "월 " +
+          date.getDate() +
+          "일 입니다.<br>"
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

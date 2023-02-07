@@ -1,0 +1,50 @@
+table {
+  width: 700px;
+  border-collapse: collapse;
+  border: 2.5px solid black;
+  margin-bottom: 8px;
+}
+table td {
+  border: 1px solid black;
+}
+.tb2,
+.tb3,
+.tb4,
+.tb5,
+.tb6,
+.tb7 {
+  text-align: center;
+}
+.tb tr > td:first-child {
+  width: 150px;
+}
+.tb tr > td:nth-child(2) {
+  width: 100px;
+}
+.tb tr > td:nth-child(4) {
+  width: 100px;
+}
+.first {
+  width: 20px;
+}
+.second {
+  width: 70px;
+}
+.third {
+  width: 100px;
+}
+.don {
+  text-align: right;
+}
+.dong {
+  width: 50px;
+}
+.last {
+  height: 30px;
+}
+.lastt {
+  height: 25px;
+}
+img {
+  width: 150px;
+}

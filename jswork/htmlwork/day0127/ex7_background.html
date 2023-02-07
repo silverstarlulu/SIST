@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 400px;
+        height: 250px;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+        margin-left: 100px;
+        background-size: 50px 70px;
+      }
+      div.a {
+        background-image: url(../logoImg/a03.png);
+      }
+      div.b {
+        background-image: url(../logoImg/a02.png);
+        background-repeat: repeat-x;
+      }
+      div.c {
+        background-image: url(../logoImg/a01.png);
+        background-repeat: repeat-y;
+      }
+      div.d {
+        background-image: url(../logoImg/a.png);
+        background-size: 100px 100px;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+      }
+      body {
+        background-image: url(../logoImg/icon01.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+      .bg {
+        background-color: mediumspringgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a bg"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d bg"></div>
+  </body>
+</html>

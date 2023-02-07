@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #one {
+        margin-left: 30px;
+      }
+      .btns {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+      }
+      .btn {
+        margin-right: 50px;
+      }
+      img {
+        margin-left: 10px;
+        border: 1px solid black;
+        align-content: center;
+      }
+    </style>
+    <script>
+      function photoSmall() {
+        var p = document.getElementById("myimg");
+        var w = p.getAttribute("width");
+        console.log(typeof w);
+        w -= 10;
+        // - ,*는 형변환 안해도 가능
+        p.setAttribute("width", w);
+      }
+
+      function photoLarge() {
+        var p = document.getElementById("myimg");
+        var w = p.getAttribute("width");
+        w = parseInt(w);
+        console.log(typeof w); //string이므로 형변환 필요
+        w += 10;
+        p.setAttribute("width", w);
+      }
+    </script>
+  </head>
+
+  <body>
+    <h2>이미지 사이즈 이벤트</h2>
+
+    <div id="one">
+      <img src="../flower_ani/f14.png" width="200" id="myimg" />
+      <div class="btns">
+        <button class="btn" type="button" onclick="photoSmall()">
+          점점 작게
+        </button>
+        <button class="btn" type="button" onclick="photoLarge()">
+          점점 크게
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

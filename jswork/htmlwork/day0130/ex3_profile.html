@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../day0130/css/profile.css" />
+    <style>
+      .tb {
+        width: 70%;
+        border: 1px solid #222;
+        border-collapse: collapse;
+      }
+
+      .tb thead {
+        background: #eee;
+      }
+
+      .tb th,
+      .tb td {
+        border: 1px solid #ccc;
+        padding: 5px;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="profile">
+      <aside class="sidebar">
+        <!-- 사이드 바 -->
+        <div class="sidebar__contact">
+          <img class="sidebar__contact__img" src="../연예인사진/12.jpg" />
+          <h3 class="sidebar__contact__name">Boyoung Park</h3>
+          <p class="sidebar__contact__goal">꿈꾸는개발자</p>
+        </div>
+        <div class="sidebar__detail">
+          <p class="sidebar__detail__address">Seoul, Korea</p>
+          <p class="sidebar__detail__sns">min3456@gmail.com</p>
+        </div>
+        <div class="sidebar__sns">
+          <h2>sns</h2>
+          <ul>
+            <li>
+              <a href="#">facebook</a>
+            </li>
+            <li>
+              <a href="#">instagram</a>
+            </li>
+            <li>
+              <a href="#">twitter</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main">
+        <section class="main__contain">
+          <h2 class="main__subtitle">자기소개</h2>
+          <p class="main__subtitle__text">
+            <mark>프론트엔드 웹기술</mark>(Front-end and Web Tech.)과<br />
+            <mark>백엔드 웹기술</mark>(Back-end and Web Tech.)에 관심이 많은
+            초보개발자입니다.<br />
+            현재 프로젝트 개발연습중입니다.
+          </p>
+        </section>
+        <section class="main__contain">
+          <h2 class="main__subtitle">개발가능언어</h2>
+          <ul class="main__subtitle__text">
+            <li class="main__subtitle__text__lists">프론트엔드 웹개발</li>
+            <ul>
+              <li>JavaScript</li>
+              <li>JQuery</li>
+              <li>Html&Css</li>
+            </ul>
+            <li class="main__subtitle__text__lists">백엔드 웹개발</li>
+            <ul>
+              <li>Java</li>
+              <li>Jsp</li>
+              <li>Spring</li>
+            </ul>
+          </ul>
+        </section>
+        <section class="main__contain">
+          <h2 class="main__subtitle">학력소개</h2>
+          <table class="tb">
+            <caption>
+              <thead>
+                <tr>
+                  <th>출신학교</th>
+                  <th>전공</th>
+                  <th>기간</th>
+                  <th>구분</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>OO학교</td>
+                  <td>-</td>
+                  <td>2009~3.2~2014.2.12</td>
+                  <td>졸업예정</td>
+                </tr>
+                <tr>
+                  <td>OO고등학교</td>
+                  <td>-</td>
+                  <td>2009~3.2~2014.2.12</td>
+                  <td>졸업</td>
+                </tr>
+              </tbody>
+            </caption>
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #out {
+        position: absolute;
+        left: 50px;
+        top: 200px;
+        width: 400px;
+        height: 200px;
+        border: 1px solid gray;
+        background-color: #ffc;
+        padding: 20px;
+      }
+    </style>
+    <script>
+      function disp() {
+        //취미
+        var hobbyStr = "나의 취미는 ";
+        var flag = false; //찾으면 true로 변경
+
+        for (var i = 0; i < frm.hobby.length; i++) {
+          //선택이 되면 value 값 읽어서 hobbyStr에 추가
+          if (frm.hobby[i].checked) {
+            flag = true;
+            hobbyStr += frm.hobby[i].value + "&nbsp";
+          }
+        }
+
+        //취미를 선택하지 않았을 경우 초기값 그대로 false
+        if (!flag) hobbyStr += "없습니다.<br>";
+        else hobbyStr += "입니다.<br>";
+
+        out.innerHTML += "취미: " + hobbyStr;
+
+        //지역
+        var homeStr = "나의 거주지는 ";
+        for (var i = 0; i < frm.home.length; i++) {
+          if (frm.home[i].checked) homeStr += frm.home[i].value + "입니다.<br>";
+        }
+        out.innerHTML += "거주지: " + homeStr;
+
+        //연령대
+        out.innerHTML += "나이: " + frm.age.value;
+      }
+
+      function init() {
+        out.innerHTML = " ";
+      }
+    </script>
+  </head>
+  <body>
+    <form name="frm">
+      <table border="1" style="width: 500px">
+        <tr>
+          <th style="width: 150">취미</th>
+          <td>
+            <input type="checkbox" name="hobby" value="게임" />게임&nbsp
+            <input type="checkbox" name="hobby" value="낚시" />낚시&nbsp
+            <input
+              type="checkbox"
+              name="hobby"
+              value="넷플릭스감상"
+            />넷플릭스감상&nbsp
+            <input type="checkbox" name="hobby" value="독서" />독서&nbsp
+            <input type="checkbox" name="hobby" value="음악듣기" />음악듣기&nbsp
+          </td>
+        </tr>
+        <tr>
+          <th style="width: 150">거주지역</th>
+          <td>
+            <input type="radio" name="home" value="서울" />서울&nbsp
+            <input type="radio" name="home" value="경기" />경기&nbsp
+            <input type="radio" name="home" value="부산" />부산&nbsp
+            <input type="radio" name="home" value="제주" />제주&nbsp
+            <input type="radio" name="home" value="인천" />인천&nbsp
+          </td>
+        </tr>
+        <tr>
+          <th style="width: 150">연령</th>
+          <td>
+            <select name="age">
+              <option value="20대">20대</option>
+              <option value="30대">30대</option>
+              <option value="40대">40대</option>
+              <option value="50대">50대</option>
+              <option value="60대">60대</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="button" value="결과출력" onclick="disp()" />
+            <input type="reset" value="초기화" onclick="init()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div id="out"></div>
+  </body>
+</html>

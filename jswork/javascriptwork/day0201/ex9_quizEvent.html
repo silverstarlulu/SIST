@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      img {
+        border: 1px solid black;
+        width: 200px;
+        height: 300px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var img1 = document.getElementById("img1");
+        var img2 = document.getElementById("img2");
+        var img3 = document.getElementById("img3");
+
+        btn1.onclick = function () {
+          var a = confirm("만화이미지를 추가할까요?");
+          if (a == 1) img1.setAttribute("src", "../만화이미지/01.png");
+        };
+
+        btn2.onclick = function () {
+          var a = confirm("연예인 이미지를 추가할까요?");
+          if (a == 1) img2.setAttribute("src", "../연예인사진/1.jpg");
+        };
+
+        btn3.onclick = function () {
+          var a = confirm("음식이미지를 추가할까요?");
+          if (a == 1) img3.setAttribute("src", "../flower_ani/떡볶이.PNG");
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="만화이미지" id="btn1" class="btn btn-green" />
+    <input type="button" value="연예인" id="btn2" class="btn btn-black" />
+    <input type="button" value="음식사진" id="btn3" class="btn btn-pink" />
+    <hr />
+    <img id="img1" />
+    <img id="img2" />
+    <img id="img3" />
+  </body>
+</html>

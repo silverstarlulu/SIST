@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/lotto.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" id="btn1">로또 숫자 발생</button>
+
+    <div id="out"></div>
+
+    <script>
+      var out = document.getElementById("out");
+      var lottonumber = document.getElementsByClassName("lotto");
+      var lotto = new Array(6);
+
+      document.getElementById("btn1").onclick = function () {
+        //1~45사이의 난수 구해서 배열에 넣고 중복체크
+        for (var i = 0; i < lotto.length; i++) {
+          lotto[i] = parseInt(Math.random() * 45) + 1;
+
+          //중복체크
+          for (var j = 0; j < i; j++) {
+            if (lotto[i] == lotto[j]) {
+              i--;
+              break;
+            }
+          }
+        }
+
+        //오름차순
+        for (var i = 0; i < lotto.length - 1; i++) {
+          for (var j = i + 1; j < lotto.length; j++) {
+            if (lotto[i] > lotto[j]) {
+              var tmp = lotto[i];
+              lotto[i] = lotto[j];
+              lotto[j] = tmp;
+            }
+          }
+        }
+
+        //출력
+        var s = "";
+        for (var i = 0; i < lotto.length; i++) {
+          s += "<div class='lotto'>" + lotto[i] + "</div>";
+        }
+
+        out.innerHTML = s;
+      };
+    </script>
+  </body>
+</html>

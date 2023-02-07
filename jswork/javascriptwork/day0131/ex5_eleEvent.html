@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- id가 발생한 이후에 나타나므로 못 찾음
+         헤드단에 가능하게 하려면 window.onload 필요
+          window가 로드된 후 에 하겟다 -->
+    <script>
+      //스크립트 언어는 위에서 아래로 해석되므로 DOM에서 HTML 요소를 추출할 때 body보다
+      // 위에 있으면 해석순서에 오류가 생길 수 있다
+      // 이 경우 window.onload를 사용해 페이지가 준비된 상황 이후에 발동시킨다
+      window.onload = function () {
+        document.getElementById("name"); //name이라는 id를 가진 document에 접근
+        //html이 없는 출력은 document.write
+        //있는 출력은 innerhtml
+        document.getElementById("name").innerHTML = "박예은";
+      };
+    </script>
+  </head>
+  <body>
+    <p id="name">홍길동</p>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #result {
+        width: 500px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        font-size: 20pt;
+        border: 2px solid salmon;
+        margin: 20px 0px;
+        background: url(../만화이미지/07.png) no-repeat right bottom;
+        background-size: 50px 60px;
+      }
+
+      #imga {
+        border: 5px groove tomato;
+        margin: 30px 150px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var r = document.getElementById("result");
+        var photo = document.getElementById("imga");
+
+        document.getElementById("btn1").onclick = function () {
+          var name = prompt("당신의 이름은?");
+          if (name == null)
+            r.innerText = "<u>입력값이 없습니다.</u>"; // 태그까지 그대로 나옴
+          else r.innerHTML = "<u>당신의 이름은 " + name + "이군요!!!</u>";
+        };
+
+        document.getElementById("btn2").onclick = function () {
+          var width = photo.getAttribute("width");
+          console.log(width);
+
+          var new_width = prompt("이미지의 너비를 입력해주세요", width);
+
+          if (new_width == null) alert("이미지 변경을 하지 않을게요");
+          else photo.setAttribute("width", new_width);
+        };
+
+        document.getElementById("btn3").onclick = function () {
+          var new_src = prompt("1~20 사이의 사진번호를 입력해주세요");
+          if (new_src == null) {
+            alert("지금 사진이 좋습니다.");
+            return;
+          }
+          if (new_src < 1 || new_src > 20) {
+            alert("1 ~ 20사이의 사진만 가능합니다");
+            return;
+          }
+          photo.setAttribute("src", "../연예인사진/" + new_src + ".jpg");
+        };
+
+        document.getElementById("btn4").onclick = function () {
+          var width = photo.getAttribute("width");
+          width = parseInt(width);
+          width -= 10;
+          photo.setAttribute("width", width);
+        };
+
+        document.getElementById("btn5").onclick = function () {
+          var width = photo.getAttribute("width");
+          width = parseInt(width);
+          width += 10;
+          photo.setAttribute("width", width);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button type="button" class="btn btn-green" id="btn1">이벤트#1</button>
+    <button type="button" class="btn btn-green" id="btn2">이벤트#2</button>
+    <button type="button" class="btn btn-green" id="btn3">이벤트#3</button>
+    <button type="button" class="btn btn-green" id="btn4">이벤트#4</button>
+    <button type="button" class="btn btn-green" id="btn5">이벤트#5</button>
+    <div id="result">테스트</div>
+    <img src="../연예인사진/14.jpg" width="250" id="imga" />
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myimg {
+        position: absolute;
+      }
+    </style>
+    <script>
+      var xpos = 500;
+      var ypos = 300;
+
+      window.onload = function () {
+        var myimg = document.getElementById("myimg");
+        myimg.style.left = xpos + "px";
+        myimg.style.top = ypos + "px";
+
+        window.onkeydown = function (e) {
+          //좌: 37 상: 38 우: 39 하: 40 엔터: 13
+          //   if (e.keyCode == 38) {
+          //     ypos -= 10;
+          //   } else if (e.keyCode == 37) {
+          //     xpos -= 10;
+          //   } else if (e.keyCode == 39) {
+          //     xpos += 10;
+          //   } else if (e.keyCode == 40) {
+          //     ypos += 10;
+          //   } else if (e.keyCode == 13) {
+          //     xpos = 500;
+          //     ypos = 300;
+          //   }
+
+          switch (e.keyCode) {
+            case 38:
+              ypos -= 10;
+              break;
+            case 37:
+              xpos -= 10;
+              break;
+            case 39:
+              xpos += 10;
+              break;
+            case 40:
+              ypos += 10;
+              break;
+            case 13:
+              xpos = 500;
+              ypos = 300;
+          }
+
+          myimg.style.left = xpos + "px";
+          myimg.style.top = ypos + "px";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <img src="../만화이미지/01.png" id="myimg" />
+  </body>
+</html>

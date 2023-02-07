@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .tb1{
+        width: 400px;
+        border: 2px solid brown;
+        border-collapse: collapse;
+      }
+      .tb1 td{
+        border: 1px solid gray;
+        font-family: "Gaegu", cursive;
+        font-size: 24px;
+      }
+      .tb1 :first-child{
+        width: 200px;
+      }
+      .line{
+        border-bottom: 5px double brown;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <table class="tb1">
+      <caption>
+        <b>[개인정보]</b>
+      </caption>
+      <tr>
+        <td rowspan="3">
+          <img src="../연예인사진/1.jpg" width="150px" border="2px" />
+        </td>
+      <td>여진구</td>
+      <tr>
+        <td>010-1111-1111</td>
+      </tr>
+      <tr class="line">
+        <td>서울시 강남구</td>
+      </tr>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <img src="../연예인사진/2.jpg" width="150px" border="2px" />
+      </td>
+    <td>김우빈</td>
+    <tr>
+      <td>010-2222-2222</td>
+    </tr>
+    <tr class="line">
+      <td>서울시 구로구</td>
+    </tr>
+  </tr>
+  <tr>
+    <td rowspan="3">
+      <img src="../연예인사진/3.jpg" width="150px" border="2px" />
+    </td>
+  <td>김영광</td>
+  <tr>
+    <td>010-3333-3333</td>
+  </tr>
+  <tr class="line">
+    <td>시흥시 대야동</td>
+  </tr>
+</tr>
+    </table>
+  </body>
+</html>

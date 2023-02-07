@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      .hightlight_0 {
+        background-color: aqua;
+      }
+      .hightlight_1 {
+        background-color: indianred;
+      }
+      .hightlight_2 {
+        background-color: darkblue;
+      }
+      .hightlight_3 {
+        background-color: wheat;
+      }
+      .hightlight_4 {
+        background-color: hotpink;
+      }
+      .hightlight_5 {
+        background-color: khaki;
+      }
+      .hightlight_6 {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>hightlight 적용</h4>
+    <h4>hightlight 적용</h4>
+    <h4>hightlight 적용</h4>
+    <h4>hightlight 적용</h4>
+    <h4>hightlight 적용</h4>
+    <h4>hightlight 적용</h4>
+    <h4>hightlight 적용</h4>
+
+    <hr />
+
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+      <li>four</li>
+      <li>five</li>
+      <li>six</li>
+      <li>seven</li>
+    </ul>
+
+    <script>
+      $("h4").each(function (i) {
+        $(this).addClass("hightlight_" + i);
+      });
+
+      $("li").each(function (i) {
+        $(this).addClass("hightlight_" + i);
+      });
+    </script>
+  </body>
+</html>

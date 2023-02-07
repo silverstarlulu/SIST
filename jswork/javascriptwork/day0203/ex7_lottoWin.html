@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/lotto.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      hr {
+        clear: both;
+        width: 950px;
+        margin: 30px;
+      }
+      .btna {
+        width: 140px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      #view {
+        width: 800px;
+        height: 200px;
+        margin-top: 20px;
+        font-size: 1.3em;
+        text-align: center;
+        border: 1px solid gray;
+        margin-left: 80px;
+      }
+    </style>
+    <script>
+      var lotto = [12, 34, 5, 43, 11, 9]; //정답 로또숫자
+      var mylotto = new Array(6); // 내 로또숫자
+      window.onload = function () {
+        writeLotto();
+
+        //다른숫자발생 버튼 눌렀을때도 호출
+        document.getElementById("btnFresh").onclick = function () {
+          writeLotto();
+        };
+
+        //선택버튼 눌렀을 때 정답로또와 마이로또 비교해서 출력
+        document.getElementById("btnSelect").onclick = function () {
+          // printLotto();
+
+          var score = 0;
+
+          for (var i = 0; i < mylotto.length; i++) {
+            for (var j = 0; j < lotto.length; j++) {
+              if (mylotto[i] == lotto[j]) {
+                score++;
+              }
+            }
+          }
+
+          var s = "<b>이번주 로또 정답<br><br>";
+
+          for (var i = 0; i < lotto.length; i++) {
+            s += "[" + lotto[i] + "]&nbsp&nbsp";
+          }
+
+          s += "<br>맞은갯수: " + score + "개";
+          s += "<h3 style='color: red'>";
+          if (score == 6) s += "1등";
+          else if (score == 5) s += "2등";
+          else if (score == 4) s += "3등";
+          else s += "꽝";
+          s += "</h3>";
+
+          document.getElementById("view").innerHTML = s;
+        };
+      };
+
+      //사용자 함수는 밖에 따로 만들어야 함
+      function writeLotto() {
+        for (var i = 0; i < mylotto.length; i++) {
+          mylotto[i] = parseInt(Math.random() * 45) + 1;
+
+          //중복체크
+          for (var j = 0; j < i; j++) {
+            if (mylotto[i] == mylotto[j]) {
+              i--;
+              break;
+            }
+          }
+        }
+
+        //lotto div에 출력
+        var lottodiv = document.getElementsByClassName("lotto");
+
+        for (var i = 0; i < lottodiv.length; i++) {
+          lottodiv[i].innerHTML = mylotto[i];
+        }
+      }
+
+      // function printLotto() {
+      //   var view = document.getElementById("view");
+      //   var s = "이번주 로또 정답<br>";
+
+      //   for (var i = 0; i < lotto.length; i++) {
+      //     s += "[" + lotto[i] + "] ";
+      //   }
+
+      //   s += "<br>맞은개수 : ";
+      //   var cnt = 0;
+      //   for (var i = 0; i < lotto.length; i++) {
+      //     for (var j = 0; j < mylotto.length; j++) {
+      //       if (lotto[i] == mylotto[j]) cnt++;
+      //     }
+      //   }
+
+      //   s += cnt + "개<br>";
+
+      //   s += "결과 => ";
+
+      //   switch (cnt) {
+      //     case 6:
+      //       s += "1등";
+      //       break;
+      //     case 5:
+      //       s += "2등";
+      //       break;
+      //     case 4:
+      //       s += "3등";
+      //       break;
+      //     default:
+      //       s += "꽝";
+      //   }
+
+      //   view.innerHTML = s;
+      // }
+    </script>
+  </head>
+  <body>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+
+    <hr size="5" color="gray" />
+
+    <button type="button" class="btna" id="btnFresh" style="margin-left: 300px">
+      다른숫자발생
+    </button>
+    <button type="button" class="btna" id="btnSelect" style="margin-left: 20px">
+      선택
+    </button>
+
+    <br /><br />
+
+    <div id="view"></div>
+  </body>
+</html>

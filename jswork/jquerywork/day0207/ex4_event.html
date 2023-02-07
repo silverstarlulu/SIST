@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h4>마우스를 올리면 food4로 이미지가 변경되고 다시 내리면 원래대로</h4>
+    <img src="../Food/1.jpg" width="150" />
+    <img src="../Food/2.jpg" width="150" />
+    <img src="../Food/3.jpg" width="150" />
+    <script>
+      $("img").mouseover(function () {
+        s = $(this).attr("src");
+        $(this).attr("src", "../Food/4.jpg");
+      });
+
+      $("img").mouseout(function () {
+        $(this).attr("src", s);
+      });
+    </script>
+  </body>
+</html>

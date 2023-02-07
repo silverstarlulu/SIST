@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myimg1 {
+        width: 200px;
+        height: 200px;
+        border: 5px solid pink;
+      }
+      #myimg2 {
+        position: relative; /* 상대좌표 */
+        left: 100px;
+        top: 200px;
+        width: 200px;
+        border: 5px solid brown;
+      }
+      #myimg3 {
+        position: absolute;
+        left: 100px;
+        top: 150px;
+        width: 300px;
+        height: 300px;
+      }
+      #myimg4:hover {
+        background-image: url(../logoImg/toy05.png);
+        background-size: 150px 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      id="myimg1"
+      alt="이미지 없다구요"
+      title="난 이미지얌"
+      src="../logoImg/toy01.png"
+    />
+    <img
+      id="myimg2"
+      alt="이미지 없.다.구.요."
+      title="난 이미지얌~"
+      src="../logoImg/toy02.png"
+    />
+    <img
+      id="myimg3"
+      alt="이미지 없다구요!!"
+      title="난 이미지얌~!"
+      src="../logoImg/toy03.png"
+    />
+    <div id="myimg4"></div>
+  </body>
+</html>

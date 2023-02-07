@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      [문제1]<br />배열 변수의 초기값으로 색상 7개를 넣고 배열값을 해당 색상으로
+      출력, 출력은 b태그로 가로로 2칸 띄고 출력<br />
+    </h3>
+    <script>
+      var arr = ["red", "orange", "yellow", "green", "blue", "violet", "gray"];
+      for (var i = 0; i < arr.length; i++) {
+        document.write(
+          "<b style='color: " + arr[i] + "'>" + arr[i] + "&nbsp&nbsp</b>"
+        );
+      }
+      document.write(
+        "<br><br>=========================================<br><br>"
+      );
+    </script>
+    <h3>
+      [문제2]<br />Array(3)으로 생성 후 각 배열에 이미지를 넣고 반복해서 출력,
+      이미지는 가로 세로 100px, 원 모양으로 출력<br />
+      <script>
+        var arr = new Array(3);
+
+        for (var i = 0; i < arr.length; i++) {
+          for (var j = 1; j <= arr.length; j++) {
+            document.write(
+              "<img src='../연예인사진/" +
+                j +
+                ".jpg 'width='100px' height='100px' style='border-radius: 100%; border: 1px solid black'/>"
+            );
+          }
+          document.write("<br>");
+        }
+      </script>
+    </h3>
+  </body>
+</html>

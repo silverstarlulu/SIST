@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #time {
+        font-size: 2em;
+        margin-left: 100px;
+        font-weight: bold;
+      }
+
+      #myimg {
+        position: absolute;
+      }
+    </style>
+    <script>
+      var xpos = 200;
+      var ypos = 350;
+      var myimg;
+
+      window.onload = function () {
+        writeTime();
+
+        //1초마다 시간 다시 출력
+        setInterval(function () {
+          writeTime();
+        }, 1000);
+
+        //이미지 5초 뒤 딱 한번 위치변경하기
+        myimg = document.getElementById("myimg");
+        setTimeout(function () {
+          myimg.style.left = xpos + "px";
+          myimg.style.top = ypos + "px";
+        }, 5000);
+      };
+
+      //사용자함수
+      function writeTime() {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+
+        // if (m % 10 == m) m = "0" + m;
+        // if (s % 10 == s) s = "0" + s;
+
+        // var time = h + ":" + m + ":" + s;
+
+        var time =
+          h + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+
+        document.getElementById("time").innerHTML = time;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>setTimeout과 setInterval에 관한 공부</h2>
+    <div id="time"></div>
+    <img src="../만화이미지/10.png" id="myimg" />
+  </body>
+</html>

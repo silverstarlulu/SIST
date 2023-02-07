@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 100px;
+        height: 100px;
+        border: 3px dotted peru;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+
+        var myimg1 = document.getElementById("myimg1");
+        var myimg2 = document.getElementById("myimg2");
+
+        btn1.onclick = function () {
+          myimg1.setAttribute("src", "../만화이미지/01.png");
+          myimg1.style.width = "200px";
+          myimg1.style.height = "200px";
+          myimg2.setAttribute("src", "../만화이미지/02.png");
+        };
+
+        btn2.onclick = function () {
+          myimg1.setAttribute("src", "../만화이미지/03.png");
+          myimg2.setAttribute("src", "../만화이미지/04.png");
+        };
+
+        btn3.onclick = function () {
+          myimg1.setAttribute("src", "../flower_ani/f1.png");
+          myimg2.setAttribute("src", "../flower_ani/f2.png");
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h4>이미지 변경</h4>
+
+    <img id="myimg1" src="../flower_ani/f1.png" />
+    <img id="myimg2" src="../flower_ani/f2.png" />
+    <hr />
+
+    <input type="button" value="변경1" id="btn1" class="btn btn-pink" />
+    <input type="button" value="변경2" id="btn2" class="btn btn-green" />
+    <input type="button" value="원래대로" id="btn3" class="btn btn-black" />
+  </body>
+</html>

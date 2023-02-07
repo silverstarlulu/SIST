@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu&display=swap");
+
+body * {
+  font-family: "Gaegu", cursive;
+}
+
+.btn {
+  width: 150px;
+  height: 35px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.btn-green {
+  background-color: green;
+  color: white;
+}
+
+.btn-pink {
+  background-color: palevioletred;
+  color: brown;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+}

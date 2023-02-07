@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        var b1 = document.getElementById("btn1");
+        var b2 = document.getElementById("btn2");
+        var b3 = document.getElementById("btn3");
+        var b4 = document.getElementById("btn4");
+        var b5 = document.getElementById("btn5");
+
+        var im = document.getElementById("img1");
+
+        b1.onclick = function () {
+          im.setAttribute("src", "../연예인사진/20.jpg");
+        };
+        b2.onclick = function () {
+          im.setAttribute("src", "../연예인사진/19.jpg");
+        };
+        b3.onclick = function () {
+          im.setAttribute("src", "../연예인사진/17.jpg");
+        };
+
+        b4.onclick = function () {
+          var w = im.getAttribute("width");
+          w -= 10;
+          im.setAttribute("width", w);
+        };
+        b5.onclick = function () {
+          var w = parseInt(im.getAttribute("width"));
+          w += 10;
+          im.setAttribute("width", w);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button type="button" id="btn1">유아인</button>
+    <button type="button" id="btn2">수지</button>
+    <button type="button" id="btn3">신민아</button>
+    <br /><br />
+    <button type="button" id="btn4">점점 작게</button>
+    <button type="button" id="btn5">점점 크게</button>
+    <hr />
+    <img src="../연예인사진/13.jpg" width="300" id="img1" />
+  </body>
+</html>

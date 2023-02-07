@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border: 1px solid gray;
+        border-collapse: collapse;
+        width: 500px;
+      }
+
+      th {
+        width: 120px;
+        background-color: bisque;
+      }
+
+      th,
+      td {
+        border: 1px dotted gray;
+      }
+
+      #result {
+        background-color: #ffc;
+        width: 500px;
+        height: 300px;
+        font-size: 1.3em;
+        border: 1px solid gray;
+        margin-top: 20px;
+        padding: 10px;
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        document.getElementById("btnResult").onclick = function () {
+          var out = document.getElementById("result");
+
+          var s = "[개인정보]<br><br>";
+          s += "이름: " + document.getElementById("name").value + "<br>";
+          s += "비밀번호: " + document.getElementById("pass").value + "<br>";
+          s += "혈액형: " + frm.blood.value + "형<br>";
+          s += "생년월일: " + document.getElementById("birth").value + "<br>";
+
+          //   s += "가본 나라: ";
+
+          //   var flag = false;
+
+          //   for (var i = 0; i < frm.nara.length; i++) {
+          //     if (frm.nara[i].checked) {
+          //       flag = true;
+          //       s += frm.nara[i].value + "&nbsp";
+          //     }
+          //   }
+
+          //   if (!flag) s += "없습니다.";
+
+          var n = "";
+          for (var i = 0; i < frm.nara.length; i++) {
+            if (frm.nara[i].checked) n += frm.nara[i].value + "&nbsp";
+          }
+          s += "가본 나라: " + (n.length == 0 ? "없습니다." : n) + "<br>";
+
+          out.innerHTML = s;
+        };
+      };
+
+      function init() {
+        var out = document.getElementById("result");
+        out.innerHTML = "&lt결과출력&gt";
+      }
+    </script>
+  </head>
+  <body>
+    <form id="frm">
+      <table>
+        <caption>
+          <b>폼 태그 출력 복습</b>
+        </caption>
+        <tr>
+          <th>이름</th>
+          <td>
+            <input
+              type="text"
+              id="name"
+              size="15"
+              placeholder="이름을 입력하시오"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th>비밀번호</th>
+          <td>
+            <input
+              type="password"
+              id="pass"
+              size="20"
+              placeholder="비밀번호를 입력하시오"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th>혈액형</th>
+          <td>
+            <input type="radio" value="A" name="blood" />A형&nbsp
+            <input type="radio" value="B" name="blood" />B형&nbsp
+            <input type="radio" value="O" name="blood" />O형&nbsp
+            <input type="radio" value="AB" name="blood" />AB형&nbsp
+          </td>
+        </tr>
+
+        <tr>
+          <th>생년월일</th>
+          <td>
+            <input type="date" value="2022-12-25" id="birth" />
+          </td>
+        </tr>
+
+        <tr>
+          <th>가본 나라</th>
+          <td>
+            <input type="checkbox" name="nara" value="이탈리아" />이탈리아&nbsp
+            <input type="checkbox" name="nara" value="영국" />영국&nbsp
+            <input type="checkbox" name="nara" value="호주" />호주&nbsp
+            <input type="checkbox" name="nara" value="체코" />체코&nbsp
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center">
+            <button type="button" id="btnResult">결과출력</button>
+            <button type="reset" onclick="init()">초기화</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div id="result">&lt결과출력&gt</div>
+  </body>
+</html>

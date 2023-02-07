@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      Q. 사진을 클릭 시 src, width 를 얻어서 hr 태그 다음에 같은 이름의 사진
+      넣기 사진의 title 얻어서 div 안에 넣고 글자 크기 25px
+    </h2>
+    <img src="../연예인사진/16.jpg" width="200" title="누구세요" />
+    <hr />
+    <div></div>
+    <script>
+      $("img").click(function () {
+        s = $(this).attr("src");
+        w = $(this).attr("width");
+        t = $(this).attr("title");
+
+        $("hr").after("<img src=" + s + " width=" + w + ">");
+        $("div").html(t).css("font-size", "25px");
+      });
+    </script>
+  </body>
+</html>

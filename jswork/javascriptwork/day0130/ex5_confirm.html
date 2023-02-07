@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var a = confirm("정말 삭제할거니?ㅠ?");
+      if (a == 1) document.write("삭제합니다.<br>"); //확인
+      else document.write("잘 생각했어!ㅎㅎ"); //취소
+    </script>
+
+    <script>
+      var b = eval("11+1.5"); //문자열 내에서 연산이 가능하도록
+      document.write(b + "<br>");
+      document.write(typeof b + "<br>");
+      document.write(parseFloat(b) + parseInt(b) + "<br>");
+
+      var c = eval("1+2");
+      document.write(c + "<br>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+      $(function () {
+        //모든 img 태그에 마우스를 올리면 src가 변경
+        // $("img").mouseover(function () {
+        //   s = $(this).attr("src");
+        //   $(this).attr("src", "../flower_ani/f1.png");
+        // });
+
+        // $("img").mouseout(function () {
+        //   $(this).attr("src", s);
+        // });
+
+        //h3에 마우스를 올리면 gray, 내리면 white
+        $("h3").hover(
+          function () {
+            $(this).css("background-color", "gray");
+          },
+          function () {
+            $(this).css("background-color", "white");
+          }
+        );
+
+        //0번 이미지 클릭하면 2번 이미지에 같은 이미지
+        $("img:eq(0)").click(function () {
+          var curname = $(this).attr("src");
+          var width = $(this).attr("width");
+
+          $("img:eq(2)").attr({
+            src: curname,
+            width: width,
+          });
+
+          //속성 중 irum을 얻어서 2번 img 다음에 b태그로 추가
+          var irum = $(this).attr("irum");
+          $("img:eq(2)").after("<b>" + irum + "</b><br>");
+        });
+
+        //오픈클릭(첫번째 h3)을 클릭 시 width, height 값 얻어서 window 열기, 파일 아무거나
+        $("h3:first").click(function () {
+          var w = $(this).attr("width");
+          var h = $(this).attr("height");
+
+          window.open(
+            "../day0207/ex1_event.html",
+            "n",
+            "width=" + w + "px, height=" + h + "px, left=400px, top=100px"
+          );
+        });
+
+        //figure 아래 이미지 클릭 시 카피
+        $("figure>img").click(function () {
+          var selImg = $(this).attr("src");
+
+          //전체이미지 중 2번 이미지 이후
+          $("img:gt(2)").attr("src", selImg);
+
+          //클릭한 이미지의 다음 태그 안의 text 얻어서 2번째 h3에 넣기
+          var imgName = $(this).next().text();
+          $("h3:eq(1)").text(imgName);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <img src="../연예인사진/11.jpg" width="100" irum="연예인" />
+    <h3 width="500" height="400">오픈클릭</h3>
+    <figure>
+      <img src="../jquery_img/01.png" />
+      <figcaption>야야야!</figcaption>
+    </figure>
+    <figure>
+      <img src="../jquery_img/02.png" />
+      <figcaption>하하하!</figcaption>
+    </figure>
+
+    <h3>첫번째 이미지를 클릭하면 아래의 이미지에 카피하기</h3>
+    <img src="" alt="사진없슈" />
+    <img src="" alt="사진없슈2" />
+    <img src="" alt="사진없슈3" />
+    <img src="" alt="사진없슈4" />
+  </body>
+</html>

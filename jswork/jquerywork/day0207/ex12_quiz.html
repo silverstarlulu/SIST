@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 class="alert alert-danger">
+      10개 이상의 이미지 태그에 each문으로 작은 사진을 넣고, 마우스 올릴 시 큰
+      이미지로
+    </h3>
+    <h3 class="alert alert-success">
+      1. small, large에 알아서 스타일(스크립트로)<br />
+      2. 스타일시트에 클래스 하나 넣고 작은 이미지에 마우스 오버와 아웃
+      효과주기<br />
+      3. small 이미지는 쇼핑몰이나 연예인 사진 each문 이용하여 넣을 것
+    </h3>
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+
+    <br /><br />
+
+    <img src="" class="large" />
+
+    <script>
+      $(".small").each(function (i) {
+        $(this).attr("src", "../쇼핑몰사진/" + (i + 1) + ".jpg");
+      });
+
+      $(".small").css({
+        width: "50px",
+        border: "2px dotted salmon",
+      });
+
+      $(".small").hover(
+        function () {
+          s = $(this).attr("src");
+          $(this).css("border", "5px solid red");
+          $(".large").attr("src", s).addClass("img-thumbnail img-circle").css({
+            margin: "10px 120px",
+          });
+        },
+        function () {
+          $(this).css("border", "2px dotted salmon");
+          $(".large").attr("src", "").removeClass("img-thumbnail img-circle");
+        }
+      );
+    </script>
+  </body>
+</html>

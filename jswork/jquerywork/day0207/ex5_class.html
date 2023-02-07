@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      .select {
+        border: 10px groove gray;
+        border-radius: 30px 50px 20px 80px;
+        box-shadow: 5px 5px 5px gray;
+        cursor: pointer;
+        margin: 50px;
+      }
+    </style>
+
+    <script>
+      $(function () {
+        //window.onload 대신
+        $("img:eq(0)").hover(
+          function () {
+            //mouseover + mouseout
+            $(this).addClass("select");
+          },
+          function () {
+            $(this).removeClass("select");
+          }
+        );
+
+        $("img:eq(1)").hover(function () {
+          $(this).toggleClass("select");
+        });
+
+        //세번째 이미지에 bs3의 클래스 적용
+        $("img:eq(2)").hover(function () {
+          $(this).toggleClass("img-thumbnail img-circle");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3 class="alert alert-info">마우스를 올리면 클래스 추가, 벗어나면 제거</h3>
+    <img src="../쇼핑몰사진/1.jpg" />
+    <br /><br />
+    <img src="../쇼핑몰사진/10.jpg" />
+    <br /><br />
+    <img src="../쇼핑몰사진/14.jpg" />
+  </body>
+</html>

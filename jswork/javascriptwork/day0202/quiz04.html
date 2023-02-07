@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .dragon {
+      margin-top: 10px;
+      width: 400px;
+      height: 50px;
+      background-color: black;
+      color: wheat;
+      font-size: 30px;
+      border: 1px solid yellow;
+      text-align: center;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var btn = document.getElementById("btn");
+      var result = document.getElementById("result");
+      btn.onclick = function () {
+        var name = prompt("당신의 이름은?");
+        result.innerHTML = "내 이름은 " + name + "입니다.";
+      };
+    };
+  </script>
+  <body>
+    <button type="button" id="btn" class="btn btn-pink">이름입력</button>
+    <div id="result" class="dragon"></div>
+  </body>
+</html>

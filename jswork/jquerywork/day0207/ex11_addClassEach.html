@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      width: 500px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      font-size: 25px;
+      margin: 10px 0;
+    }
+
+    .hello_0 {
+      border: 8px groove orangered;
+      font-family: "Gaegu", cursive;
+      background-color: aquamarine;
+      color: blue;
+    }
+    .hello_1 {
+      border: 8px solid wheat;
+      font-family: "Gaegu", cursive;
+      background-color: rgb(74, 129, 110);
+      color: rgb(151, 187, 151);
+    }
+    .hello_2 {
+      border: 8px inset rgb(110, 79, 67);
+      font-family: "Gaegu", cursive;
+      background-color: rgb(35, 156, 35);
+      color: rgb(161, 161, 181);
+    }
+    .hello_3 {
+      border: 8px dotted rgb(96, 247, 2);
+      font-family: "Gaegu", cursive;
+      background-color: rgb(117, 47, 164);
+      color: rgb(234, 229, 191);
+    }
+    .hello_4 {
+      border: 8px dashed rgb(244, 107, 244);
+      font-family: "Gaegu", cursive;
+      background-color: rgb(168, 42, 80);
+      color: rgb(246, 140, 225);
+    }
+  </style>
+  <body>
+    <button type="button" class="btn btn-info" style="width: 150px">
+      스타일 적용
+    </button>
+    <button type="button" class="btn btn-danger" style="width: 150px">
+      스타일 제거
+    </button>
+
+    <div>안녕하세요</div>
+    <div>오늘은 addClass 배우는날~</div>
+    <div>유후</div>
+    <div>앤 아 아이</div>
+    <div>앤 몰댄 라잌</div>
+
+    <script>
+      $("button:first").click(function () {
+        $("div").each(function (i) {
+          $(this).addClass("hello_" + i);
+        });
+      });
+
+      $("button:last").click(function () {
+        $("div").removeClass();
+      });
+    </script>
+  </body>
+</html>

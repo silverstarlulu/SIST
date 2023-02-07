@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #photo {
+        width: 400px;
+        height: 480px;
+        border: 10px groove gold;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var photo = document.getElementById("photo");
+        var msg = document.querySelector(".msg");
+
+        var sarr = [
+          "재미있는 자바스크립트!",
+          "오늘은 봄날씨!!",
+          "내일은 즐거운 대면수업!!",
+        ];
+
+        var carr = ["red", "cyan", "gray", "blue", "pink", "black", "olive"];
+
+        document.getElementById("btnRandom").onclick = function () {
+          inter = setInterval(function () {
+            var rnd = parseInt(Math.random() * 20) + 1;
+            var src = "../연예인사진/" + rnd + ".jpg";
+            photo.setAttribute("src", src);
+          }, 100);
+
+          inter2 = setInterval(function () {
+            var rnd = parseInt(Math.random() * sarr.length);
+            var rnd2 = parseInt(Math.random() * carr.length);
+
+            msg.style.color = carr[rnd2];
+            msg.innerHTML = sarr[rnd];
+          }, 100);
+        };
+
+        document.getElementById("btnStop").onclick = function () {
+          clearInterval(inter);
+          clearInterval(inter2);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <img src="../연예인사진/12.jpg" id="photo" />
+    <div class="msg">111</div>
+    <button type="button" id="btnRandom">랜덤이미지변경</button>
+    <button type="button" id="btnStop">이미지변경정지</button>
+  </body>
+</html>

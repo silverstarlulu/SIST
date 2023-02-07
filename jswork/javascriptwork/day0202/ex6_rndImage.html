@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #photo {
+        position: absolute;
+        left: 80px;
+        top: 150px;
+        width: 400px;
+        height: 500px;
+        border: 20px groove silver;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var imgarr = new Array();
+        imgarr.push("../연예인사진/1.jpg");
+        imgarr.push("../연예인사진/2.jpg");
+        imgarr.push("../연예인사진/3.jpg");
+        imgarr.push("../연예인사진/4.jpg");
+        imgarr.push("../연예인사진/5.jpg");
+        imgarr.push("../연예인사진/6.jpg");
+        imgarr.push("../연예인사진/7.jpg");
+        imgarr.push("../연예인사진/8.jpg");
+        imgarr.push("../연예인사진/9.jpg");
+        imgarr.push("../연예인사진/10.jpg");
+
+        var btn = document.getElementById("btnRandom");
+        var photo = document.getElementById("photo");
+
+        photo.setAttribute("src", imgarr[parseInt(Math.random() * 10)]);
+
+        btn.onclick = function () {
+          photo.setAttribute("src", imgarr[parseInt(Math.random() * 10)]);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input
+      type="image"
+      src="../flower_ani/f11.png"
+      id="btnRandom"
+      width="100"
+    />
+    <marquee width="500">
+      <img src="../flower_ani/f1.png" width="50" />
+      <b>왼쪽의 포도를 누르면 하단의 이미지가 바뀝니다</b>
+      <img src="../flower_ani/f1.png" width="50" />
+    </marquee>
+    <img src="" id="photo" />
+  </body>
+</html>

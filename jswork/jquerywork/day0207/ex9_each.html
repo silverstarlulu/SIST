@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    .bg_0 {
+      background-color: orange;
+      color: aliceblue;
+    }
+    .bg_1 {
+      background-color: aliceblue;
+      color: orange;
+    }
+    .bg_2 {
+      background-color: khaki;
+      color: darkblue;
+    }
+    .bg_3 {
+      background-color: darkcyan;
+      color: blueviolet;
+    }
+    .bg_4 {
+      background-color: firebrick;
+      color: whitesmoke;
+    }
+  </style>
+  <body>
+    <!-- each문 : 태그를 반복할 때 사용 -->
+    <b></b><b></b><b></b><b></b><b></b><b></b>
+    <script>
+      //b 태그 개수만큼 자동반복
+      $("b").each(function (idx, ele) {
+        //(인덱스(0~), 어느 태그에 넣을 것인지)
+        //$(ele).text(idx);
+        $(this).text(idx);
+      });
+    </script>
+
+    <hr />
+
+    <ul>
+      <li>apple</li>
+      <li>banana</li>
+      <li>kiwi</li>
+      <li>orange</li>
+      <li>strawberry</li>
+    </ul>
+    <script>
+      // $("ul li").each(function (i) {
+      //   $(this).addClass("bg_" + i);
+      // });
+
+      $("ul li").each(function (index, element) {
+        $(element).addClass("bg_" + index);
+      });
+
+      //li에 마우스를 올리면 ****를 출력
+      //append after 추가 시 비교
+      $("ul li").mouseover(function () {
+        $(this).append("<b>****</b>");
+      });
+
+      // $("ul li").mouseover(function () {
+      //   $(this).after("<b>####</b>");
+      // });
+
+      $("ul li").mouseout(function () {
+        //find: 하위태그중에서 b태그 찾아서 제거 (형제태그는 못찾음, 자식태그만)
+        $(this).find("b").remove();
+        //$(this).next().remove();
+      });
+    </script>
+  </body>
+</html>

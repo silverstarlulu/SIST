@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- content : 속성값 스마트폰화면 너비에 맞추고, 초기화면비율을 1로 지정 -->
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 960px;
+      }
+
+      header {
+        width: 960px;
+        height: 120px;
+        background-color: powderblue;
+        border-bottom: 5px solid black;
+      }
+
+      .header-text {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        line-height: 120px;
+      }
+
+      .content {
+        float: left;
+        width: 600px;
+        height: 400px;
+        padding: 15px;
+        background-color: burlywood;
+      }
+
+      .right-side {
+        float: right;
+        width: 300px;
+        height: 400px;
+        padding: 15px;
+        background-color: brown;
+      }
+
+      footer {
+        clear: both;
+        height: 120px;
+        background-color: darkolivegreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <h1 class="header-text">고정 그리드 레이아웃</h1>
+      </header>
+      <section class="content">
+        <h4>본문</h4>
+      </section>
+      <aside class="right-side">
+        <h4>사이드바</h4>
+      </aside>
+      <footer>
+        <h4>꼬릿말</h4>
+      </footer>
+    </div>
+  </body>
+</html>

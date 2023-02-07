@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .buttons {
+        font-size: 10px;
+        margin-bottom: 20px;
+      }
+      .btn {
+        font-size: 20px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var p1 = document.getElementById("p1");
+        var p2 = document.getElementById("p2");
+        var p3 = document.getElementById("p3");
+        var small = document.getElementById("smaller");
+        var large = document.getElementById("larger");
+        var image = document.getElementById("image");
+        var w = parseInt(image.getAttribute("width"));
+
+        // p1.onclick = function () {
+        //   image.innerHTML = "<img src='../연예인사진/17.jpg'>";
+        // };
+
+        // p2.onclick = function () {
+        //   image.innerHTML = "<img src='../연예인사진/20.jpg'>";
+        // };
+
+        // p3.onclick = function () {
+        //   image.innerHTML = "<img src='../연예인사진/19.jpg'>";
+        // };
+
+        p1.onclick = function () {
+          image.setAttribute("src", "../연예인사진/17.jpg");
+        };
+
+        p2.onclick = function () {
+          image.setAttribute("src", "../연예인사진/20.jpg");
+        };
+
+        p3.onclick = function () {
+          image.setAttribute("src", "../연예인사진/19.jpg");
+        };
+
+        small.onclick = function () {
+          w -= 10;
+          image.setAttribute("width", w);
+        };
+
+        large.onclick = function () {
+          w += 10;
+          image.setAttribute("width", w);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="buttons">
+      <button type="button" id="p1" class="btn btn-green">신민아</button>
+      <button type="button" id="p2" class="btn btn-green">유아인</button>
+      <button type="button" id="p3" class="btn btn-green">수지</button>
+    </div>
+    <div class="buttons">
+      <button type="button" class="btn btn-black" id="smaller">
+        점점 작게
+      </button>
+      <button type="button" class="btn btn-black" id="larger">점점 크게</button>
+    </div>
+    <!-- <div id="image" style="width: 200px"> -->
+    <div>
+      <img id="image" src="" width="200px" />
+    </div>
+  </body>
+</html>

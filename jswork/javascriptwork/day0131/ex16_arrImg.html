@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 70px;
+        height: 80px;
+        border: 1px solid gray;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>배열_초기값으로 지정하는 방법</h3>
+    <script>
+      var arr1 = [
+        "../flower_ani/f1.png",
+        "../연예인사진/1.jpg",
+        "../만화이미지/01.png",
+        "../div_img/beauty1.jpg",
+      ];
+
+      var s = "배열개수 : " + arr1.length + "<br>";
+
+      for (var i = 0; i < arr1.length; i++) {
+        s += "<img src='" + arr1[i] + "'>";
+      }
+
+      document.write(s);
+    </script>
+
+    <h3>배열_new Array 지정하는 방법</h3>
+    <script>
+      var arr2 = new Array(4);
+
+      arr2[0] = "../flower_ani/f2.png";
+      arr2[1] = "../연예인사진/15.jpg";
+      arr2[2] = "../만화이미지/03.png";
+      arr2[3] = "../div_img/bottle03.jpg";
+
+      var s = "배열개수 : " + arr2.length + "개<br>";
+      for (var i = 0; i < arr2.length; i++) {
+        s += "<img src='" + arr2[i] + "'>";
+      }
+      document.write(s);
+    </script>
+
+    <h3>배열_new Array 지정하는 방법_#2</h3>
+    <script>
+      var arr3 = new Array();
+      arr3.push("../만화이미지/01.png");
+      arr3.push("../만화이미지/02.png");
+      arr3.push("../만화이미지/04.png");
+      arr3.push("../만화이미지/16.png");
+      arr3.push("../만화이미지/15.png");
+      arr3.push("../만화이미지/03.png");
+
+      var s = "배열 개수 : " + arr3.length + "개<br>";
+
+      for (var i = 0; i < arr3.length; i++) {
+        s += "<img src='" + arr3[i] + "'>";
+      }
+
+      document.write(s);
+    </script>
+
+    <h3>#3번에서 2개 pop() 후 출력</h3>
+    <script>
+      arr3.pop();
+      arr3.pop();
+
+      var s = "배열 개수 : " + arr3.length + "개<br>";
+
+      for (var i = 0; i < arr3.length; i++) {
+        s += "<img src='" + arr3[i] + "'>";
+      }
+      document.write(s);
+    </script>
+  </body>
+</html>

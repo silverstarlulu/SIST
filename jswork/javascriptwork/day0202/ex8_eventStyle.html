@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #out {
+        font-family: "Gaegu", cursive;
+        font-weight: bold;
+        border: 0px solid black;
+        margin-top: 50px;
+        padding: 20px;
+        width: 500px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var out = document.getElementById("out");
+        var fsize = document.getElementById("fsize");
+
+        fsize.innerHTML = "현재 글꼴 크기는 35px";
+
+        document.getElementById("btn1").onclick = function () {
+          var outsize = parseInt(out.style.fontSize); //35px이므로 형변환
+          //alert(outsize); //35
+          outsize -= 3;
+
+          if (outsize < 8) {
+            alert("더 이상 줄일 수 없습니다.");
+            outsize += 3;
+            return;
+          }
+
+          out.style.fontSize = outsize + "px";
+          fsize.innerHTML = "현재 글꼴 크기는 " + outsize + "px 입니다.";
+        };
+
+        document.getElementById("btn2").onclick = function () {
+          var outsize = parseInt(out.style.fontSize);
+          outsize += 3;
+          if (outsize > 60) {
+            alert("더 이상 늘릴 수 없습니다.");
+            outsize -= 3;
+            return;
+          }
+          out.style.fontSize = outsize + "px";
+          fsize.innerHTML = "현재 글꼴 크기는 " + outsize + "px 입니다.";
+        };
+
+        document.getElementById("mycolor").onchange = function () {
+          out.style.color = this.value;
+        };
+
+        document.getElementById("mybgcolor").onchange = function () {
+          out.style.backgroundColor = this.value;
+        };
+
+        document.getElementById("selWidth").onchange = function () {
+          out.style.borderWidth = this.value + "px";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button type="button" id="btn1">점점작게</button>
+    <button type="button" id="btn2">점점크게</button>
+    <hr />
+    <div id="fsize"></div>
+    <b>글자 색 선택</b>
+    <input type="color" value="#ff00ff" id="mycolor" />
+    <br />
+    <b>배경 색 선택</b>
+    <input type="color" value="#ccccff" id="mybgcolor" />
+    <br />
+    <b>테두리 선 굵기 선택</b>
+    <select id="selWidth" style="width: 120px">
+      <option value="0">없음</option>
+      <option>1</option>
+      <option>3</option>
+      <option>5</option>
+      <option>7</option>
+      <option>10</option>
+    </select>
+    <div id="out" style="font-size: 35px">?오늘은 즐거운 목요일인가?</div>
+  </body>
+</html>

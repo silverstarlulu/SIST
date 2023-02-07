@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <script>
+      $(function () {
+        $("#good").css("color", "red");
+        $("#good").css("background-color", "yellow");
+
+        $("#good")
+          .css("font-weight", "bold")
+          .css("box-shadow", "2px 2px 2px gray");
+
+        $("#good").css({
+          width: "200px",
+          border: "2px solid black",
+          "border-radius": "20px",
+        });
+
+        //두군데 모두 적용
+        $("div.hello>div").css({
+          "font-size": "3em",
+          color: "blue",
+          "font-weight": "bold",
+        });
+
+        //#good의 배경색을 얻어서 div.hello의 글자색으로 적용
+        // var bg = $("#good").css("background-color");
+        // $("div.hello").css("color", bg);
+        $("div.hello").css("color", $("#good").css("background-color"));
+
+        //div.bts 바로 아래 img의 width값을 50px로
+        $(".bts>img").css("width", "50px");
+
+        //body 태그 아래 모든 태그를 궁서체로
+        $("body").css("font-family", "궁서");
+
+        //div.bts 속성변경 위치이동
+        $(".bts").css({
+          position: "absolute",
+          left: "300px",
+          top: "200px",
+          width: "300px",
+          height: "150px",
+          border: "5px groove gold",
+        });
+
+        //모든 b태그 글자색 변경
+        $("b").css("color", "magenta");
+
+        //b태그 중 0번 2번 인덱스만 변경
+        $("b:eq(0)").css("background-color", "orange");
+
+        $("b").eq(2).css("background-color", "blue");
+
+        //전체 b태그 중 첫번째와 마지막
+        $("b:first").css("border", "10px solid brown");
+        $("b:last").css("border", "2px dotted", "purple");
+
+        //gt(3): 3번 이후, lt(3): 3번 이전
+        $("b:gt(1)").css("font-size", "30px");
+        $("b:lt(2)").css("background-color", "black");
+      });
+    </script>
+  </head>
+  <body>
+    <h2 id="good">h2 id good</h2>
+
+    <h3 class="good2">h3 class good2</h3>
+
+    <div class="hello">
+      div class hello
+      <div>div hello 아래 div</div>
+    </div>
+
+    <div class="bts">
+      <b>div bts 아래 b</b>
+      <span>div bts 아래 span</span>
+      <img src="../만화이미지/09.png" />
+    </div>
+
+    <div class="hello">
+      div hello2
+      <img src="../flower_ani/f1.png" />
+      <div>div hello 아래 div</div>
+    </div>
+
+    <b>단독 b #1</b>
+    <b>단독 b #2</b>
+    <b>단독 b #3</b>
+  </body>
+</html>

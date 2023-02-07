@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tb {
+        width: 500px;
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        font-family: "Gaegu", cursive;
+        font-size: 25px;
+      }
+      .tb td,
+      th {
+        border: 1px solid black;
+      }
+      .line {
+        border-bottom: 3px solid;
+      }
+      img {
+        border: 1px solid black;
+        margin-top: 10px;
+        border-radius: 100%;
+      }
+      img:hover {
+        border: 2px dotted;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="tb">
+      <caption>
+        <h2>[예운이의 정보]</h2>
+        <thead>
+          <tr class="line">
+            <th>이름</th>
+            <th>사진</th>
+            <th>개인정보</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td rowspan="3">예운</td>
+            <td rowspan="3">
+              <img
+                alt="없지롱"
+                title="헷"
+                src="../logoImg/profile-picture.png"
+                width="150px"
+              />
+            </td>
+            <td>25살</td>
+          </tr>
+          <tr>
+            <td>010-1111-1111</td>
+          </tr>
+          <tr>
+            <td>경기도 부천시</td>
+          </tr>
+        </tbody>
+      </caption>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #img1 {
+        width: 200px;
+        position: absolute;
+        left: 600px;
+        top: 50px;
+        border: 10px solid orange;
+        border-radius: 20px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var img1 = document.getElementById("img1");
+
+        document.getElementById("selImage").onchange = function () {
+          img1.setAttribute("src", this.value);
+        };
+
+        var line = document.getElementsByName("line");
+
+        for (var i = 0; i < line.length; i++) {
+          line[i].onchange = function () {
+            img1.style.borderStyle = this.value;
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h2>이미지를 선택하세요</h2>
+    <select style="width: 100px" id="selImage">
+      <option value="../logoImg/acc01.png">상품1</option>
+      <option value="../logoImg/a01.png">상품2</option>
+      <option value="../logoImg/a03.png">상품3</option>
+      <option value="../logoImg/a06.png">상품4</option>
+      <option value="../logoImg/bag01.png">상품5</option>
+      <option value="../logoImg/toy06.png" selected>상품6</option>
+    </select>
+    <br /><br />
+    <h2>선 종류를 선택하세요</h2>
+    <input type="radio" value="solid" name="line" />Solid &nbsp;
+    <input type="radio" value="dotted" name="line" />Dotted &nbsp;
+    <input type="radio" value="dashed" name="line" />Dashed &nbsp;
+    <input type="radio" value="inset" name="line" />Inset &nbsp;
+    <input type="radio" value="double" name="line" />Double &nbsp;
+    <input type="radio" value="groove" name="line" />Groove &nbsp;
+    <img src="../logoImg/profile-picture.png" id="img1" />
+  </body>
+</html>

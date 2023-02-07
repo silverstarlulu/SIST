@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //대입 연산자
+      var a = 10;
+      document.write(a + "<br>");
+      a += 5;
+      document.write(a + "<br>");
+
+      //증감연산자
+      var a = 20;
+      a++;
+      document.write(a + "<br>");
+      a++;
+      document.write(a + "<br>");
+
+      //암시적변환테스트
+      var result = 1 + "2";
+      document.write("result=" + result + "<br>");
+
+      //명시적변환: 형변환 방법을 택해서
+      var test1 = "300";
+      //   document.write(parseInt(test1) + 10 + "<br>");
+      document.write(Number(test1) + 20 + "<br>");
+
+      var test2 = "300.1";
+      document.write(parseInt(test2) + 10 + "<br>");
+      document.write(parseFloat(test2) + 10 + "<br>");
+    </script>
+  </body>
+</html>
