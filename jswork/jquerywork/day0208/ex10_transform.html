@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- angle은 각의 크기를 입력 단위는 deg, grad, turn, rad -->
+    <img src="../jquery_img/01.png" />
+    <img src="../jquery_img/02.png" />
+    <img src="../jquery_img/03.png" />
+    <img src="../jquery_img/04.png" />
+
+    <script>
+      $("img:eq(0)").hover(
+        function () {
+          //45도 회전
+          $(this).css("transform", "rotate(180deg)");
+        },
+        function () {
+          $(this).css("transform", "rotate(0deg)");
+        }
+      );
+
+      $("img:eq(1)").hover(
+        function () {
+          $(this).css("transform", "rotate(-45deg)");
+        },
+        function () {
+          $(this).css("transform", "rotate(0deg)");
+        }
+      );
+
+      $("img:eq(2)").hover(
+        function () {
+          $(this).css("transform", "scale(2,2)");
+        },
+        function () {
+          $(this).css("transform", "scale(1,1)");
+        }
+      );
+
+      $("img:eq(3)").hover(
+        function () {
+          $(this).css("transform", "translateX(100px)");
+        },
+        function () {
+          $(this).css("transform", "translateX(0px)");
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <table class="table table-bordered" style="width: 400px">
+      <tr>
+        <th width="100">이름</th>
+        <td>
+          <input
+            type="text"
+            id="name"
+            style="width: 100px"
+            placeholder="이름입력"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th width="100">JAVA</th>
+        <td>
+          <input
+            type="text"
+            id="java"
+            style="width: 100px"
+            placeholder="점수입력"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th width="100">HTML</th>
+        <td>
+          <input
+            type="text"
+            id="html"
+            style="width: 100px"
+            placeholder="점수입력"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th width="100">jQuery</th>
+        <td>
+          <input
+            type="text"
+            id="jquery"
+            style="width: 100px"
+            placeholder="점수입력"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <button type="button" class="btn btn-info" id="btnResult">
+            결과출력
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><div id="result"></div></td>
+      </tr>
+    </table>
+    <script>
+      //버튼이벤트
+      $("#btnResult").click(function () {
+        var name = $("#name").val();
+        var java = $("#java").val();
+        var html = $("#html").val();
+        var jquery = $("#jquery").val();
+
+        if (name.length == 0) {
+          alert("이름을 입력하시오");
+          $("#name").focus();
+          return;
+        }
+
+        if (isNaN(java) || java.length == 0) {
+          alert("점수는 숫자만 입력가능합니다");
+          $("#java").focus();
+          return;
+        }
+
+        if (isNaN(html) || html.length == 0) {
+          alert("점수는 숫자만 입력가능합니다");
+          $("#html").focus();
+          return;
+        }
+
+        if (isNaN(jquery) || jquery.length == 0) {
+          alert("점수는 숫자만 입력가능합니다");
+          $("#jquery").focus();
+          return;
+        }
+
+        //총점
+        var sum = parseInt(java) + parseInt(html) + parseInt(jquery);
+
+        //평균
+        var avg = sum / 3.0;
+
+        //출력
+        var s = "이름: " + name + "<br>";
+        s += "JAVA 점수: " + java + "점<br>";
+        s += "HTML 점수: " + html + "점<br>";
+        s += "jQuery 점수: " + jquery + "점<br>";
+        s += "총점: " + sum + "점<br>";
+        s += "평균: " + avg + "점<br>";
+
+        $("#result").html(s).css({
+          "font-size": "15pt",
+          "font-family": "Gaegu",
+        });
+      });
+    </script>
+  </body>
+</html>

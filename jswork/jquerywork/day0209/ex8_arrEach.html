@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      div.box {
+        border: 3px solid orange;
+        margin-top: 20px;
+        width: 300px;
+        height: 150px;
+        font-size: 1.5em;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>배열 반복 시 사용하는 $.each문</h3>
+    <script>
+      var data1 = ["red", "blue", "cyan", "violet", "magenta"];
+
+      $.each(data1, function (idx, ele) {
+        //idx: 인덱스, ele:인덱스에 해당하는 element
+        var s = "<h2 style='color:" + ele + "; width:200px'>" + ele + "</h2>";
+        document.write(s);
+      });
+    </script>
+    <hr />
+    <div id="show"></div>
+    <script>
+      //2차원배열
+      var info = [
+        { name: "예은", hp: "010-1111-1111", addr: "부천시" },
+        { name: "지민", hp: "010-2222-2222", addr: "제주시" },
+        { name: "예지", hp: "010-3333-3333", addr: "천안시" },
+      ];
+
+      var s = "";
+
+      $.each(info, function (i, ele) {
+        s += "<div class='box'>";
+        s += "이름: " + ele.name + "<br>";
+        s += "핸드폰: " + ele.hp + "<br>";
+        s += "주소: " + ele.addr + "<br>";
+        s += "</div><br>";
+      });
+
+      $("#show").html(s);
+    </script>
+  </body>
+</html>

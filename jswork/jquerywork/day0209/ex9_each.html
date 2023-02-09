@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      img {
+        border: 5px inset olivedrab;
+        border-radius: 30px;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .im {
+        margin-top: 10px;
+        margin-left: 50px;
+      }
+
+      .large {
+        width: 400px;
+        height: 500px;
+        position: absolute;
+        left: 90px;
+        top: 140px;
+        border: 10px groove greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="show"></div>
+    <img src="" class="large" id="large" />
+
+    <script>
+      var imginfo = [
+        { name: "../flower_ani/f1.png", width: "50px" },
+        { name: "../flower_ani/f2.png", width: "70px" },
+        { name: "../flower_ani/f3.png", width: "80px" },
+        { name: "../flower_ani/f4.png", width: "90px" },
+        { name: "../flower_ani/f5.png", width: "100px" },
+      ];
+
+      var s = "";
+      $.each(imginfo, function (i, ele) {
+        s += "<img class='im' src='" + ele.name + "'width='" + ele.width + "'>";
+        $("#show").html(s);
+      });
+
+      $("#show img").hover(
+        function () {
+          $(this).css("transform", "rotate(45deg)");
+        },
+        function () {
+          $(this).css("transform", "rotate(0deg)");
+        }
+      );
+
+      $("#show img").click(function () {
+        var cur = $(this).attr("src");
+        $(".large").attr("src", cur);
+      });
+    </script>
+  </body>
+</html>

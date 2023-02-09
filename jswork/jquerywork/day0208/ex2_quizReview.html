@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <script>
+      $(function () {
+        $("img").attr("src", "../만화이미지/01.png").css({
+          width: "150px",
+          height: "150px",
+          border: "1px solid black",
+          "border-radius": "100%",
+        });
+
+        //5개의 또 다른 이미지 배열에 넣음
+        var imge = new Array();
+        imge.push("../flower_ani/f1.png");
+        imge.push("../flower_ani/f2.png");
+        imge.push("../flower_ani/f3.png");
+        imge.push("../flower_ani/f4.png");
+        imge.push("../flower_ani/f5.png");
+
+        //마우스를 올리면 5개의 이미지 중 한 개를 random
+        $("img").mouseover(function () {
+          //현재 이미지 얻어놓기
+          curimg = $(this).attr("src");
+
+          var selImg = parseInt(Math.random() * imge.length);
+          $(this).attr("src", imge[selImg]);
+        });
+
+        //마우스 벗어나면 다시 원래의 이미지로 돌아가기
+        $("img").mouseout(function () {
+          $(this).attr("src", curimg);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <img src="" />
+    <img src="" />
+    <img src="" />
+    <img src="" />
+    <img src="" />
+  </body>
+</html>

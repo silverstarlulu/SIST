@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>RGB색상 입력하기</h3>
+    R: <input type="text" id="txtr" value="255" />&nbsp;&nbsp;&nbsp; G:
+    <input type="text" id="txtg" value="0" />&nbsp;&nbsp;&nbsp; B:
+    <input type="text" id="txtb" value="255" />&nbsp;&nbsp;&nbsp;
+    <div></div>
+
+    <script>
+      $("input[type='text']").css({
+        border: "2px solid gray",
+        width: "100px",
+        height: "20px",
+        "font-size": "12pt",
+      });
+
+      var r = 255,
+        g = 0,
+        b = 255;
+
+      var color = "rgb(" + r + "," + g + "," + b + ")";
+      $("div").css({
+        "background-color": color,
+        width: "350px",
+        height: "200px",
+        border: "5px solid gray",
+        margin: "30px 20px",
+      });
+
+      //키 띄는 순간 R값
+      $("#txtr").keyup(function () {
+        if (isNaN($(this).val())) return;
+
+        r = $(this).val();
+        color = "rgb(" + r + "," + g + "," + b + ")";
+        $("div").css("background-color", color);
+      });
+
+      //키 띄는 순간 G값
+      $("#txtg").keyup(function () {
+        if (isNaN($(this).val())) return;
+
+        g = $(this).val();
+        color = "rgb(" + r + "," + g + "," + b + ")";
+        $("div").css("background-color", color);
+      });
+
+      //키 띄는 순간 B값
+      $("#txtb").keyup(function () {
+        if (isNaN($(this).val())) {
+          return;
+        }
+
+        b = $(this).val();
+        color = "rgb(" + r + "," + g + "," + b + ")";
+        $("div").css("background-color", color);
+      });
+    </script>
+  </body>
+</html>

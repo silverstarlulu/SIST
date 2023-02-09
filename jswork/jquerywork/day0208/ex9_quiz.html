@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      .tb {
+        margin: 10px;
+        width: 350px;
+        height: 200px;
+      }
+      th {
+        width: 80px;
+      }
+      #rbtn {
+        margin-top: 20px;
+        margin-left: 130px;
+      }
+      .result {
+        margin: 30px;
+        width: 300px;
+        height: 150px;
+        border: 1px dotted black;
+        background-color: whitesmoke;
+      }
+
+      .hp1,
+      .hp2 {
+        width: 60px;
+        height: 19px;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="tb table table-striped">
+      <tr>
+        <th>이름</th>
+        <td><input type="text" name="name" /></td>
+      </tr>
+      <tr>
+        <th>핸드폰</th>
+        <td>
+          <select id="hp">
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="013">013</option>
+          </select>
+          -
+          <input class="hp1" type="text" /> -
+          <input class="hp2" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <th>글자색</th>
+        <td>
+          <input type="radio" name="color" value="red" />빨강
+          <input type="radio" name="color" value="yellow" />노랑
+          <input type="radio" name="color" value="blue" />파랑
+          <input type="radio" name="color" value="green" />초록
+        </td>
+      </tr>
+      <tr>
+        <th>성별</th>
+        <td>
+          <input type="radio" name="gender" value="남자" />남자
+          <input type="radio" name="gender" value="여자" />여자
+        </td>
+      </tr>
+      <tr>
+        <th>자격증</th>
+        <td>
+          <input type="checkbox" name="lic" value="정처기" />정처기
+          <input type="checkbox" name="lic" value="SQLD" />SQLD
+          <input type="checkbox" name="lic" value="정보기" />정보기
+          <input type="checkbox" name="lic" value="운전면허" />운전면허
+        </td>
+      </tr>
+    </table>
+    <button id="rbtn" class="btn btn-info" type="button">결과출력</button>
+    <div class="result"></div>
+
+    <script>
+      $("#rbtn").click(function () {
+        var name = "이름: ";
+        name += $("input[name='name']").val();
+
+        var hp = "핸드폰 번호: ";
+        hp += $("#hp option:selected").val() + "-";
+        hp += $(".hp1").val() + "-";
+        hp += $(".hp2").val();
+
+        var gendata = "성별 : ";
+        gendata += $("input[name='gender']:checked").val();
+
+        var licdata = "자격증: ";
+        $("input[name='lic']:checked").each(function (i) {
+          licdata += $(this).val() + "&nbsp";
+        });
+
+        var color = $("input[name='color']:checked").val();
+
+        $(".result")
+          .html(name + "<br>" + hp + "<br>" + gendata + "<br>" + licdata)
+          .css({
+            color: color,
+            "font-family": "Gaegu",
+            "font-weight": "600",
+            "font-size": "20px",
+            "text-align": "center",
+          });
+      });
+    </script>
+  </body>
+</html>

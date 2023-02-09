@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    #logo {
+      width: 250px;
+      height: 150px;
+      margin: 0 auto;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+    #coco {
+      width: 1000px;
+      height: 200px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    #coco li {
+      list-style: none;
+      float: left;
+    }
+  </style>
+  <body>
+    <div id="logo">
+      <img src="../jquery_img/coco_logo.png" />
+    </div>
+    <ul id="coco">
+      <li>
+        <img src="../jquery_img/image_01.png" />
+        <img src="../jquery_img/image_02.png" />
+        <img src="../jquery_img/image_03.png" />
+        <img src="../jquery_img/image_04.png" />
+        <img src="../jquery_img/image_05.png" />
+        <img src="../jquery_img/image_06.png" />
+      </li>
+    </ul>
+
+    <script>
+      $("li img").click(function () {
+        $(this).fadeOut();
+      });
+      $("#logo").click(function () {
+        $("li img").fadeIn().css("border", "3px dotted orange");
+      });
+    </script>
+  </body>
+</html>

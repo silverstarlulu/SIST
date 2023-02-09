@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <style>
+      .hello {
+        border-radius: 30px;
+        box-shadow: 10px 10px 10px gray;
+      }
+    </style>
+    <script>
+      $(function () {
+        $("img.small").css({
+          width: "80",
+          height: "80",
+          border: "5px solid gray",
+        });
+
+        $("img.large").css({
+          width: "300",
+          height: "350",
+          border: "10px solid gray",
+        });
+
+        $("img.small").each(function (i) {
+          $(this).attr("src", "../연예인사진/" + (i + 1) + ".jpg");
+        });
+
+        $("img.small").mouseover(function () {
+          var curimg = $(this).attr("src");
+          $("img.large").attr("src", curimg).addClass("hello");
+          $(this).addClass("hello");
+        });
+
+        $("img.small").mouseout(function () {
+          $("img.large").removeClass("hello");
+          $(this).removeClass("hello");
+        });
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 class="alert alert-danger">
+      10개 이상의 이미지 태그에 each문으로 작은 사진을 넣고, 마우스 올릴 시 큰
+      이미지로
+    </h3>
+    <h3 class="alert alert-success">
+      1. small, large에 알아서 스타일(스크립트로)<br />
+      2. 스타일시트에 클래스 하나 넣고 작은 이미지에 마우스 오버와 아웃
+      효과주기<br />
+      3. small 이미지는 쇼핑몰이나 연예인 사진 each문 이용하여 넣을 것
+    </h3>
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+    <img src="" class="small" />
+
+    <br /><br />
+
+    <img src="" class="large" />
+  </body>
+</html>

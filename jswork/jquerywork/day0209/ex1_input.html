@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      div.right {
+        position: absolute;
+        left: 300px;
+        border: 10px solid gray;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="right">
+      <img src="../연예인사진/1.jpg" style="max-width: 200px" />
+    </div>
+    <div class="left">
+      <b>이미지선택</b>
+      <select id="selImg">
+        <option value="../jquery_img/01.png">이미지1</option>
+        <option value="../jquery_img/02.png">이미지2</option>
+        <option value="../jquery_img/03.png">이미지3</option>
+        <option value="../jquery_img/04.png">이미지4</option>
+        <option value="../jquery_img/05.png">이미지5</option>
+      </select>
+      <br /><br />
+      <h4>테두리선</h4>
+      <input type="radio" name="line" value="dotted" />점선
+      <input type="radio" name="line" value="solid" />실선
+      <input type="radio" name="line" value="dashed" />파선
+      <input type="radio" name="line" value="inset" />입체선1
+      <input type="radio" name="line" value="groove" />입체선2
+
+      <br /><br />
+      <b>그림자: </b>
+      <input type="checkbox" id="shadow" />그림자넣기
+    </div>
+
+    <script>
+      $("#selImg").change(function () {
+        var im = $(this).val();
+        $("div.right img").attr("src", im);
+      });
+
+      $("input[name='line']").click(function () {
+        var line = $(this).val();
+        $("div.right").css("border-style", line);
+      });
+
+      $("#shadow").click(function () {
+        if ($(this).is(":checked"))
+          $("div.right").css("box-shadow", "10px 10px 10px gray");
+        else $("div.right").css("box-shadow", "");
+      });
+    </script>
+  </body>
+</html>

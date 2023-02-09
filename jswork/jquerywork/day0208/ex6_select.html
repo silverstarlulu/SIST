@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <p>오늘 쇼핑리스트</p>
+    <ol>
+      <li>슬리퍼</li>
+      <li>라면</li>
+      <li>양파</li>
+      <li>가방</li>
+      <li>쇼핑백</li>
+    </ol>
+
+    <p>오늘 먹고싶은 점심</p>
+    <ol>
+      <li>햄버거</li>
+      <li>육개장</li>
+      <li>냉면</li>
+      <li>보쌈</li>
+      <li>양념갈비</li>
+    </ol>
+
+    <script>
+      //      $("ol li:first").css("background-color", "pink"); //전체에서 첫번째 li
+      $("ol li:first-child").css("background-color", "pink"); //각 ol 항목의 첫번째 li
+      $("li:contains(라면)").css("background-color", "powderblue"); //전체항목에서 라면 찾음
+      $("li:odd").css("border", "2px solid black"); //홀수번지 찾음, 짝수: even
+    </script>
+  </body>
+</html>

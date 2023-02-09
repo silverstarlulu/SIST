@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      a {
+        background-color: olivedrab;
+        cursor: pointer;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px gray;
+        margin-left: 10px;
+        font-size: 14pt;
+        border-radius: 10px;
+      }
+
+      div {
+        width: 300px;
+        height: 300px;
+        border: 1px solid gray;
+        margin-top: 30px;
+        margin-left: 20px;
+      }
+
+      div.a {
+        font-size: 2em;
+        font-family: "Gaegu", cursive;
+        color: red;
+      }
+
+      div.b {
+        border: 10px groove gold;
+        border-radius: 30px;
+        box-shadow: 7px 7px 7px gray;
+      }
+
+      div.c {
+        background-image: url("../flower_ani/f1.png");
+        background-repeat: no-repeat;
+        background-size: 150px 150px;
+        background-position: center;
+      }
+    </style>
+    <script>
+      $(function () {
+        //첫번째 a태그에 addClass, removeClass b,c
+        $("a:first").click(function () {
+          $("div").removeClass("b c").addClass("a");
+        });
+
+        $("a:eq(1)").click(function () {
+          $("div").removeClass("a c").addClass("b");
+        });
+
+        $("a:eq(2)").click(function () {
+          $("div").removeClass("c").addClass("a b");
+        });
+
+        $("a:eq(3)").click(function () {
+          $("div").removeClass("a b").addClass("c");
+        });
+
+        $("a:eq(4)").click(function () {
+          $("div").addClass("a b c");
+        });
+
+        $("a:last").click(function () {
+          $("div").removeClass();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a>클래스 a만 추가</a>
+    <a>클래스 b만 추가</a>
+    <a>클래스 a, b 추가</a>
+    <a>클래스 c만 추가</a>
+    <a>클래스 모두 추가</a>
+    <a>클래스 모두 삭제</a>
+    <div>제이쿼리</div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      첫번째 div
+      <div class="hana">하나</div>
+      <div>둘</div>
+      <div>셋</div>
+      <h3>h3 Tag</h3>
+      <h4>h4 Tag</h4>
+    </div>
+    <br /><br />
+    <div class="two">
+      두번째 div
+      <div class="hana">하나</div>
+      <div>둘</div>
+      <div>셋</div>
+      <h3>h3 Tag</h3>
+      <h4>h4 Tag</h4>
+    </div>
+
+    <script>
+      //parents 부모태그
+      //siblings 형제태그
+      //children 자식태그
+
+      $("div.one div.hana").siblings().css("color", "red");
+      $("div").children("div.hana").css("text-decoration", "underline");
+      $("div.hana").next().next().css("background-color", "orange");
+      $("div.two").find("h3").css("border", "2px solid pink"); //find는 위에서 아래만 가능(형제도 x)
+
+      //div.one 클릭 시
+      $("div.one").click(function () {
+        //자신의 형제태그에서 div 찾아서 천천히 숨기기
+        // $(this).siblings().find("div").hide("slow");
+
+        //자신의 자식태그에서 div 찾아서 숨기기
+        $(this).find("div").hide();
+      });
+    </script>
+  </body>
+</html>

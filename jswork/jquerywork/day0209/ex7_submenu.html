@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .blue {
+        color: blue;
+      }
+      .green {
+        color: green;
+      }
+      .content > b {
+        cursor: pointer;
+        font-family: "Poor Story", cursive;
+        font-size: 30px;
+      }
+      .answer > h5 {
+        text-indent: 30px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $(".answer").hide();
+
+        $(".content > b").click(function () {
+          $(this).siblings().show("slow");
+          $(this).parent().siblings().find(".answer").hide("slow");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="content red">
+      <b>내용 1</b>
+      <div class="answer">
+        <h5>내용 1에 대한 댓글</h5>
+        <h5>내용 1에 대한 댓글</h5>
+        <h5>내용 1에 대한 댓글</h5>
+      </div>
+    </div>
+
+    <div class="content blue">
+      <b>내용 2</b>
+      <div class="answer">
+        <h5>내용 2에 대한 댓글</h5>
+        <h5>내용 2에 대한 댓글</h5>
+        <h5>내용 2에 대한 댓글</h5>
+      </div>
+    </div>
+
+    <div class="content green">
+      <b>내용 3</b>
+      <div class="answer">
+        <h5>내용 3에 대한 댓글</h5>
+        <h5>내용 3에 대한 댓글</h5>
+        <h5>내용 3에 대한 댓글</h5>
+      </div>
+    </div>
+  </body>
+</html>
