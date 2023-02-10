@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      h3 {
+        width: 400px;
+        height: 40px;
+        border: 1px solid green;
+        line-height: 40px;
+        border-radius: 20px;
+        padding-left: 20px;
+        cursor: pointer;
+      }
+
+      /* h3클릭시 css */
+      h3:active {
+        border: 5px solid goldenrod;
+      }
+
+      div {
+        position: absolute;
+        border: 2px solid gray;
+        width: 300px;
+        height: 300px;
+        border-radius: 100%;
+      }
+
+      div.gray {
+        left: 200px;
+        top: 200px;
+        background-color: gray;
+        z-index: 7;
+      }
+
+      div.tomato {
+        left: 150px;
+        top: 350px;
+        background-color: tomato;
+        z-index: 5;
+      }
+
+      div.olive {
+        left: 40px;
+        top: 200px;
+        background-color: olive;
+        z-index: 1;
+      }
+    </style>
+    <script>
+      $(function () {
+        $("h3").click(function () {
+          var cls = $(this).attr("class");
+
+          if (cls == "gray") {
+            $("div.gray").css("z-index", 3);
+            $("div.tomato").css("z-index", 2);
+            $("div.olive").css("z-index", 1);
+          } else if (cls == "tomato") {
+            $("div.gray").css("z-index", 2);
+            $("div.tomato").css("z-index", 3);
+            $("div.olive").css("z-index", 1);
+          } else {
+            $("div.gray").css("z-index", 1);
+            $("div.tomato").css("z-index", 2);
+            $("div.olive").css("z-index", 3);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3 class="gray">gray를 제일 위로</h3>
+    <h3 class="tomato">tomata를 제일 위로</h3>
+    <h3 class="olive">olive를 제일 위로</h3>
+
+    <div class="gray"></div>
+    <div class="tomato"></div>
+    <div class="olive"></div>
+  </body>
+</html>

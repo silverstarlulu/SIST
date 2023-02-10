@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      #one {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        border: 1px solid salmon;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../jquery_img//05.png" id="img1" width="100" />
+    <hr />
+    <div id="one"></div>
+    <script>
+      $("#img1").animate({ width: "200px", opacity: "0.5" }, "slow");
+
+      $("#img1").animate(
+        { width: "100px", opacity: "1" },
+        5000,
+        "linear",
+        function () {
+          //콜백함수: 애니메이션 끝난 후 처리
+          // alert("애니메이션 끝");
+          $(this).after("<b>The End</b>");
+        }
+      );
+
+      $("#one")
+        .animate({ left: "+=60" }, 2000)
+        .animate({ borderWidth: "10px" }, 2000)
+        .animate({ width: "500px" }, 2000)
+        .animate({ height: "500px" }, 2000);
+    </script>
+  </body>
+</html>

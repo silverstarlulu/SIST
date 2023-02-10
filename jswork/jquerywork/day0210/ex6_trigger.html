@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- trigger 무언가를 강제로 발생시키는 것 -->
+    <h2 style="color: blueviolet">Start:&nbsp;</h2>
+    <h2 style="color: blue">Start:&nbsp;</h2>
+    <h2 style="color: violet">Start:&nbsp;</h2>
+
+    <script>
+      $("h2").click(function () {
+        //별추가
+        $(this).append("☆");
+
+        $(this).html(function (i, html) {
+          return html + "★";
+        });
+      });
+
+      //1초단위로 마지막 h2를 클릭한 효과 주기
+      setInterval(function () {
+        $("h2:last").trigger("click");
+      }, 1000);
+    </script>
+
+    <input type="file" id="file" style="visibility: hidden" />
+    <img src="../jquery_img/camera-solid.svg" width="70" id="camera" />
+
+    <script>
+      $("#camera").click(function () {
+        $("#file").trigger("click");
+      });
+    </script>
+  </body>
+</html>

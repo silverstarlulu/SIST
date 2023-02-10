@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button">애니메이션 #1</button>
+    <button type="button">애니메이션 #2</button>
+    <div id="box1"></div>
+
+    <script>
+      $("#box1").css({
+        width: "100px",
+        height: "100px",
+        border: "1px solid red",
+      });
+
+      $("button:eq(0)").click(function () {
+        $("#box1").animate(
+          {
+            width: "+=100px",
+            borderWidth: "20px",
+            opacity: "0.2",
+            marginLeft: "300px",
+          },
+          2000
+        );
+      });
+
+      $("button:eq(1)").click(function () {
+        $("#box1").animate(
+          {
+            width: "-=100px",
+            borderWidth: "1px",
+            opacity: "1",
+            marginLeft: "0px",
+          },
+          3000
+        );
+      });
+    </script>
+
+    <hr />
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+
+    <script>
+      $(".box2").css({
+        position: "relative",
+        width: "60px",
+        height: "60px",
+        backgroundColor: "tomato",
+        marginTop: "5px",
+      });
+
+      $(".box2").each(function (i) {
+        $(this)
+          .delay(i * 500)
+          .animate({ left: "+=300px" }, "slow");
+      });
+    </script>
+
+    <hr />
+    <img src="../jquery_img/11.png" id="img1" />
+    <script>
+      $("#img1").slideUp(2000).delay(2000).slideDown(2000);
+      //사라졌다 멈추고 나타나기
+    </script>
+  </body>
+</html>

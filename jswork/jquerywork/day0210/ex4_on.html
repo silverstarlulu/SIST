@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <script>
+      $(function () {
+        //정적이벤트(기존)
+        // $("#mylang")
+        //   .children()
+        //   .click(function () {
+        //     $(this).remove();
+        //   });
+
+        //동적이벤트(on)
+        // $("#mylang").on("click", "li", function () {
+        //   $(this).remove();
+        // });
+
+        // $("#mylang").on("click", "li", function (e) {
+        //   $(e.target).remove();
+        // });
+
+        $(document).on("click", "li", function (e) {
+          //document아래 추가되는 모든 카드는 모두 부모의 click 이벤트를 물려받는 것
+          $(e.target).remove();
+        });
+
+        $("#mylang").append("<li>jQuery</li>"); //정적에서는 안지워짐
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="mylang">
+      <li>Java</li>
+      <li>Oracle</li>
+      <li>Jsp</li>
+      <li>Spring</li>
+    </ul>
+  </body>
+</html>

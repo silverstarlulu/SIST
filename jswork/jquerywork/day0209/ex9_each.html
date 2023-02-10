@@ -56,6 +56,8 @@
         $("#show").html(s);
       });
 
+      $(".large").attr("src", $("img:eq(0)").attr("src"));
+
       $("#show img").hover(
         function () {
           $(this).css("transform", "rotate(45deg)");

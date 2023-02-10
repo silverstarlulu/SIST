@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      button {
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.3em;
+        border-radius: 20px;
+        font-family: "Poor Story", cursive;
+        cursor: pointer;
+      }
+
+      button.a {
+        background-color: chocolate;
+        color: aliceblue;
+      }
+
+      button.b {
+        background-color: yellowgreen;
+        color: black;
+      }
+
+      div {
+        position: absolute;
+        width: 300px;
+        height: 150px;
+        font-size: 23px;
+        font-family: "Gaegu", cursive;
+      }
+
+      #one {
+        left: 50px;
+        top: 100px;
+      }
+
+      #two {
+        left: 250px;
+        top: 100px;
+      }
+
+      #three {
+        left: 600px;
+        top: 100px;
+      }
+
+      #four {
+        left: 900px;
+        top: 100px;
+      }
+
+      #result {
+        left: 100px;
+        font-size: 1.5em;
+        text-align: center;
+        width: 1000px;
+        top: 400px;
+        border: 3px solid gray;
+        border-radius: 30px;
+        padding-top: 20px;
+      }
+
+      #three h3:hover {
+        cursor: pointer;
+        background-color: powderblue;
+      }
+    </style>
+
+    <script>
+      $(function () {
+        var theater = "",
+          movie = "",
+          time = "",
+          inwon = "";
+
+        //#one에 버튼 추가
+        var b = "<button type='button' id='btn1' class='a'>영화예매</button>";
+        $("#one").append(b);
+
+        //버튼1 이벤트
+        $("#btn1").click(function () {
+          var b2 =
+            "<button type='button' id='btn2' class='b'>극장선택</button>";
+          b2 +=
+            "&nbsp;<button type='button' id='btn3' class='b'>영화선택</button>";
+
+          $("#two").html(b2);
+        });
+
+        //버튼 2는 동적생성이므로 on이벤트 필요
+        $(document).on("click", "#btn2", function () {
+          var th = "<h3 class='theater'>CGV 강남점</h3>";
+          th += "<h3 class='theater'>메가박스 코엑스점</h3>";
+          th += "<h3 class='theater'>롯데시네마 역삼점</h3>";
+
+          $("#three").html(th);
+        });
+
+        //버튼3 역시 동적생성 on이벤트
+        $(document).on("click", "#btn3", function () {
+          var mv = "<h3 class='movie'>슬램덩크</h3>";
+          mv += "<h3 class='movie'>교섭</h3>";
+          mv += "<h3 class='movie'>아바타: 물의 길</h3>";
+          mv += "<h3 class='movie'>영웅</h3>";
+          mv += "<h3 class='movie'>바빌론</h3>";
+
+          $("#three").html(mv);
+        });
+
+        //영화관이나 영화제목 클릭 시
+        $(document).on("click", "#three h3", function () {
+          //클릭한 h3 태그에서 클래스 얻어주기
+          var select = $(this).attr("class");
+
+          if (select == "theater") theater = "극장명: " + $(this).text();
+          else {
+            var times = ["09:00", "11:30", "14:30", "16:30", "20:30", "22:30"];
+            var tag = "";
+
+            $.each(times, function (i, ele) {
+              tag +=
+                "<input type='radio' name='time' value='" +
+                times[i] +
+                "'>" +
+                times[i] +
+                "<br>";
+            });
+
+            movie = "영화제목: " + $(this).text();
+
+            tag += "<input type='number' min='1' max='5' value='0' id='inwon'>";
+            $("#four").html(tag);
+          }
+
+          $("#result").html(theater + "<br>" + movie + "<br>");
+        });
+
+        //라디오 버튼 선택 시 이벤트
+        $(document).on("click", "input[name='time']", function () {
+          time = "상영시간: " + $(this).val();
+          $("#result").html(theater + "<br>" + movie + "<br>" + time + "<br>");
+        });
+
+        //인원 수 변경 시 이벤트
+        $(document).on("change", "#inwon", function () {
+          inwon = "인원: " + $(this).val() + "명";
+          $("#result").html(
+            theater + "<br>" + movie + "<br>" + time + "<br>" + inwon
+          );
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="result"></div>
+  </body>
+</html>
