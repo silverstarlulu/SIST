@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="alert alert-danger" style="width: 500px">Q&A 게시판</div>
+    <div class="form-inline">
+      <button type="button" class="btn btn-danger btn-sm">
+        <span class="glyphicon glyphicon-pencil"></span>글쓰기
+      </button>
+      <input
+        type="text"
+        class="form-control"
+        style="width: 130px; margin-left: 100px"
+      />
+      <button type="button" class="btn btn-sm">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+    </div>
+
+    <table class="table table-bordered" style="width: 500px; margin-top: 30px">
+      <tr bgcolor="#cff42f">
+        <th width="50">번호</th>
+        <th width="250">제목</th>
+        <th width="80">작성자</th>
+        <th width="50">조회</th>
+      </tr>
+      <tr>
+        <td align="left">1</td>
+        <td>
+          <b class="subject" title="../Food/1.jpg" writer="달구사랑"
+            >제이쿼리 끝나는 날1</b
+          >
+        </td>
+        <td align="center">박예은</td>
+        <td align="center">15</td>
+      </tr>
+
+      <tr>
+        <td align="left">2</td>
+        <td>
+          <b class="subject" title="../Food/2.jpg" writer="하울사랑"
+            >제이쿼리 끝나는 날2</b
+          >
+        </td>
+        <td align="center">권은지</td>
+        <td align="center">12</td>
+      </tr>
+
+      <tr>
+        <td align="left">3</td>
+        <td>
+          <b class="subject" title="../Food/3.jpg" writer="라떼사랑"
+            >제이쿼리 끝나는 날1</b
+          >
+        </td>
+        <td align="center">이채림</td>
+        <td align="center">16</td>
+      </tr>
+
+      <tr>
+        <td align="left">4</td>
+        <td>
+          <b class="subject" title="../Food/4.jpg" writer="핸드크림"
+            >제이쿼리 끝나는 날2</b
+          >
+        </td>
+        <td align="center">권하울</td>
+        <td align="center">24</td>
+      </tr>
+
+      <tr>
+        <td align="left">5</td>
+        <td>
+          <b class="subject" title="../Food/5.jpg" writer="아메리카노"
+            >제이쿼리 끝나는 날3</b
+          >
+        </td>
+        <td align="center">강달국</td>
+        <td align="center">25</td>
+      </tr>
+
+      <tr>
+        <td align="left">6</td>
+        <td>
+          <b class="subject" title="../Food/6.jpg" writer="달구누나"
+            >제이쿼리 끝나는 날4</b
+          >
+        </td>
+        <td align="center">김예은</td>
+        <td align="center">22</td>
+      </tr>
+    </table>
+
+    <div style="width: 500px; text-align: center">
+      <ul class="pagination">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+      </ul>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <p class="photo_title"></p>
+            <img src="" class="photo" style="max-width: 300px" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //   $("tr").click(function () {
+      //     $("#myModal").modal();
+
+      //     var text = $(this).find("b").text();
+      //     $(".modal-title").html(text);
+
+      //     var writer = $(this).find("b").attr("writer");
+      //     $(".photo_title").html(writer);
+
+      //     var title = $(this).find("b").attr("title");
+      //     $(".photo").attr("src", title).css("width", "200px");
+      //   });
+
+      $(".subject").click(function () {
+        var photo = $(this).attr("title");
+        var writer = $(this).attr("writer");
+        var title = $(this).text();
+
+        $(".photo").attr("src", photo);
+        $(".modal-title").html("<b>" + title + "</b>");
+        $(".photo_title").text(writer);
+
+        $("#myModal").modal();
+      });
+    </script>
+  </body>
+</html>

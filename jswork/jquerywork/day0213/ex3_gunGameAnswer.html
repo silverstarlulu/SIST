@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: url("../jquery_img/bg.png") center center;
+        background-size: cover;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      #control-wrapper {
+        width: 300px;
+        height: 420px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+      }
+
+      #sunban-wrapper {
+        width: 800px;
+        margin: 50px auto;
+      }
+
+      .sunban {
+        height: 150px;
+        margin-bottom: 50px;
+        width: 800px;
+        background: url("../jquery_img/sunban.png") no-repeat center bottom;
+      }
+
+      .sunban li {
+        float: left;
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+      }
+
+      .gun {
+        width: 300px;
+        height: 250px;
+        background: url("../jquery_img/gun.png") no-repeat;
+        cursor: pointer;
+      }
+
+      .gun:active {
+        background-position: bottom;
+      }
+
+      #msg {
+        position: absolute;
+        left: 700px;
+        top: 500px;
+        width: 500px;
+        height: 70px;
+        font-size: 20px;
+        font-family: "Gaegu";
+        border: 10px inset coral;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+    <script>
+      $(function () {
+        var fire = new Audio("../jquery_img/jang.wav");
+
+        $(".gun").click(function () {
+          //총이미지 클릭 시 총소리 플레이
+          fire.play();
+
+          var n = parseInt(Math.random() * 12);
+
+          if ($(".sunban img").eq(n).is(":hidden")) {
+            $("#msg").html(n + 1 + "번째 인형은 이미 처리됨");
+          } else {
+            $("#msg").html(n + 1 + "번째 인형을 맞췄어요");
+            $(".sunban img").eq(n).hide();
+          }
+
+          var cnt = 0;
+
+          $(".sunban img").each(function (i, ele) {
+            if ($(this).is(":hidden")) cnt++;
+          });
+
+          if (cnt == 12) {
+            $("#msg").html("<b>you win!!!!!</b>");
+          }
+        });
+
+        $(".money img").click(function () {
+          $(this).hide();
+          $(".sunban img").show();
+          $("#msg").empty();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="control-wrapper">
+      <div class="gun"></div>
+      <ul class="money">
+        <li><img src="../jquery_img//money.png" /></li>
+        <li><img src="../jquery_img//money.png" /></li>
+        <li><img src="../jquery_img//money.png" /></li>
+      </ul>
+    </div>
+
+    <div id="sunban-wrapper">
+      <ul class="sunban">
+        <li><img src="../jquery_img/01.png" /></li>
+        <li><img src="../jquery_img/02.png" /></li>
+        <li><img src="../jquery_img/03.png" /></li>
+        <li><img src="../jquery_img/04.png" /></li>
+        <li><img src="../jquery_img/05.png" /></li>
+        <li><img src="../jquery_img/06.png" /></li>
+      </ul>
+
+      <ul class="sunban">
+        <li><img src="../jquery_img/07.png" /></li>
+        <li><img src="../jquery_img/08.png" /></li>
+        <li><img src="../jquery_img/09.png" /></li>
+        <li><img src="../jquery_img/10.png" /></li>
+        <li><img src="../jquery_img/11.png" /></li>
+        <li><img src="../jquery_img/12.png" /></li>
+      </ul>
+    </div>
+
+    <div id="msg"></div>
+  </body>
+</html>

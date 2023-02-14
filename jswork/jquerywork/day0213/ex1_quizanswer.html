@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Document</title>
+    <style>
+      div.cara {
+        cursor: pointer;
+      }
+      div.carb {
+        position: absolute;
+        left: 400px;
+        top: 100px;
+      }
+    </style>
+    <script>
+      $(function () {
+        //작은 자동차 사진
+        var s = "";
+
+        for (var i = 1; i <= 10; i++) {
+          var iname = "../car/car_a_" + i + ".PNG";
+          s += "<img src='" + iname + "' class='a'><br>";
+        }
+
+        $("div.cara").html(s);
+
+        //작은이미지 수정
+        $("img.a").css({
+          width: "200px",
+          height: "120px",
+          border: "2px solid gray",
+          borderRadius: "30px 50px 30px 50px",
+          marginBottom: "10px",
+        });
+
+        //큰 자동차 이미지
+        $("div.carb").html("<img src='../car/car_b_1.PNG' class='b'>");
+
+        //큰 이미지 수정
+        $("img.b").css({
+          width: "700px",
+          height: "500px",
+          border: "2px solid gray",
+          borderRadius: "30px",
+        });
+
+        //이벤트
+        $("img.a").mouseover(function () {
+          //현재사진
+          var smallimg = $(this).attr("src");
+
+          //큰사진 이름으로 변경
+          var largeimg = smallimg.replace("_a_", "_b_");
+
+          //현재 자동차 사진 사라지도록
+          $("img.b").fadeOut("fast");
+
+          //사진 교체
+          $("img.b").attr("src", largeimg);
+
+          //fade 효과로 나타나기
+          $("img.b").fadeIn();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="cara"></div>
+    <div class="carb"></div>
+  </body>
+</html>
