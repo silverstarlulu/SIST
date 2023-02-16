@@ -47,13 +47,13 @@ TeamDto dto = dao.getData(num);
 				<td>
 					<%
 					String val = "";
-					if (dto.getDriver() != null) {
+					if (dto.getDriver().equals("있음")) {
 						val = "checked";
 					} else {
 						val = "unchecked";
 					}
 					%>
-					<input type="checkbox" name="lic" value="<%=val%>">
+					<input type="checkbox" name="lic" <%=val%>>
 					있을경우 체크
 				</td>
 			</tr>
