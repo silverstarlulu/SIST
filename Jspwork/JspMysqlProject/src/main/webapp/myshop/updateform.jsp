@@ -1,3 +1,5 @@
+<%@page import="myshop.model.MyshopDto"%>
+<%@page import="myshop.model.MyshopDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +15,7 @@ body {
 	font-size: 20px
 }
 </style>
-</head>
+
 <script>
 	$(function() {
 		var srcImg = $("#photo").val();
@@ -21,16 +23,24 @@ body {
 
 	})
 </script>
+
+</head>
+<%
+String num = request.getParameter("num");
+MyshopDao dao = new MyshopDao();
+MyshopDto dto = dao.selectSangpum(num);
+%>
 <body>
-	<form action="addaction.jsp" method="post">
+	<form action="updateaction.jsp" method="post">
+	<input type="hidden" name="num" value="<%=num%>">
 		<table class="table table-stripped" style="width: 400px">
 			<caption>
-				<b>상품등록</b>
+				<b>상품수정</b>
 			</caption>
 			<tr>
 				<th width="100" bgcolor="wheat">상품명</th>
 				<td>
-					<input type="text" name="sangpum" required="required" class="form-control">
+					<input type="text" name="sangpum" required="required" class="form-control" value="<%=dto.getSangpum()%>">
 				</td>
 			</tr>
 			<tr>
@@ -38,12 +48,12 @@ body {
 				<td>
 					<div>
 						<select name="photo" id="photo" class="form-select" style="width: 150px">
-							<option value="11">단화</option>
-							<option value="26">머리핀</option>
-							<option value="27">원피스</option>
-							<option value="21">반지</option>
-							<option value="24">바지</option>
-							<option value="30">머리띠</option>
+							<option value="11" <%=dto.getPhoto().equals("11")?"selected":""%>>단화</option>
+							<option value="26" <%=dto.getPhoto().equals("26")?"selected":""%>>머리핀</option>
+							<option value="27" <%=dto.getPhoto().equals("27")?"selected":""%>>원피스</option>
+							<option value="21" <%=dto.getPhoto().equals("21")?"selected":""%>>반지</option>
+							<option value="24" <%=dto.getPhoto().equals("24")?"selected":""%>>바지</option>
+							<option value="30" <%=dto.getPhoto().equals("30")?"selected":""%>>머리띠</option>
 						</select>
 						<img width="30" height="30" src="" id="myphoto">
 					</div>
@@ -58,18 +68,18 @@ body {
 			<tr>
 				<th width="100" bgcolor="wheat">상품가격</th>
 				<td>
-					<input type="text" name="price" required="required" class="form-control">
+					<input type="text" name="price" required="required" class="form-control" value="<%=dto.getPrice()%>">
 				</td>
 			</tr>
 			<tr>
 				<th width="100" bgcolor="wheat">입고일</th>
 				<td>
-					<input type="date" name="ipgoday" value="2023-02-10" class="form-control">
+					<input type="date" name="ipgoday" class="form-control" value="<%=dto.getIpgoday()%>">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="submit" class="btn btn-info">상품저장</button>
+					<button type="submit" class="btn btn-info">상품수정</button>
 					<button type="button" class="btn btn-success" onclick="location.href='shoplist.jsp'">상품목록</button>
 				</td>
 			</tr>

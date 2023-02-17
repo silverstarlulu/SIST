@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.Vector"%>
 <%@page import="myshop.model.MyshopDao"%>
 <%@page import="myshop.model.MyshopDto"%>
@@ -14,13 +16,13 @@
 body {
 	text-align: center;
 	font-family: 'Poor Story', cursive;
-	font-size: 18px;
+	font-size: 22px;
 }
 
 th {
 	text-align: center;
 	background-color: wheat;
-	font-size: 20px;
+	font-size: 25px;
 }
 </style>
 </head>
@@ -29,38 +31,54 @@ MyshopDao dao = new MyshopDao();
 Vector<MyshopDto> list = dao.showAllSangpum();
 %>
 <body>
-	<form action="updateaction.jsp" method="post">
-		<table class="table table-stripped" style="width: 800px">
-			<caption>
-				<b>상품목록</b>
-			</caption>
-			<tr>
-				<th width="70">상품번호</th>
-				<th width="100">상품명</th>
-				<th width="100">상품사진</th>
-				<th width="100">상품가격</th>
-				<th width="100">입고날짜</th>
-				<th width="150">등록날짜</th>
-			</tr>
-			<%
-			for (int i = 0; i < list.size(); i++) {
-				MyshopDto dto = list.get(i);
-			%>
-			<tr>
-				<td style="vertical-align: middle"><%=i + 1%></td>
-				<td style="vertical-align: middle"><%=dto.getSangpum()%></td>
-				<td style="vertical-align: middle">
-					<img src="../쇼핑몰사진/<%=dto.getPhoto()%>.jpg" style="width: 70px; height: 70px; border-radius: 100%">
-				</td>
-				<td style="vertical-align: middle"><%=dto.getPrice()%></td>
-				<td style="vertical-align: middle"><%=dto.getIpgoday()%></td>
-				<td style="vertical-align: middle"><%=dto.getWriteday()%></td>
-				<%
-				}
-				%>
-			</tr>
+	<table class="table table-bordered" style="width: 800px">
+		<caption>
+			<b>상품목록</b>
+		</caption>
+		<tr>
+			<th width="70">상품번호</th>
+			<th width="150">상품명</th>
+			<th width="100">상품가격</th>
+			<th width="100">입고날짜</th>
+			<th width="150">등록날짜</th>
+		</tr>
+		<%
+		if (list.size() == 0) {
+		%><tr style="height: 100px">
+			<td colspan="5" align="center">
+				<h3>
+					<b>등록된 상품이 없습니다!</b>
+				</h3>
+			</td>
+		</tr>
+		<%
+		} else {
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH시");
 
-		</table>
-	</form>
+		for (int i = 0; i < list.size(); i++) {
+			MyshopDto dto = list.get(i);
+		%>
+		<tr style="height: 100px">
+			<td style="vertical-align: middle"><%=i + 1%></td>
+			<td style="vertical-align: middle; text-align: left">
+				<img src="../쇼핑몰사진/<%=dto.getPhoto()%>.jpg" style="width: 50px; height: 50px; border-radius: 5px; margin-right: 10px"> <a href="detailpage.jsp?num=<%=dto.getNum()%>" style="color: black;"><%=dto.getSangpum()%></a>
+			</td>
+			<td style="vertical-align: middle"><%=nf.format(dto.getPrice())%></td>
+			<td style="vertical-align: middle"><%=dto.getIpgoday()%></td>
+			<td style="vertical-align: middle"><%=sdf.format(dto.getWriteday())%></td>
+			<%
+			}
+			%>
+		</tr>
+		<%
+		}
+		%>
+		<tr>
+			<td colspan="5" align="right">
+				<button type="button" class="btn btn-info btn-lg" onclick="location.href='addform.jsp'">상품추가</button>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
