@@ -9,6 +9,11 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+	<%
+	//로그인한 값에 대한 세션값 제거
+	session.removeAttribute("loginok");
 
+	response.sendRedirect("loginmain.jsp");
+	%>
 </body>
 </html>

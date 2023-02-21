@@ -9,6 +9,18 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
+	<%
+	String loginok = (String) session.getAttribute("loginok");
 
+	if (loginok == null || loginok.equals("")) { //로그아웃 상태
+	%>
+	<jsp:include page="loginform.jsp" />
+	<%
+	} else {		//로그인 상태
+	%>
+	<jsp:include page="logoutform.jsp" />
+	<%
+	}
+	%>
 </body>
 </html>
