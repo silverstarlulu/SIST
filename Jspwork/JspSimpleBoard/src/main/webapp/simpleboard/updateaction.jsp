@@ -28,6 +28,7 @@
 		new DefaultFileRenamePolicy()); //같은 이름일경우 123붙이기
 
 		//입력값 읽기(photo는 따로)
+		String num = multi.getParameter("num");
 		String writer = multi.getParameter("writer");
 		String subject = multi.getParameter("subject");
 		String pass = multi.getParameter("pass");
@@ -38,6 +39,7 @@
 
 		//dto에 담기
 		SimpleDto dto = new SimpleDto();
+		dto.setNum(num);
 		dto.setWriter(writer);
 		dto.setSubject(subject);
 		dto.setPass(pass);
@@ -46,9 +48,20 @@
 
 		//dao 선언
 		SimpleDao dao = new SimpleDao();
-		dao.insertBoard(dto);
 
-		response.sendRedirect("boardlist.jsp");
+		//pw 확인
+		boolean result = dao.isEqualPass(num, pass);
+		if (result) { //맞으면 수정 후 content.jsp로
+			dao.updateBoard(dto);
+			response.sendRedirect("content.jsp?num=" + num);
+		} else { //틀리면 alert
+	%>
+	<script>
+		alert("비밀번호가 다릅니다.");
+		history.back();
+	</script>
+	<%
+	}
 
 	} catch (Exception e) {
 

@@ -12,61 +12,52 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <style>
-th {
-	text-align: center
+img {
+	border: 1px solid black
+}
+
+a {
+	color: black;
 }
 </style>
 </head>
 <%
 SimpleDao dao = new SimpleDao();
 List<SimpleDto> list = dao.getAllBoardDatas();
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
 <body>
 	<div class="alert alert-warning" style="width: 800px">
 		<b>총<%=list.size()%>개의 글이 있습니다!
 		</b>
 	</div>
-	<br>
 	<table class="table table-hover" style="width: 800px">
 		<caption>
-			<b>게시판형 목록보기</b>
+			<b>이미지형 목록보기</b>
+
 			<button type="button" class="btn btn-info" onclick="location.href='insertform.jsp'">글쓰기</button>
-			<button type="button" class="btn btn-info" onclick="location.href='boardlist2.jsp'">이미지형 목록</button>
+			<button type="button" class="btn btn-info" onclick="location.href='boardlist.jsp'">게시판형 목록</button>
 			<button type="button" class="btn btn-info" onclick="location.href='/JspSimpleBoard/index.jsp'">메인페이지</button>
 		</caption>
-		<tr style="background: #ffc0cb">
-			<th width="70">번호</th>
-			<th width="400">제목</th>
-			<th width="120">작성자</th>
-			<th width="170">작성일</th>
-			<th width="70">조회</th>
-		</tr>
-		<%
-		//날짜 형식 지정
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
-		for (int i = 0; i < list.size(); i++) {
-			//1번열에 출력할 번호
-			int no = list.size() - i;
-			//dto
-			SimpleDto dto = list.get(i);
-		%>
 		<tr>
-			<td align="center"><%=no%></td>
-
+			<%
+			for (int i = 0; i < list.size(); i++) {
+				int no = list.size() - i;
+				SimpleDto dto = list.get(i);
+			%>
 			<td>
-				<a href="content.jsp?num=<%=dto.getNum()%>"> <img src="../upload/<%=dto.getImgname()%>" style="width: 30px; height: 30px">&nbsp;<%=dto.getSubject()%>
-				</a>
+				<a href="content.jsp?num=<%=dto.getNum()%>"><img src="../upload/<%=dto.getImgname()%>" style="width: 200px; height: 200px; margin: 5px'"><br>
+					<h3><%=dto.getSubject()%></h3></a> <span style="color: gray"><%=dto.getWriter()%></span> <br> <span style="color: gray"><%=sdf.format(dto.getWriteday())%></span> <span style="color: gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회 <%=dto.getReadcount()%></span> <br>
 			</td>
-
-			<td align="center"><%=dto.getWriter()%></td>
-			<td align="center"><%=sdf.format(dto.getWriteday())%></td>
-			<td align="center"><%=dto.getReadcount()%></td>
-
-		</tr>
-		<%
-		}
-		%>
+			<%
+			if ((i + 1) % 4 == 0) {
+			%>
+				<tr></tr>
+			<%
+			}
+			}
+			%>
+		
 	</table>
 
 </body>
