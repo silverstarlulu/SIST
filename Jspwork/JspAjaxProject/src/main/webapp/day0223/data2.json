@@ -1,0 +1,22 @@
+[
+	{
+		"num": 10,
+		"name": "하울",
+		"photo": "../image/13.png"
+	},
+	{
+		"num": 11,
+		"name": "소피",
+		"photo": "../image/07.png"
+	},
+	{
+		"num": 20,
+		"name": "포뇨",
+		"photo": "../image/04.png"
+	},
+	{
+		"num": 30,
+		"name": "키키",
+		"photo": "../image/03.png"
+	}
+]

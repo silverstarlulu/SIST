@@ -12,8 +12,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <style>
+body{
+font-family: 'Poor Story', cursive;
+}
 img {
-	border: 1px solid black
+	border: 1px solid gray
 }
 
 a {
@@ -47,7 +50,7 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			%>
 			<td>
 				<a href="content.jsp?num=<%=dto.getNum()%>"><img src="../upload/<%=dto.getImgname()%>" style="width: 200px; height: 200px; margin: 5px'"><br>
-					<h3><%=dto.getSubject()%></h3></a> <span style="color: gray"><%=dto.getWriter()%></span> <br> <span style="color: gray"><%=sdf.format(dto.getWriteday())%></span> <span style="color: gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회 <%=dto.getReadcount()%></span> <br>
+					<h3><b><%=dto.getSubject()%></b></h3></a> <span style="color: gray"><%=dto.getWriter()%></span> <br> <span style="color: gray"><%=sdf.format(dto.getWriteday())%></span> <span style="color: gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회 <%=dto.getReadcount()%></span> <br>
 			</td>
 			<%
 			if ((i + 1) % 4 == 0) {

@@ -1,3 +1,4 @@
+<%@page import="java.io.File"%>
 <%@page import="model.simpleboard.SimpleDao"%>
 <%@page import="model.simpleboard.SimpleDto"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
@@ -16,11 +17,34 @@
 	String inputpass = request.getParameter("inputpass");
 
 	SimpleDao dao = new SimpleDao();
-	SimpleDto dto = dao.getData(num);
+	/* SimpleDto dto = dao.getData(num); */
 
-	if (dto.getPass().equals(inputpass)) {
+	boolean b = dao.isEqualPass(num, inputpass);
+
+	/* if (dto.getPass().equals(inputpass)) {
 		dao.deleteBoard(dto);
 		response.sendRedirect("boardlist2.jsp");
+	} */
+	if (b) {
+
+		//게시글 지우기 전 업로드 이미지 지우기
+		String imgName = dao.getData(num).getImgname();
+
+		//업로드 경로 구하기
+		String uploadPath = getServletContext().getRealPath("/upload");
+
+		//파일생성
+		File file = new File(uploadPath + "\\" + imgName);
+
+		//파일삭제
+		if (file.exists())
+			file.delete();
+
+		//DB삭제
+		dao.deleteBoard(num);
+
+		response.sendRedirect("boardlist2.jsp");
+
 	} else {
 	%>
 	<script>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<person no="1">
+		<name>박예은</name>
+		<addr>부천시</addr>
+	</person>
+	<person no="2">
+		<name>이지민</name>
+		<addr>서울시</addr>
+	</person>
+	<person no="3">
+		<name>주하랑</name>
+		<addr>성남시</addr>
+	</person>
+</data>

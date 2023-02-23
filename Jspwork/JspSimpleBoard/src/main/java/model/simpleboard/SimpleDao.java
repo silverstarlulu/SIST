@@ -181,7 +181,28 @@ public class SimpleDao {
 		}
 	}
 
-	public void deleteBoard(SimpleDto dto) {
+//	//내가한거
+//	public void deleteBoard(SimpleDto dto) {
+//		Connection conn = db.getConnection();
+//		PreparedStatement pstmt = null;
+//
+//		String sql = "delete from simpleboard where num=?";
+//
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, dto.getNum());
+//
+//			pstmt.execute();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//			db.dbClose(pstmt, conn);
+//		}
+//	}
+
+	// 쌤이한거
+	public void deleteBoard(String num) {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 
@@ -189,7 +210,7 @@ public class SimpleDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getNum());
+			pstmt.setString(1, num);
 
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -198,5 +219,76 @@ public class SimpleDao {
 		} finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+
+	// 페이징 처리 -> totalCount(), getList(start, perpage) 필요
+	// totalCount()
+	public int getTotalCount() {
+		int n = 0;
+
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select count(*) from simpleboard";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next())
+				n = rs.getInt(1);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return n;
+	}
+
+	// getList(start, perpage)
+	public List<SimpleDto> getList(int start, int perpage) {
+		List<SimpleDto> list = new Vector<>();
+
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from simpleboard order by num desc limit ?,?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, perpage);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				SimpleDto dto = new SimpleDto();
+
+				dto.setNum(rs.getString("num"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setContent(rs.getString("content"));
+				dto.setImgname(rs.getString("imgname"));
+				dto.setPass(rs.getString("pass"));
+				dto.setReadcount(rs.getInt("readcount"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+
+				list.add(dto);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return list;
 	}
 }
