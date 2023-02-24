@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<board>
+	<data id="lululala" name="박예은">
+		<subject>HELLO</subject>
+		<photo>../image/01.png</photo>
+	</data>
+	<data id="easy99" name="이지민">
+		<subject>졸려</subject>
+		<photo>../image/02.png</photo>
+	</data>
+	<data id="xian" name="최보현">
+		<subject>자고싶다</subject>
+		<photo>../image/05.png</photo>
+	</data>
+	<data id="proud" name="주하랑">
+		<subject>침대에 눕고싶다</subject>
+		<photo>../image/04.png</photo>
+	</data>
+	<data id="mung" name="강달국">
+		<subject>멍멍멍</subject>
+		<photo>../image/08.png</photo>
+	</data>
+</board>
