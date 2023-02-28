@@ -1,5 +1,5 @@
-<%@page import="memo.model.MemoDto"%>
-<%@page import="memo.model.MemoDao"%>
+<%@page import="ajaxboard.model.AjaxBoardDto"%>
+<%@page import="ajaxboard.model.AjaxBoardDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,26 +12,22 @@
 </head>
 <body>
 	<%
-	//엔코딩
+	AjaxBoardDao dao = new AjaxBoardDao();
+	
 	request.setCharacterEncoding("utf-8");
 
-	//데이터 읽기
-	String unum = request.getParameter("unum");
-	String uwriter=request.getParameter("uwriter");
-	String ucontent=request.getParameter("ucontent");
-	String uavata=request.getParameter("uavata");
+	String writer = request.getParameter("writer");
+	String subject = request.getParameter("subject");
+	String content = request.getParameter("content");
+	String avatar = request.getParameter("avatar");
 
-	MemoDao dao = new MemoDao();
-/* 	MemoDto dto= dao.getData(unum); */
-	
-	MemoDto dto=new MemoDto();	
+	AjaxBoardDto dto = new AjaxBoardDto();
+	dto.setWriter(writer);
+	dto.setSubject(subject);
+	dto.setContent(content);
+	dto.setAvatar(avatar);
 
-	dto.setNum(unum);
-	dto.setWriter(uwriter);
-	dto.setContent(ucontent);
-	dto.setAvata(uavata);
-	
-	dao.updateMemo(dto);
+	dao.insertAjaxBoard(dto);
 	%>
 </body>
 </html>
