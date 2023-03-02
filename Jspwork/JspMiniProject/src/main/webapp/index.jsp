@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR&family=Poor+Story&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <style>
 div.layout {
 	border: 0px solid gray;
 	position: absolute;
-	font-family: 'Noto Serif KR', serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 div.title {
@@ -21,6 +21,7 @@ div.title {
 	font-size: 25px;
 	text-align: center;
 	font-weight: 600;
+	top: 10px;
 }
 
 div.menu {
@@ -36,22 +37,24 @@ div.info {
 	width: 190px;
 	height: 150px;
 	line-height: 10px;
-	font-size : 15pt;
-	top: 250px;
-	border: 1px solid gray;
+	font-size: 15pt;
+	top: 240px;
+	border: 0px solid gray;
 	border-radius: 20px;
 	left: 15px;
 	padding: 20px 10px;
 	font-size: 15pt;
+	background-color: #DCE6E7;
 }
 
 div.main {
 	width: 1000px;
 	height: 1100px;
 	font-size: 12pt;
-	top: 250px;
+	top: 200px;
 	left: 200px;
 	margin-left: 50px;
+	padding: 20px 10px;
 }
 </style>
 </head>

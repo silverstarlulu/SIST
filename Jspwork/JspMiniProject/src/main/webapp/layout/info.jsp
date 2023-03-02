@@ -10,10 +10,10 @@
 </head>
 <body>
 	<div style="font-size: 12pt; line-height: 25px">
-		<span class="glyphicon glyphicon-user"></span>쌍용교육센터<br>
-		<span class="glyphicon glyphicon-phone-alt"></span>02-2564-4589<br>
-		<span class="glyphicon glyphicon-map-marker"></span>서울시 강남구 역삼동<br>
-		<span class="glyphicon glyphicon-envelope"></span>dragon@gmail.com<br>
+		<span class="glyphicon glyphicon-user"></span>&nbsp;쌍용교육센터<br>
+		<span class="glyphicon glyphicon-phone-alt"></span>&nbsp;02-2564-4589<br>
+		<span class="glyphicon glyphicon-map-marker"></span>&nbsp;서울시 강남구 역삼동<br>
+		<span class="glyphicon glyphicon-envelope"></span>&nbsp;dragon@gmail.com<br>
 	</div>
 </body>
 </html>

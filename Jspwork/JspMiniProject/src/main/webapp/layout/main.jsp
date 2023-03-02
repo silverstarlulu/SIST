@@ -9,9 +9,9 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-	<img alt="" src="image/고양이두마리.JPG" width="800" height="250"><br><br>
-	<img alt="" src="image/리트리버.JPG" width="800" height="250"><br><br>
-	<img alt="" src="image/멍멍.JPG" width="800" height="250"><br><br>
-	<img alt="" src="image/비글.JPG" width="800" height="250"><br><br>
+	<img alt="" src="image/토끼푸들.JPG" width="750" height="280"><br><br>
+	<img alt="" src="image/리트리버.JPG" width="750" height="280"><br><br>
+	<img alt="" src="image/멍멍.JPG" width="750" height="280"><br><br>
+	<img alt="" src="image/비글.JPG" width="750" height="280"><br><br>
 </body>
 </html>
