@@ -13,6 +13,6 @@
 String root = request.getContextPath();
 %>
 <body>
-	<a href="<%=root%>" style="color: black"><img width="140" height="100" src="image/토끼푸들.JPG">JSP & jQuery MINI PROJECT</a>
+	<a href="<%=root%>" style="color: black"><img width="140" height="100" src="image/토끼푸들.JPG" style="border-radius: 20px">&nbsp;&nbsp;&nbsp;JSP & jQuery MINI PROJECT</a>
 </body>
 </html>

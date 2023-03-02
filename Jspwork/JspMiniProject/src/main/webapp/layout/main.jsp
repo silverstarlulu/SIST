@@ -9,10 +9,9 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-	<img alt="" src="../image/고양이두마리.JPG">
-	<img alt="" src="image/리트리버.JPG">
-	<img alt="" src="image/멍멍.JPG">
-	<img alt="" src="image/비글.JPG">
-	<h1>여기는 메인 이미지 배치</h1>
+	<img alt="" src="image/고양이두마리.JPG" width="800" height="250"><br><br>
+	<img alt="" src="image/리트리버.JPG" width="800" height="250"><br><br>
+	<img alt="" src="image/멍멍.JPG" width="800" height="250"><br><br>
+	<img alt="" src="image/비글.JPG" width="800" height="250"><br><br>
 </body>
 </html>
