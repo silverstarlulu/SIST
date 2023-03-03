@@ -26,6 +26,11 @@ a:hover {
 <%
 //프로젝트 경로구하기
 String root = request.getContextPath();
+
+//아이디
+String myid=(String) session.getAttribute("myid");
+//로그인상태
+String loginok=(String) session.getAttribute("loginok");
 %>
 <body>
 	<%-- <a href="<%=root%>/index.jsp">메인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,9 +52,21 @@ String root = request.getContextPath();
 					<li class="parent">
 						<a href="http://www.freshdesignweb.com/responsive-drop-down-menu-jquery-css3-using-icon-symbol.html">회원관리</a>
 						<ul class="sub-menu">
-							<li><a href="<%=root%>/index.jsp?main=login/loginmain.jsp">로그인</a></li>
 							<li><a href="<%=root%>/index.jsp?main=member/addform.jsp">회원가입</a></li>
-							<li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp">회원목록</a></li>
+							<%
+							if(loginok!=null && !myid.equals("admin")){
+								%>
+								<li><a href="index.jsp?main=member/myinfo.jsp">회원정보</a></li>
+								<%
+							}
+							%>
+							<%
+							if(loginok!=null && myid.equals("admin")){
+								%>
+								<li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp">회원목록</a></li>
+								<%
+							}
+							%>
 						</ul>
 					</li>
 					<li class="parent">

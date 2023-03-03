@@ -14,13 +14,11 @@
 	String num = request.getParameter("num");
 	MemberDao dao = new MemberDao();
 	dao.deleteMember(num);
-
-	//프로젝트 경로구하기
-	String root = request.getContextPath();
 	%>
+	
 	<script>
 		alert(<%=num%> + "번 회원 강제탈퇴 성공");
-		location.href = "index.jsp?main=member/memberlist.jsp";
+		location.href = "../index.jsp?main=member/memberlist.jsp";
 	</script>
 
 </body>

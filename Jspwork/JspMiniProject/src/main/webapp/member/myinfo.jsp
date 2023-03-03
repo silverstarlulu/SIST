@@ -15,53 +15,65 @@
 th {
 	background-color: #D3E5DF;
 }
+
+table {
+	margin-left: 50px;
+	margin-top: 20px;
+}
 </style>
-<script>
-	function delfunc(num){
-		var yes = confirm("정말 강퇴처리 하시겠습니까?");
-		if(yes){
-			location.href="member/memberdelete.jsp?num=" + num;
-		}
-	}
-</script>
 </head>
 <%
 MemberDao dao = new MemberDao();
 List<MemberDto> list = dao.getAllMembers();
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-int no = 1;
+
+String loginok = (String) session.getAttribute("loginok");
+String myid = (String) session.getAttribute("myid");
 %>
 <body>
-	<table class="table table-hover">
+	<table class="table table-bordered" style="width: 500px">
 		<caption>
-			<b>전체 회원목록</b>
+			<b>회원정보</b>
 		</caption>
-		<tr>
-			<th style="text-align: center" width="60">번호</th>
-			<th style="text-align: center" width="100">아이디</th>
-			<th style="text-align: center" width="100">이름</th>
-			<th style="text-align: center" width="150">휴대폰번호</th>
-			<th style="text-align: center" width="150">주소</th>
-			<th style="text-align: center" width="150">이메일</th>
-			<th style="text-align: center" width="150">가입날짜</th>
-			<th style="text-align: center" width="170">편집</th>
-		</tr>
 		<%
 		for (MemberDto dto : list) {
 		%>
-		<tr align="center">
-			<td><%=no++%></td>
+		<%
+		if (loginok != null && dto.getId().equals(myid)) {
+		%>
+		<tr>
+			<th style="text-align: center" width="100">아이디</th>
 			<td><%=dto.getId()%></td>
+		</tr>
+		<tr>
+			<th style="text-align: center" width="100">이름</th>
 			<td><%=dto.getName()%></td>
+		</tr>
+		<tr>
+			<th style="text-align: center" width="150">휴대폰번호</th>
 			<td><%=dto.getHp()%></td>
+		</tr>
+		<tr>
+			<th style="text-align: center" width="150">주소</th>
 			<td><%=dto.getAddr()%></td>
+		</tr>
+		<tr>
+			<th style="text-align: center" width="150">이메일</th>
 			<td><%=dto.getEmail()%></td>
+		</tr>
+		<tr>
+			<th style="text-align: center" width="150">가입날짜</th>
 			<td><%=sdf.format(dto.getGaipday())%></td>
-			<td>
-				<button type="button" class="btn btn-danger btn-xs" 
-				onclick="delfunc(<%=dto.getNum()%>)">회원 강제탈퇴</button>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">
+				<button type="button" class="btn btn-warning btn-sm" onclick="#">회원수정</button>
+				<button type="button" class="btn btn-danger btn-sm" onclick="delfunc(<%=dto.getNum()%>)">회원탈퇴</button>
 			</td>
 		</tr>
+		<%
+		}
+		%>
 		<%
 		}
 		%>

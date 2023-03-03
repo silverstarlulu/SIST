@@ -1,3 +1,4 @@
+<%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
+<%
+String myid = (String) session.getAttribute("myid");
+MemberDao dao = new MemberDao();
+String name = dao.getName(myid);
+%>
 <body>
-
+	<div style="margin-left:100px; margin-top:50px">
+		<img src="image2/이요르.JPG" width="200px" align="left" hspace="20">
+	</div>
+	<div>
+		<h1>
+			<b><%=name%></b>님
+		</h1>
+		<button type="button" class="btn btn-danger" style="width: 130px" onclick="location.href='login/logoutaction.jsp'">로그아웃</button>
+	</div>
 </body>
 </html>

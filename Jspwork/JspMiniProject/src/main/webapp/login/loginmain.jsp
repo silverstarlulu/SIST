@@ -9,6 +9,19 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-로그인메인임
+	<%
+	//세션에 저장된 loginok 값 읽기
+	String loginok = (String) session.getAttribute("loginok");
+	
+	if(loginok==null){	//로그아웃 상태
+		%>
+		<jsp:include page="loginform.jsp"></jsp:include>
+		<%
+	}else{		//로그인상태
+		%>
+		<jsp:include page="logoutform.jsp"></jsp:include>
+		<%
+	}
+	%>
 </body>
 </html>
