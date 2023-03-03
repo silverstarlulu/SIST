@@ -51,8 +51,8 @@ div.main {
 	width: 1000px;
 	height: 1100px;
 	font-size: 12pt;
-	top: 200px;
-	left: 200px;
+	top: 220px;
+	left: 220px;
 	margin-left: 50px;
 	padding: 20px 10px;
 }

@@ -72,7 +72,7 @@ String loginok=(String) session.getAttribute("loginok");
 					<li class="parent">
 						<a href="#">게시판</a>
 						<ul class="sub-menu">
-							<li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp">방명록</a></li>
+							<li><a href="<%=root%>/index.jsp?main=guest/guestlist.jsp">방명록</a></li>
 							<li><a href="<%=root%>/index.jsp?main=board/boardlist.jsp">Q&A</a></li>
 							<li><a href="#">스마트게시판</a></li>
 						</ul>
