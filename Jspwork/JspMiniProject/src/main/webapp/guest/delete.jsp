@@ -18,16 +18,17 @@
 
 	GuestDao dao = new GuestDao();
 
-	GuestDto dto = dao.getData(num);
-	String photoname = dto.getPhotoname();
+	String photoname = dao.getData(num).getPhotoname();
+	
+	dao.deleteGuest(num);
+	
+	//프로젝트 경로
 	String uploadPath = getServletContext().getRealPath("/save");
 	//파일생성
 	File file = new File(uploadPath + "\\" + photoname);
 	//파일삭제
 	if (file.exists())
 		file.delete();
-
-	dao.deleteGuest(num);
 
 	response.sendRedirect("../index.jsp?main=guest/guestlist.jsp?currentPage=" + currentPage);
 	%>
