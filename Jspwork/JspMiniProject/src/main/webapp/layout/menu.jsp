@@ -74,7 +74,7 @@ String loginok=(String) session.getAttribute("loginok");
 						<ul class="sub-menu">
 							<li><a href="<%=root%>/index.jsp?main=guest/guestlist.jsp">방명록</a></li>
 							<li><a href="#">Q&A</a></li>
-							<li><a href="<%=root%>/index.jsp?main=board/smartform.jsp">스마트게시판</a></li>
+							<li><a href="<%=root%>/index.jsp?main=board/boardlist.jsp">스마트게시판</a></li>
 						</ul>
 					</li>
 					<li><a href="#">상품등록</a></li>
