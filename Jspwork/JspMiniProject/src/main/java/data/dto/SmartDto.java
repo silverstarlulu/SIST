@@ -10,6 +10,15 @@ public class SmartDto {
 	private int readcount;
 	private Timestamp writeday;
 	
+	private int answercount;
+	
+	public int getAnswercount() {
+		return answercount;
+	}
+	public void setAnswercount(int answercount) {
+		this.answercount = answercount;
+	}
+	
 	public String getNum() {
 		return num;
 	}

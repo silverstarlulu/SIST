@@ -1,3 +1,5 @@
+<%@page import="data.dto.SmartAnswerDto"%>
+<%@page import="data.dao.SmartAnswerDao"%>
 <%@page import="data.dto.SmartDto"%>
 <%@page import="data.dao.SmartDao"%>
 <%@page import="data.dto.AnswerDto"%>
@@ -92,6 +94,13 @@ start = (currentPage - 1) * perPage;
 List<SmartDto> list = dao.getList(start, perPage);
 no = totalCount - (currentPage - 1) * perPage;
 SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm");
+
+//댓글관한 dao
+SmartAnswerDao a_dao = new SmartAnswerDao();
+for (SmartDto dto : list) {
+	int a_count = a_dao.getAllSmartAnswers(dto.getNum()).size();
+	dto.setAnswercount(a_count);
+}
 %>
 <body>
 	<div class="alert alert-info" style="width: 700px">
@@ -103,11 +112,11 @@ SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm");
 				<b>스마트 게시판 목록</b>
 			</caption>
 			<tr>
-				<th width="80">번호</th>
-				<th width="400">제목</th>
-				<th width="120">작성자</th>
-				<th width="150">작성일</th>
-				<th width="60">조회</th>
+				<th style="text-align: center" width="80">번호</th>
+				<th style="text-align: center" width="400">제목</th>
+				<th style="text-align: center" width="120">작성자</th>
+				<th style="text-align: center" width="150">작성일</th>
+				<th style="text-align: center" width="60">조회</th>
 			</tr>
 
 			<%
@@ -132,11 +141,20 @@ SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm");
 				<td>
 					<a href="index.jsp?main=board/detailView.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>"> <%=dto.getSubject()%>
 					</a>
+					<%
+					if (dto.getAnswercount() > 0) {
+					%>
+					<span style="color: red; font-weight:bold; font-size: 0.7em">&nbsp;[<%=dto.getAnswercount()%>]
+					</span>
+					<%
+					}
+					%>
+
 				</td>
 
-				<td><%=dto.getWriter()%></td>
-				<td><%=sdf.format(dto.getWriteday())%></td>
-				<td><%=dto.getReadcount()%></td>
+				<td align="center"><%=dto.getWriter()%></td>
+				<td align="center"><%=sdf.format(dto.getWriteday())%></td>
+				<td align="center"><%=dto.getReadcount()%></td>
 			</tr>
 			<%
 			}

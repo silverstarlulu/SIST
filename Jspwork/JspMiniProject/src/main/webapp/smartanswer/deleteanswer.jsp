@@ -1,3 +1,4 @@
+<%@page import="data.dao.SmartAnswerDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,6 +10,10 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-
+<%
+String idx=request.getParameter("idx");
+SmartAnswerDao dao=new SmartAnswerDao();
+dao.deleteSmartAnswer(idx);
+%>
 </body>
 </html>
