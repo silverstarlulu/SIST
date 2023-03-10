@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -15,7 +16,7 @@ MemberDao dao = new MemberDao();
 String name = dao.getName(myid);
 %>
 <body>
-	<div style="margin-left:100px; margin-top:50px">
+	<div style="margin-left: 100px; margin-top: 50px">
 		<img src="image2/이요르.JPG" width="200px" align="left" hspace="20">
 	</div>
 	<div>
@@ -24,5 +25,6 @@ String name = dao.getName(myid);
 		</h1>
 		<button type="button" class="btn btn-danger" style="width: 130px" onclick="location.href='login/logoutaction.jsp'">로그아웃</button>
 	</div>
+
 </body>
 </html>

@@ -16,12 +16,21 @@
 a {
 	text-decoration: none;
 	color: black;
+	cursor: pointer;
 }
 </style>
-</head>
-<script type="text/javascript">
-	/* $("#tabs").tabs(); */
+<script>
+	$(function() {
+		$("a.godetail").click(function() {
+			var shopnum = $(this).attr("shopnum");
+			//alert(shopnum);
+
+			location.href = "index.jsp?main=shop/detailpage.jsp?shopnum="+ shopnum;
+
+		})
+	})
 </script>
+</head>
 <body>
 	<%
 	request.setCharacterEncoding("utf-8");
@@ -47,280 +56,286 @@ a {
 			<li><a data-toggle="tab" href="#tabs-5">의상</a></li>
 			<li><a data-toggle="tab" href="#tabs-6">악세서리</a></li>
 		</ul>
-	
-	<div class="tab-content">
-	<div id="tabs-1" class="tab-pane fade in active">
-		<p>
-		<table class="table table-bordered" style="width: 1000px">
-			<caption>
-				<b>전체상품목록</b>
-			</caption>
-			<tr>
-				<%
-				NumberFormat nf = NumberFormat.getCurrencyInstance();
-				int i = 0;
-				for (ShopDto dto : list) {
-					String photo = dto.getPhoto();
 
-					int sale = (int) (Math.random() * 11) + 20;
-				%>
-				<td>
-					<a><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b>
-						<span style="float: right;">
-							<div style="color: gray; font-size: 13px">
-								<%
-								int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
-								%>
-								<strike><%=nf.format(price)%></strike>
-							</div>
-							<div style="color: black; font-size: 16px"><b>
-								<%=nf.format(dto.getPrice())%></b>
-							</div>
-						</span>
-					 </a>
-				</td>
-				<%
-				if((i+1)%4==0){
-					%><tr></tr><%
-				}
-				i++;
-				}
-				%>
-			</tr>
-		</table>
-		</p>
-	</div>
-	
-		<div id="tabs-2" class="tab-pane fade">
-		<p>
-		<table class="table table-bordered" style="width: 1000px">
-			<caption>
-				<b>피규어</b>
-			</caption>
-			<tr>
-				<%
-				nf = NumberFormat.getCurrencyInstance();
-				i = 0;
-				for (ShopDto dto : list) {
-					
-					if(dto.getCategory().equals("피규어")){
-					
-					String photo = dto.getPhoto();
+		<div class="tab-content">
+			<div id="tabs-1" class="tab-pane fade in active">
+				<p>
+				<table class="table table-bordered" style="width: 1000px">
+					<caption>
+						<b>전체상품목록</b>
+					</caption>
+					<tr>
+						<%
+						NumberFormat nf = NumberFormat.getCurrencyInstance();
+						int i = 0;
+						for (ShopDto dto : list) {
+							String photo = dto.getPhoto();
 
-					int sale = (int) (Math.random() * 11) + 20;
-				%>
-				<td>
-					<a><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b>
-						<span style="float: right;">
-							<div style="color: gray; font-size: 13px">
-								<%
-								int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
-								%>
-								<strike><%=nf.format(price)%></strike>
-							</div>
-							<div style="color: black; font-size: 16px"><b>
-								<%=nf.format(dto.getPrice())%></b>
-							</div>
-						</span>
-					 </a>
-				</td>
-				<%
-				if((i+1)%4==0){
-					%><tr></tr><%
-				}
-				i++;
-				}
-				}
-				%>
-			</tr>
-		</table>
-		</p>
-	</div>
-	
-	<div id="tabs-3" class="tab-pane fade">
-		<p>
-		<table class="table table-bordered" style="width: 1000px">
-			<caption>
-				<b>선물세트</b>
-			</caption>
-			<tr>
-				<%
-				nf = NumberFormat.getCurrencyInstance();
-				i = 0;
-				for (ShopDto dto : list) {
+							int sale = (int) (Math.random() * 11) + 20;
+						%>
+						<td>
+							<a shopnum="<%=dto.getShopnum()%>" class="godetail"><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b> <span style="float: right;">
+									<div style="color: gray; font-size: 13px">
+										<%
+										int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
+										%>
+										<strike><%=nf.format(price)%></strike>
+									</div>
+									<div style="color: black; font-size: 16px">
+										<b> <%=nf.format(dto.getPrice())%></b>
+									</div>
+							</span> </a>
+						</td>
+						<%
+						if ((i + 1) % 4 == 0) {
+						%>
 					
-					if(dto.getCategory().equals("선물세트")){
-					
-					String photo = dto.getPhoto();
+					<tr></tr>
+					<%
+					}
+					i++;
+					}
+					%>
+					</tr>
+				</table>
+				</p>
+			</div>
 
-					int sale = (int) (Math.random() * 11) + 20;
-				%>
-				<td>
-					<a><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b>
-						<span style="float: right;">
-							<div style="color: gray; font-size: 13px">
-								<%
-								int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
-								%>
-								<strike><%=nf.format(price)%></strike>
-							</div>
-							<div style="color: black; font-size: 16px"><b>
-								<%=nf.format(dto.getPrice())%></b>
-							</div>
-						</span>
-					 </a>
-				</td>
-				<%
-				if((i+1)%4==0){
-					%><tr></tr><%
-				}
-				i++;
-				}
-				}
-				%>
-			</tr>
-		</table>
-		</p>
-	</div>
-	
-	<div id="tabs-4" class="tab-pane fade">
-		<p>
-		<table class="table table-bordered" style="width: 1000px">
-			<caption>
-				<b>게임기기</b>
-			</caption>
-			<tr>
-				<%
-				nf = NumberFormat.getCurrencyInstance();
-				i = 0;
-				for (ShopDto dto : list) {
-					
-					if(dto.getCategory().equals("게임기기")){
-					
-					String photo = dto.getPhoto();
+			<div id="tabs-2" class="tab-pane fade">
+				<p>
+				<table class="table table-bordered" style="width: 1000px">
+					<caption>
+						<b>피규어</b>
+					</caption>
+					<tr>
+						<%
+						nf = NumberFormat.getCurrencyInstance();
+						i = 0;
+						for (ShopDto dto : list) {
 
-					int sale = (int) (Math.random() * 11) + 20;
-				%>
-				<td>
-					<a><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b>
-						<span style="float: right;">
-							<div style="color: gray; font-size: 13px">
-								<%
-								int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
-								%>
-								<strike><%=nf.format(price)%></strike>
-							</div>
-							<div style="color: black; font-size: 16px"><b>
-								<%=nf.format(dto.getPrice())%></b>
-							</div>
-						</span>
-					 </a>
-				</td>
-				<%
-				if((i+1)%4==0){
-					%><tr></tr><%
-				}
-				i++;
-				}
-				}
-				%>
-			</tr>
-		</table>
-		</p>
-	</div>
-	
-	<div id="tabs-5" class="tab-pane fade">
-		<p>
-		<table class="table table-bordered" style="width: 1000px">
-			<caption>
-				<b>의상</b>
-			</caption>
-			<tr>
-				<%
-				nf = NumberFormat.getCurrencyInstance();
-				i = 0;
-				for (ShopDto dto : list) {
-					
-					if(dto.getCategory().equals("의상")){
-					
-					String photo = dto.getPhoto();
+							if (dto.getCategory().equals("피규어")) {
 
-					int sale = (int) (Math.random() * 11) + 20;
-				%>
-				<td>
-					<a><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b>
-						<span style="float: right;">
-							<div style="color: gray; font-size: 13px">
-								<%
-								int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
-								%>
-								<strike><%=nf.format(price)%></strike>
-							</div>
-							<div style="color: black; font-size: 16px"><b>
-								<%=nf.format(dto.getPrice())%></b>
-							</div>
-						</span>
-					 </a>
-				</td>
-				<%
-				if((i+1)%4==0){
-					%><tr></tr><%
-				}
-				i++;
-				}
-				}
-				%>
-			</tr>
-		</table>
-		</p>
-	</div>
-	
-	<div id="tabs-6" class="tab-pane fade in">
-		<p>
-		<table class="table table-bordered" style="width: 1000px">
-			<caption>
-				<b>악세서리</b>
-			</caption>
-			<tr>
-				<%
-				nf = NumberFormat.getCurrencyInstance();
-				i = 0;
-				for (ShopDto dto : list) {
-					
-					if(dto.getCategory().equals("악세서리")){
-					
-					String photo = dto.getPhoto();
+								String photo = dto.getPhoto();
 
-					int sale = (int) (Math.random() * 11) + 20;
-				%>
-				<td>
-					<a><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b>
-						<span style="float: right;">
-							<div style="color: gray; font-size: 13px">
-								<%
-								int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
-								%>
-								<strike><%=nf.format(price)%></strike>
-							</div>
-							<div style="color: black; font-size: 16px"><b>
-								<%=nf.format(dto.getPrice())%></b>
-							</div>
-						</span>
-					 </a>
-				</td>
-				<%
-				if((i+1)%4==0){
-					%><tr></tr><%
-				}
-				i++;
-				}
-				}
-				%>
-			</tr>
-		</table>
-		</p>
-	</div>
-	</div>
+								int sale = (int) (Math.random() * 11) + 20;
+						%>
+						<td>
+							<a shopnum="<%=dto.getShopnum()%>" class="godetail"><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b> <span style="float: right;">
+									<div style="color: gray; font-size: 13px">
+										<%
+										int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
+										%>
+										<strike><%=nf.format(price)%></strike>
+									</div>
+									<div style="color: black; font-size: 16px">
+										<b> <%=nf.format(dto.getPrice())%></b>
+									</div>
+							</span> </a>
+						</td>
+						<%
+						if ((i + 1) % 4 == 0) {
+						%>
+					
+					<tr></tr>
+					<%
+					}
+					i++;
+					}
+					}
+					%>
+					</tr>
+				</table>
+				</p>
+			</div>
+
+			<div id="tabs-3" class="tab-pane fade">
+				<p>
+				<table class="table table-bordered" style="width: 1000px">
+					<caption>
+						<b>선물세트</b>
+					</caption>
+					<tr>
+						<%
+						nf = NumberFormat.getCurrencyInstance();
+						i = 0;
+						for (ShopDto dto : list) {
+
+							if (dto.getCategory().equals("선물세트")) {
+
+								String photo = dto.getPhoto();
+
+								int sale = (int) (Math.random() * 11) + 20;
+						%>
+						<td>
+							<a shopnum="<%=dto.getShopnum()%>" class="godetail"><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b> <span style="float: right;">
+									<div style="color: gray; font-size: 13px">
+										<%
+										int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
+										%>
+										<strike><%=nf.format(price)%></strike>
+									</div>
+									<div style="color: black; font-size: 16px">
+										<b> <%=nf.format(dto.getPrice())%></b>
+									</div>
+							</span> </a>
+						</td>
+						<%
+						if ((i + 1) % 4 == 0) {
+						%>
+					
+					<tr></tr>
+					<%
+					}
+					i++;
+					}
+					}
+					%>
+					</tr>
+				</table>
+				</p>
+			</div>
+
+			<div id="tabs-4" class="tab-pane fade">
+				<p>
+				<table class="table table-bordered" style="width: 1000px">
+					<caption>
+						<b>게임기기</b>
+					</caption>
+					<tr>
+						<%
+						nf = NumberFormat.getCurrencyInstance();
+						i = 0;
+						for (ShopDto dto : list) {
+
+							if (dto.getCategory().equals("게임기기")) {
+
+								String photo = dto.getPhoto();
+
+								int sale = (int) (Math.random() * 11) + 20;
+						%>
+						<td>
+							<a shopnum="<%=dto.getShopnum()%>" class="godetail"><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b> <span style="float: right;">
+									<div style="color: gray; font-size: 13px">
+										<%
+										int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
+										%>
+										<strike><%=nf.format(price)%></strike>
+									</div>
+									<div style="color: black; font-size: 16px">
+										<b> <%=nf.format(dto.getPrice())%></b>
+									</div>
+							</span> </a>
+						</td>
+						<%
+						if ((i + 1) % 4 == 0) {
+						%>
+					
+					<tr></tr>
+					<%
+					}
+					i++;
+					}
+					}
+					%>
+					</tr>
+				</table>
+				</p>
+			</div>
+
+			<div id="tabs-5" class="tab-pane fade">
+				<p>
+				<table class="table table-bordered" style="width: 1000px">
+					<caption>
+						<b>의상</b>
+					</caption>
+					<tr>
+						<%
+						nf = NumberFormat.getCurrencyInstance();
+						i = 0;
+						for (ShopDto dto : list) {
+
+							if (dto.getCategory().equals("의상")) {
+
+								String photo = dto.getPhoto();
+
+								int sale = (int) (Math.random() * 11) + 20;
+						%>
+						<td>
+							<a shopnum="<%=dto.getShopnum()%>" class="godetail"><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b> <span style="float: right;">
+									<div style="color: gray; font-size: 13px">
+										<%
+										int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
+										%>
+										<strike><%=nf.format(price)%></strike>
+									</div>
+									<div style="color: black; font-size: 16px">
+										<b> <%=nf.format(dto.getPrice())%></b>
+									</div>
+							</span> </a>
+						</td>
+						<%
+						if ((i + 1) % 4 == 0) {
+						%>
+					
+					<tr></tr>
+					<%
+					}
+					i++;
+					}
+					}
+					%>
+					</tr>
+				</table>
+				</p>
+			</div>
+
+			<div id="tabs-6" class="tab-pane fade in">
+				<p>
+				<table class="table table-bordered" style="width: 1000px">
+					<caption>
+						<b>악세서리</b>
+					</caption>
+					<tr>
+						<%
+						nf = NumberFormat.getCurrencyInstance();
+						i = 0;
+						for (ShopDto dto : list) {
+
+							if (dto.getCategory().equals("악세서리")) {
+
+								String photo = dto.getPhoto();
+
+								int sale = (int) (Math.random() * 11) + 20;
+						%>
+						<td>
+							<a shopnum="<%=dto.getShopnum()%>" class="godetail"><img style="width: 200px" src="shopsave/<%=photo%>" class="photo"> <br> <%=dto.getSangpum()%> <b style="color: red; font-size: 0.8em;"><%=sale%>% SALE</b> <span style="float: right;">
+									<div style="color: gray; font-size: 13px">
+										<%
+										int price = (int) (dto.getPrice() + (dto.getPrice() * (sale / 100.0)));
+										%>
+										<strike><%=nf.format(price)%></strike>
+									</div>
+									<div style="color: black; font-size: 16px">
+										<b> <%=nf.format(dto.getPrice())%></b>
+									</div>
+							</span> </a>
+						</td>
+						<%
+						if ((i + 1) % 4 == 0) {
+						%>
+					
+					<tr></tr>
+					<%
+					}
+					i++;
+					}
+					}
+					%>
+					</tr>
+				</table>
+				</p>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

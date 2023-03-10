@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -8,6 +9,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Poor+Story&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<style>
+div.cart, div.count {
+	float: right;
+	cursor: pointer;
+}
+
+span.carticon {
+	font-size: 30px;
+}
+
+div.count {
+	width: 30px;
+	height: 30px;
+	color: white;
+	background-color: rgba(255, 0, 0, 0.7);
+	border-radius: 100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: 30px;
+	z-index: 10;
+	position: relative;
+	left: -10px;
+	top: 10px;
+	font-size: 0.7em;
+}
+</style>
+<script>
+	$(function() {
+		$("div.cart").click(function() {
+			location.href = "index.jsp?main=shop/mycart.jsp";
+		})
+	})
+</script>
 </head>
 <%
 //프로젝트 경로구하기
@@ -32,6 +66,18 @@ String root = request.getContextPath();
 		<%
 		}
 		%>
+
+		<%
+		ShopDao s_dao = new ShopDao();
+		//카트개수
+		int cartSize = s_dao.getCartList(myid).size();
+		%>
+
+		<div class="cart">
+			<span class="carticon glyphicon glyphicon-shopping-cart"></span>
+			<div class="count"><%=cartSize%></div>
+		</div>
+
 	</div>
 </body>
 </html>
