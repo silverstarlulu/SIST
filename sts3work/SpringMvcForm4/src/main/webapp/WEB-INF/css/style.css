@@ -1,0 +1,10 @@
+@charset "EUC-KR";
+
+table{
+	border: 2px solid pink;
+	background-color: powderblue;
+}
+
+tr,th,td{
+	border: 1px dotted tomato;
+}
