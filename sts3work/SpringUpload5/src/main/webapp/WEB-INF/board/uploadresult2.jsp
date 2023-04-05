@@ -13,6 +13,11 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-
+	<h2>제목: ${title }</h2>
+	<c:forEach var="img" items="${files }">
+		<img src="../photo/${img}" ; width="300"
+			; style="border: 1px solid gray">
+	</c:forEach>
+	<h2>업로드할 실제경로: ${path }</h2>
 </body>
 </html>

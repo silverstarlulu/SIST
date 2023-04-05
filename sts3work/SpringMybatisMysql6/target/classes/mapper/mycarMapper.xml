@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL문 작성 -->
+
+<mapper namespace="mycar">
+
+	<select id="getTotalCount_mycar" resultType="int">
+		select count(*) from mycar
+	</select>
+	
+	<select id="getAllDatas_mycar" resultType="CarDto"> <!-- 원래는 spring.db.car.MyCarDto -> mybatis-config에서 alias 설정 -->
+		select * from mycar order by num desc
+	</select>
+	
+	<insert id="insert_mycar" parameterType="CarDto">
+		insert into mycar(carname,carprice,carcolor,carguip) values(#{carname},#{carprice},#{carcolor},#{carguip})
+	</insert>
+	
+	<select id="getData_mycar" resultType="CarDto" parameterType="String">
+		select * from mycar where num=#{num}
+	</select>
+	
+	<update id="update_mycar" parameterType="CarDto">
+		update mycar set carname=#{carname},carprice=#{carprice},carcolor=#{carcolor},carguip=#{carguip} where num=#{num}
+	</update>
+	
+	<delete id="delete_mycar" parameterType="String">
+		delete from mycar where num=#{num}
+	</delete>
+</mapper>
