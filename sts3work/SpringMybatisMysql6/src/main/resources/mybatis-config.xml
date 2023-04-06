@@ -8,5 +8,6 @@
 		<!-- DTO 등록 -->
 		<typeAlias alias="CarDto" type="spring.db.car.MyCarDto" />
 		<typeAlias alias="CarMemberDto" type="spring.db.member.CarMemberDto" />
+		<typeAlias alias="SawonDto" type="sawon.data.SawonDto" />
 	</typeAliases>
 </configuration>

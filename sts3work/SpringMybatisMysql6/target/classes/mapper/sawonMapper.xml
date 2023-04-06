@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sawon">
+
+	<select id="getTotalCount_sawon" resultType="int">
+		select count(*) from sawon
+	</select>
+
+	<insert id="insert_sawon" parameterType="SawonDto">
+		insert into sawon (name,driver,buseo,photo,ipsaday) values(#{name},#{driver},#{buseo},#{photo},now())
+	</insert>
+	
+	<select id="getAllDatas_sawon" resultType="SawonDto">
+		select * from sawon 
+		<if test="search!=null">
+			where ${title} like concat('%',#{search},'%')
+		</if>
+		order by num
+	</select>
+	
+	<select id="getData_sawon" resultType="SawonDto" parameterType="String">
+		select * from sawon where num=#{num}
+	</select>
+	
+	<update id="update_sawon" parameterType="SawonDto">
+		update sawon set buseo=#{buseo},driver=#{driver}
+		<if test="photo!=null">
+		,photo=#{photo}
+		</if>
+		 where num=#{num}
+	</update>
+	
+	<delete id="delete_sawon" parameterType="String">
+		delete from sawon  where num=#{num}
+	</delete>
+
+</mapper>

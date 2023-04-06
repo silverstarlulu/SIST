@@ -22,6 +22,8 @@
 		onclick="location.href='member/list'">고객명단</button>
 	<br>
 	<br>
+		<button type="button" class="btn btn-info" style="width: 200px"
+		onclick="location.href='sawon/list'">사원명단</button>
 	<%-- <c:redirect url="samsung/list"></c:redirect> --%>
 </body>
 </html>
