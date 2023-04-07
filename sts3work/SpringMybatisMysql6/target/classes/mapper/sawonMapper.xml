@@ -32,7 +32,7 @@
 	</update>
 	
 	<delete id="delete_sawon" parameterType="String">
-		delete from sawon  where num=#{num}
+		delete from sawon where num=#{num}
 	</delete>
 
 </mapper>

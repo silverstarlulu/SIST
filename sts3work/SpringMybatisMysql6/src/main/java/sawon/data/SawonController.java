@@ -117,7 +117,16 @@ public class SawonController {
 	}
 	
 	@GetMapping("/sawon/delete")
-	public String sawonDelete(String num) {
+	public String sawonDelete(@RequestParam String num, HttpSession session) {
+		String photo=dao.getSawon(num).getPhoto();
+		
+		if(!photo.equals("none image")) {
+			String path=session.getServletContext().getRealPath("/WEB-INF/image");
+			
+			File file=new File(path+"\\"+photo);
+			file.delete();
+		}
+		
 		dao.deleteSawon(num);
 		
 		return "redirect:list";
