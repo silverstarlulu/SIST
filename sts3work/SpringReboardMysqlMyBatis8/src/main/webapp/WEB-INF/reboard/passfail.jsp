@@ -13,6 +13,9 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-
+<script type="text/javascript">
+	alert("!! 비밀번호 오류 !!");
+	history.back();
+</script>
 </body>
 </html>

@@ -5,21 +5,54 @@
 		select count(*) from reboard
 	</select>
 	
-	
+	<!-- num의 max 값, null일 경우는 0 -->
 	<select id="MaxNum_reboard" resultType="int">
 		select ifnull(max(num),0) from reboard
 	</select>
 	
+	<!-- 같은 group 중 step보다 큰 데이터는 모두 +1 -->
 	<update id="updateStep_reboard" parameterType="HashMap">
 		update reboard set restep=restep+1 where regroup=#{regroup} and restep>#{restep}
 	</update>
 	
+	<!-- insert(새글, 원글) -->
 	<insert id="insert_reboard" parameterType="ReboardDto">
 		insert into reboard(writer,pass,subject,content,photo,regroup,restep,relevel,writeday) values (#{writer},#{pass},#{subject},#{content},#{photo},#{regroup},#{restep},#{relevel},now())
 	</insert>
 	
 	
+	<!-- 페이징처리할 전체리스트 -->
 	<select id="getAllPaging_reboard" parameterType="HashMap" resultType="ReboardDto">
 		select * from reboard order by regroup desc, restep asc limit #{start},#{perpage}
 	</select>
+	
+	
+	<!-- 내용보기에서 처리 -->
+	<update id="updateReadCount_reboard" parameterType="int">
+		update reboard set readcount=readcount+1 where num=#{num}
+	</update>
+	
+	<select id="getData_reboard" parameterType="int" resultType="ReboardDto">
+		select * from reboard where num=#{num}
+	</select>
+	
+	
+	<!-- 수정/삭제 시 필요한 비밀번호 확인 (num, pass) -->
+	<!-- 맞으면 1, 틀리면 0 반환 -->
+	<select id="checkEqualPass_reboard" parameterType="HashMap" resultType="int">
+		select count(*) from reboard where num=#{num} and pass=#{pass}
+	</select>
+	
+	
+	<delete id="delete_reboard" parameterType="int">
+		delete from reboard where num=#{num}
+	</delete>
+	
+	<update id="update_reboard" parameterType="ReboardDto">
+	 	update reboard set subject=#{subject},content=#{content}
+	 	<if test="photo!='no'">
+	 		,photo=#{photo}
+	 	</if>
+	 	 where num=#{num} 
+	</update>
 </mapper>

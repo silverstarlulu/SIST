@@ -14,13 +14,12 @@
 </head>
 <body>
 
-	<h1 class="alert alert-danger">${totalCount}</h1>
 	<div style="margin: 30px">
 		<table class="table table-bordered" style="width: 800px">
 			<caption>
-				<b>Spring 게시판</b> <span style="float: right"><button
-						type="button" class="btn btn-default"
-						onclick="location.href='writeform'">글쓰기</button></span>
+				<b>Spring 게시판</b> 
+				<span style="float: right">
+				<button type="button" class="btn btn-default" onclick="location.href='writeform'">글쓰기</button></span>
 			</caption>
 
 			<tr bgcolor="F3E8FF" align="center">
@@ -30,6 +29,7 @@
 				<th width="100" style="text-align: center"><b>작성일</b></th>
 				<th width="60" style="text-align: center"><b>조회수</b></th>
 			</tr>
+			
 			<c:if test="${totalCount==0 }">
 				<tr>
 					<td colspan="5" align="center"><b>등록된 게시글이 없습니다.</b></td>
@@ -38,28 +38,34 @@
 
 			<c:if test="${totalCount>0 }">
 				<c:forEach var="dto" items="${list }">
-					<tr style="text-align: center">
-						<td>${no }</td>
+					<tr>
+						<td style="text-align: center">${no }</td>
 						<c:set var="no" value="${no-1 }"></c:set>
 
 						<!-- 제목 -->
 						<td>
-							<!-- relevel 만큼 공백 --> <c:forEach begin="1" end="${dto.relevel }">
+							<!-- relevel 만큼 공백 --> 
+							<c:forEach begin="1" end="${dto.relevel }">
 								&nbsp;&nbsp;	<!-- 2칸 띄기, 원글일경우는 0, 반복문 돌지 x -->
-							</c:forEach> <!-- 답글이면 re이미지 출력 --> <c:if test="${dto.relevel>0 }">
-								<img src="../photo/re.png">
-							</c:if> <!-- 제목 눌러서 내용보기로 --> <a
-							href="content?num=${dto.num }&currentPage=${currentPage}">${dto.subject }</a>
+							</c:forEach> 
+							
+							<!-- 답글이면 re이미지 출력 --> 
+							<c:if test="${dto.relevel>0 }">
+								<img src="../photo/re.png" width="8">
+							</c:if> 
+							
+							<!-- 제목 눌러서 내용보기로 --> 
+							<a href="content?num=${dto.num }&currentPage=${currentPage}">${dto.subject }</a>
 
-							<!-- 이미지가 있을 경우 아이콘 표시 --> <c:if test="${dto.photo!='no' }">
+							<!-- 이미지가 있을 경우 아이콘 표시 --> 
+							<c:if test="${dto.photo!='no' }">
 								<span class="glyphicon glyphicon-picture"></span>
 							</c:if>
 						</td>
 
-						<td>${dto.writer }</td>
-						<td><fmt:formatDate value="${dto.writeday }"
-								pattern="yyyy-MM-dd HH:mm" /></td>
-						<td>${dto.readcount }</td>
+						<td style="text-align: center">${dto.writer }</td>
+						<td style="text-align: center"><fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd HH:mm" /></td>
+						<td style="text-align: center">${dto.readcount }</td>
 					</tr>
 				</c:forEach>
 			</c:if>

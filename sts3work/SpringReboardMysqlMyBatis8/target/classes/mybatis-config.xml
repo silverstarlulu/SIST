@@ -5,6 +5,6 @@
 	<typeAliases>
 		<!-- DTO 등록 -->
 		<typeAlias alias="ReboardDto" type="reboard.data.model.ReboardDto" />
-
+		<typeAlias alias="ReanswerDto" type="reanswer.data.model.ReanswerDto" />
 	</typeAliases>
 </configuration>

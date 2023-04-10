@@ -54,7 +54,7 @@ public class BoardWriteController {
 
 	@PostMapping("/board/insert")
 	public String insert(@ModelAttribute ReboardDto dto, @RequestParam ArrayList<MultipartFile> upload,
-			HttpSession session) {
+			HttpSession session,@RequestParam String currentPage) {
 		String path = session.getServletContext().getRealPath("/WEB-INF/photo/");
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -87,8 +87,10 @@ public class BoardWriteController {
 
 		dto.setPhoto(photo);
 		dao.insertReboard(dto);
+		
+		int num=dao.getMaxNum();
 
-		return "redirect:list";
+		return "redirect:content?num="+num+"&currentPage="+currentPage;
 	}
 
 }

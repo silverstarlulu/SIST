@@ -67,4 +67,39 @@ public class ReboardDao implements ReboardDaoInter {
 		return session.selectList("getAllPaging_reboard", map);
 	}
 
+	
+	@Override
+	public void updateReadCount(int num) {
+		session.update("updateReadCount_reboard", num);
+	}
+
+	@Override
+	public ReboardDto getData(int num) {
+		return session.selectOne("getData_reboard", num);
+	}
+
+	
+	
+	@Override
+	public int getCheckPass(int num, int pass) {
+		HashMap<String, Integer> map=new HashMap<String, Integer>();
+		map.put("num", num);
+		map.put("pass", pass);
+		
+		return session.selectOne("checkEqualPass_reboard", map);
+	
+	}
+
+	@Override
+	public void deleteReboard(int num) {
+		session.delete("delete_reboard", num);
+		
+	}
+
+	@Override
+	public void updateReboard(ReboardDto dto) {
+		session.update("update_reboard", dto);
+		
+	}
+
 }

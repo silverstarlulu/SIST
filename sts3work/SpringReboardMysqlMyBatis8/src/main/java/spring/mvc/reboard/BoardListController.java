@@ -39,7 +39,7 @@ public class BoardListController {
 
 		// 각 블럭의 마지막 페이지
 		int start; // 각 페이지의 시작번호
-		int perPage = 5; // 한 페이지당 보여질 글 개수
+		int perPage = 8; // 한 페이지당 보여질 글 개수
 		int perBlock = 5; // 한 블럭당 보여지는 페이지 개수
 
 		// 총 페이지 개수
@@ -71,7 +71,6 @@ public class BoardListController {
 		mview.addObject("perBlock", perBlock);
 		mview.addObject("currentPage", currentPage);
 		mview.addObject("no", no);
-		mview.addObject("hi", "hi");
 
 		mview.setViewName("boardlist");
 
