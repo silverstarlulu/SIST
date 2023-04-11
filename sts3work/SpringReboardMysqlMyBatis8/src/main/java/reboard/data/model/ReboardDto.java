@@ -15,6 +15,8 @@ public class ReboardDto {
 	private int relevel;
 	private int readcount;
 	private Timestamp writeday;
+	private int a_count;
+	
 	
 	public int getNum() {
 		return num;
@@ -82,6 +84,11 @@ public class ReboardDto {
 	public void setWriteday(Timestamp writeday) {
 		this.writeday = writeday;
 	}
-	
+	public int getA_count() {
+		return a_count;
+	}
+	public void setA_count(int a_count) {
+		this.a_count = a_count;
+	}
 
 }

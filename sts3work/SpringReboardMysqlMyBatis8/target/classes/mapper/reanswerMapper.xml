@@ -5,4 +5,16 @@
 	<insert id="insert_reanswer" parameterType="ReanswerDto">
 		insert into reanswer(num,nickname,pass,content,writeday) values(#{num},#{nickname},#{pass},#{content},now())
 	</insert>
+	
+	<select id="getNumOfDatas_reanswer" parameterType="int" resultType="ReanswerDto">
+		select * from reanswer where num=#{num} order by idx;
+	</select>
+	
+	<select id="passCheck_reanswer" parameterType="HashMap" resultType="int">
+		select count(*) from reanswer where idx=#{idx} and pass=#{pass}
+	</select>
+	
+	<delete id="delete_reanswer" parameterType="int">
+		delete from reanswer where idx=#{idx}
+	</delete>
 </mapper>

@@ -1,6 +1,6 @@
 package reanswer.data.model;
 
-import com.google.protobuf.Timestamp;
+import java.sql.Timestamp;
 
 public class ReanswerDto {
 	private int idx;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import reanswer.data.model.ReanswerDao;
 import reboard.data.model.ReboardDao;
 import reboard.data.model.ReboardDaoInter;
 import reboard.data.model.ReboardDto;
@@ -18,6 +19,9 @@ public class BoardListController {
 
 	@Autowired
 	ReboardDao dao;
+	
+	@Autowired
+	ReanswerDao a_dao;
 
 	@GetMapping("/")
 	public String start() {
@@ -58,6 +62,13 @@ public class BoardListController {
 
 		// 메서드 불러오기
 		List<ReboardDto> list = dao.getList(start, perPage);
+		
+		
+		//list에 각 글에 대한 댓글개수 추가
+		for(ReboardDto d:list) {
+			d.setA_count(a_dao.getNumOfDatas_answer(d.getNum()).size());
+		}
+		
 
 		// 게시글 앞에 붙을 번호
 		int no = totalCount - (currentPage - 1) * perPage;

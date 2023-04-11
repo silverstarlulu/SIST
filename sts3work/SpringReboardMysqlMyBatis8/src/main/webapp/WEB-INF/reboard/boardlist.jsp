@@ -61,6 +61,11 @@
 							<c:if test="${dto.photo!='no' }">
 								<span class="glyphicon glyphicon-picture"></span>
 							</c:if>
+							
+							<!-- 댓글 있을 경우 개수 표시 --> 
+							<c:if test="${dto.a_count!=0 }">
+								<a href="content?num=${dto.num }&currentPage=${currentPage}#answer" style="color: red; margin-left: 10px">[${dto.a_count }]</a>
+							</c:if>
 						</td>
 
 						<td style="text-align: center">${dto.writer }</td>
