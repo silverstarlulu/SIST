@@ -1,0 +1,26 @@
+# tomcat port
+server:
+  port: 9003
+  
+# jsp 
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/bookstore/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+      
+# mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lululala?serverTimezone=Asia/Seoul
+    username: lululala
+    password: 1234
+    
+# mybatis
+mybatis:
+  type-aliases-package: book.data,book.mapper
+  mapper-locations:
+  - /mapper/**/*.xml
