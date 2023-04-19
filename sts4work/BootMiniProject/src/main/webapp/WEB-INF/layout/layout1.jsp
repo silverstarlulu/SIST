@@ -28,7 +28,7 @@ div.layout div.title {
 	position: absolute;
 	width:500px;
 	top: 10px;
-	left: 350px;
+	left: 400px;
 	height: 130px;
 	background-color: #FDE2F3;
 }
@@ -36,7 +36,7 @@ div.layout div.title {
 div.layout div.menu {
 	position: absolute;
 	top: 150px;
-	left: 100px;
+	left: 160px;
 	height: 100px;
 }
 
@@ -45,7 +45,7 @@ div.layout div.info {
 	width:180px;
 	top: 280px;
 	left: 20px;
-	height: 200px;
+	height: 250px;
 	background-color: #FFF4E0;
 }
 
