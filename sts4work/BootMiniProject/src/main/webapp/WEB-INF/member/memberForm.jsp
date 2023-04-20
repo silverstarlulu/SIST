@@ -16,7 +16,10 @@
 <style type="text/css">
 body {
 	font-family: 'Gaegu', cursive;
-	font-size: 1.8em;
+}
+
+table {
+	font-size: 1.7em;
 }
 
 #showImg {
@@ -169,7 +172,7 @@ body {
 			<tr>
 				<td colspan="2" align="right"><button type="submit"
 						class="btn btn-success"
-						style="width: 200px; height: 50px; font-size: 1.5em">회원가입</button></td>
+						style="width: 200px; height: 50px; font-size: 1.1em;">회원가입</button></td>
 			</tr>
 		</table>
 	</form>

@@ -36,7 +36,7 @@ ul.menu li {
 	color: #F9F5EB;
 	cursor: pointer;
 	width: 100px;
-	border-radius: 2px;
+	border-radius: 5px;
 }
 
 ul.menu li:active {
@@ -57,13 +57,21 @@ ul.menu li a {
 	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<ul class="menu">
 		<li><a href="${root }/">HOME</a></li>
-		<li><a href="${root }/ipgo/form">상품등록</a></li>
+		<c:if
+			test="${sessionScope.loginOk!=null && sessionScope.loginUser.equals('admin') }">
+			<li><a href="${root }/ipgo/form">상품등록</a></li>
+		</c:if>
 		<li><a href="${root }/ipgo/list">상품목록</a></li>
 		<li><a href="${root }/board/list">게시판</a></li>
-		<li><a href="${root }/login/main">로그인</a></li>
-		<li><a href="${root }/member/list">회원목록</a></li>
-		<li><a href="${root }/member/form">회원가입</a></li>
+		<li><a href="${root }/login/main">로그인메인</a></li>
+		<c:if
+			test="${sessionScope.loginOk!=null && sessionScope.loginUser.equals('admin') }">
+			<li><a href="${root }/member/list">회원목록</a></li>
+		</c:if>
 		<li><a href="${root }/member/myinfo">나의정보</a></li>
+		<c:if test="${sessionScope.loginOk==null }">
+			<li><a href="${root }/member/form">회원가입</a></li>
+		</c:if>
 		<li><a href="${root }/road/map">오시는길</a></li>
 	</ul>
 </body>

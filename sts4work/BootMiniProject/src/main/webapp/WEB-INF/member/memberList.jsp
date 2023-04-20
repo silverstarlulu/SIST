@@ -16,9 +16,53 @@
 <style type="text/css">
 body {
 	font-family: 'Gaegu', cursive;
-	font-size: 1.7em;
+}
+
+table {
+	font-size: 1.2em;
 }
 </style>
+<script>
+	$(function() {
+		$(".alldelcheck").click(function() {
+			var chk = $(this).is(":checked");
+			$(".del").prop("checked", chk);
+		})
+
+		$("#btnDel").click(function() {
+			//체크된 길이
+			var len = $(".del:checked").length;
+			if (len == 0)
+				alert("삭제할 항목을 선택하세요.");
+			else {
+				var a = confirm(len + "명의 회원을 삭제하시겠습니까?");
+				//체크된 곳의 value 값(num) 얻기
+				if(a){
+					var n = "";
+					$(".del:checked").each(function(i) {
+						n += $(this).attr("num") + ",";
+					})
+
+					//마지막 컴마값 제외하기
+					n = n.substring(0, n.length - 1);
+				
+					//삭제
+					$.ajax({
+						type:"get",
+						data:{"num":n},
+						dataType:"html",
+						url:"/member/deleteAdmin",
+						success:function(){
+							location.href="/member/list";
+						}
+					})
+				}
+				
+				
+			}
+		})
+	})
+</script>
 </head>
 <body>
 
@@ -35,7 +79,7 @@ body {
 			<th style="width: 80px; text-align: center;">주소</th>
 			<th style="width: 80px; text-align: center;">이메일</th>
 			<th style="width: 80px; text-align: center;"><input
-				type="checkbox">&nbsp;&nbsp;삭제</th>
+				type="checkbox" class="alldelcheck">&nbsp;&nbsp;삭제</th>
 		</tr>
 		<c:forEach var="dto" items="${list }" varStatus="i">
 			<tr align="center">
@@ -49,9 +93,10 @@ body {
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="7" align="right"><button type="button" class="btn btn-danger"
-					style="width: 50px;" id="btnDel">삭제</button></td>
+			<td colspan="7" align="right"><button type="button"
+					class="btn btn-danger" style="width: 50px;" id="btnDel">삭제</button></td>
 		</tr>
 	</table>
+	
 </body>
 </html>

@@ -61,7 +61,7 @@ public class MemberController {
 	public String insert_member(@ModelAttribute MemberDto dto, MultipartFile myPhoto, HttpSession session) {
 		System.out.println(dto.getName());
 		System.out.println(dto.getAddr());
-		
+
 		String realPath = session.getServletContext().getRealPath("/photo");
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -69,7 +69,6 @@ public class MemberController {
 		String photoName = "photo_" + sdf.format(new Date()) + "_" + myPhoto.getOriginalFilename();
 		dto.setPhoto(photoName);
 
-		
 		try {
 			myPhoto.transferTo(new File(realPath + "\\" + photoName));
 		} catch (IllegalStateException | IOException e) {
@@ -79,17 +78,37 @@ public class MemberController {
 
 		service.insert_Member(dto);
 
-		//return "/member/gaipSuccess";
-		return "redirect:list";
+		// return "/member/gaipSuccess";
+		return "redirect:/";
 	}
-	
+
 	@GetMapping("/member/myinfo")
 	public String myinfo(Model model) {
-		List<MemberDto> list=service.getAllMembers();
-		
+		List<MemberDto> list = service.getAllMembers();
+
 		model.addAttribute("list", list);
-		
+
 		return "/member/myinfo";
+	}
+
+	@GetMapping("/member/delete")
+	public String deleteMember(@RequestParam String num,HttpSession session) {
+		service.delete_Member(num);
+		session.removeAttribute("loginOk");
+		session.removeAttribute("loginUser");
+
+		return "redirect:/";
+	}
+	
+	@GetMapping("/member/deleteAdmin")
+	public String deleteAdmin(@RequestParam String num,HttpSession session) {
+		String nums[]=num.split(",");
+		
+		for(String n:nums) {
+			service.delete_Member(n);
+		}
+
+		return "redirect:list";
 	}
 
 }
