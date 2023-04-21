@@ -57,4 +57,26 @@ public class MemberService implements MemberServiceInter {
 		
 	}
 
+	@Override
+	public void update_Member(MemberDto dto) {
+		mapper.update_Member(dto);
+		
+	}
+
+	@Override
+	public void update_Photo(String num, String photo) {
+		Map<String, String> map=new HashMap<>();
+		
+		map.put("num", num);
+		map.put("photo", photo);
+		
+		mapper.update_Photo(map);
+		
+	}
+
+	@Override
+	public MemberDto getDataByNum(String num) {
+		return mapper.getDataByNum(num);
+	}
+
 }

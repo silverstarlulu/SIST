@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -92,23 +93,75 @@ public class MemberController {
 	}
 
 	@GetMapping("/member/delete")
-	public String deleteMember(@RequestParam String num,HttpSession session) {
+	public String deleteMember(@RequestParam String num, HttpSession session) {
 		service.delete_Member(num);
 		session.removeAttribute("loginOk");
 		session.removeAttribute("loginUser");
 
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/member/deleteAdmin")
-	public String deleteAdmin(@RequestParam String num,HttpSession session) {
-		String nums[]=num.split(",");
-		
-		for(String n:nums) {
+	public String deleteAdmin(@RequestParam String num, HttpSession session) {
+		String nums[] = num.split(",");
+
+		for (String n : nums) {
 			service.delete_Member(n);
 		}
 
 		return "redirect:list";
+	}
+
+	// info에서 사진만 수정
+	@ResponseBody
+	@PostMapping("/member/updatePhoto")
+	public void PhotoUpload(@RequestParam String num, @RequestParam MultipartFile photo, HttpSession session) {
+		String realPath = session.getServletContext().getRealPath("/photo");
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		String fileName = "f_" + sdf.format(new Date()) + photo.getOriginalFilename();
+
+		try {
+			photo.transferTo(new File(realPath + "\\" + fileName));
+
+			service.update_Photo(num, fileName);
+
+			session.setAttribute("loginPhoto", fileName);
+
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/*
+	 * @ResponseBody
+	 * 
+	 * @PostMapping("/member/update") public String updateMember(@RequestParam
+	 * String num,@RequestParam String name,@RequestParam String email,@RequestParam
+	 * String hp,@RequestParam String addr) {
+	 * 
+	 * MemberDto dto=service.getDataByNum(num);
+	 * 
+	 * dto.setName(name); dto.setEmail(email); dto.setHp(hp); dto.setEmail(email);
+	 * dto.setAddr(addr);
+	 * 
+	 * service.update_Member(dto);
+	 * 
+	 * return "redirect:myinfo";
+	 * 
+	 * }
+	 */
+
+	@ResponseBody
+	@PostMapping("/member/update")
+	public void updateMember(MemberDto dto,HttpSession session) {
+		
+		service.update_Member(dto);
+		session.setAttribute("loginName", dto.getName());
+		
 	}
 
 }

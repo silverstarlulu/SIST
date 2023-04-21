@@ -16,7 +16,13 @@ public interface MemberServiceInter {
 	public int loginIdPassCheck(String id, String pass);
 
 	public MemberDto getDataById(String id);
-	
+
 	public void delete_Member(String num);
+
+	public void update_Member(MemberDto dto);
+
+	public void update_Photo(String num, String photo);
+	
+	public MemberDto getDataByNum(String num);
 
 }

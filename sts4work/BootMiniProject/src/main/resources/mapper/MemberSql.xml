@@ -32,4 +32,17 @@
 	<delete id="delete_Member" parameterType="String">
 		delete from bootmember where num=#{num}
 	</delete>
+	
+	<update id="update_Member" parameterType="MemberDto">
+		update bootmember set name=#{name},hp=#{hp},addr=#{addr},email=#{email} where num=#{num}
+	</update>
+	
+	<!-- 이미지 수정 -->
+	<update id="update_Photo" parameterType="Map">
+		update bootmember set photo=#{photo} where num=#{num}
+	</update>
+	
+	<select id="getDataByNum" parameterType="String" resultType="MemberDto">
+		select * from bootmember where num=#{num}
+	</select>
 </mapper>

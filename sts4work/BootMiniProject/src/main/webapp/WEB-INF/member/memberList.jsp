@@ -24,7 +24,7 @@ table {
 </style>
 <script>
 	$(function() {
-		$(".alldelcheck").click(function() {
+		$("#alldelcheck").click(function() {
 			var chk = $(this).is(":checked");
 			$(".del").prop("checked", chk);
 		})
@@ -79,7 +79,7 @@ table {
 			<th style="width: 80px; text-align: center;">주소</th>
 			<th style="width: 80px; text-align: center;">이메일</th>
 			<th style="width: 80px; text-align: center;"><input
-				type="checkbox" class="alldelcheck">&nbsp;&nbsp;삭제</th>
+				type="checkbox" id="alldelcheck">&nbsp;&nbsp;삭제</th>
 		</tr>
 		<c:forEach var="dto" items="${list }" varStatus="i">
 			<tr align="center">
