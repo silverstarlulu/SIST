@@ -62,7 +62,9 @@ ul.menu li a {
 			<li><a href="${root }/ipgo/form">상품등록</a></li>
 		</c:if>
 		<li><a href="${root }/ipgo/list">상품목록</a></li>
-		<li><a href="${root }/board/list">게시판</a></li>
+		<li><a href="${root }/board/list">간단게시판</a></li>
+		<li><a href="#">답변형게시판</a></li>
+		<li><a href="#">스마트게시판</a></li>
 		<li><a href="${root }/login/main">로그인메인</a></li>
 		<c:if
 			test="${sessionScope.loginOk!=null && sessionScope.loginUser.equals('admin') }">

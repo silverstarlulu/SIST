@@ -30,6 +30,5 @@ body {
 	<img src="${root }/image/배너3.JPG" width="100%">
 	<br>
 	<br>
-	<li><b>메인페이지</b></li>
 </body>
 </html>
