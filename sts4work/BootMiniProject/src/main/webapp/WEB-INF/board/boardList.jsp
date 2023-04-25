@@ -30,7 +30,7 @@ table {
 				class="btn btn-info" style="font-size: 1.4em">글쓰기</button>
 			<br>
 			<br>
-		</div>
+		</div>ㅅㅅㅎ
 	</c:if>
 	<br>
 	<br>
