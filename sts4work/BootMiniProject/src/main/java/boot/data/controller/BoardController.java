@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import boot.data.dto.BoardAnswerDto;
 import boot.data.dto.BoardDto;
+import boot.data.service.BoardAnswerService;
 import boot.data.service.BoardService;
 import boot.data.service.MemberService;
 
@@ -29,11 +31,14 @@ public class BoardController {
 	@Autowired
 	MemberService m_service;
 
+	@Autowired
+	BoardAnswerService a_service;
+
 	@GetMapping("/board/list")
 	public ModelAndView boardList(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage) {
 
 		ModelAndView mview = new ModelAndView();
-		
+
 		int totalCount = service.getTotalCount();
 
 		// System.out.println(totalCount);
@@ -63,12 +68,12 @@ public class BoardController {
 
 		// 메서드 불러오기
 		List<BoardDto> list = service.getList(start, perPage);
-		
-		
-		/*
-		 * //list에 각 글에 대한 댓글개수 추가 for(ReboardDto d:list) {
-		 * d.setA_count(a_dao.getNumOfDatas_answer(d.getNum()).size()); }
-		 */
+
+		// 댓글 개수
+		for (BoardDto d : list) {
+			d.setAcount(a_service.getAllAnswers(d.getNum()).size());
+			System.out.println(a_service.getAllAnswers(d.getNum()).size());
+		}
 
 		// 게시글 앞에 붙을 번호
 		int no = totalCount - (currentPage - 1) * perPage;
@@ -134,7 +139,6 @@ public class BoardController {
 
 		int docLoc = dto.getUploadfile().lastIndexOf("."); // . 위치 구하기
 		String ext = dto.getUploadfile().substring(docLoc + 1); // 확장자명 구하기
-
 
 		if ((ext.equalsIgnoreCase("jpg")) || (ext.equalsIgnoreCase("gif")) || (ext.equalsIgnoreCase("jpeg"))
 				|| (ext.equalsIgnoreCase("png")))

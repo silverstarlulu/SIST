@@ -9,10 +9,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-<link
-	href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR&family=Poor+Story&display=swap"
-	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
 <style type="text/css">
 body {
 	font-family: 'Gaegu', cursive;
@@ -22,42 +20,45 @@ table {
 	font-size: 1.2em;
 }
 </style>
-</head>
 <body>
+	<c:if test="${totalCount>0 }">
+		<h1 class="alert alert-info">총 ${totalCount }개의 상품이 입고되었습니다.</h1>
+	</c:if>
 	<c:if test="${sessionScope.loginOk!=null }">
 		<div style="float: right">
 			<button type="button" onclick="location.href='form'"
-				class="btn btn-info" style="font-size: 1.4em">글쓰기</button>
-			<br>
-			<br>
+				class="btn btn-info" style="font-size: 1.4em">상품입고</button>
+			<br> <br>
 		</div>
 	</c:if>
+
 	<br>
 	<br>
 	<table class="table table-bordered" style="width: 1000px">
 		<tr style="background-color: #6C9BCF; color: white">
 			<th width="60" style="text-align: center">번호</th>
-			<th width="160" style="text-align: center">작성자</th>
-			<th width="360" style="text-align: center">제목</th>
-			<th width="80" style="text-align: center">조회</th>
-			<th width="260" style="text-align: center">등록일</th>
+			<th width="360" style="text-align: center">상품명</th>
+			<th width="160" style="text-align: center">색상</th>
+			<th width="100" style="text-align: center">가격</th>
+			<th width="260" style="text-align: center">입고일</th>
 		</tr>
 		<c:if test="${totalCount==0 }">
 			<tr>
-				<td colspan="5" align="center">글이 존재하지 않습니다.</td>
+				<td colspan="5" align="center">상품이 존재하지 않습니다.</td>
 			</tr>
 		</c:if>
 		<c:if test="${totalCount>0 }">
 			<c:forEach var="dto" items="${list }">
 				<tr align="center" style="height: 20px">
 					<td>${no }</td>
-					<c:set value="${no-1 }" var="no"/>
-					<td>${dto.loginUser }</td>
-					<td style="text-align: left"><a href="content?num=${dto.num }&currentPage=${currentPage}">&nbsp;${dto.subject }</a><c:if test="${dto.acount>0 }">&nbsp;&nbsp;<span style="color: red; font-size: 0.8em">[${dto.acount }]</span></c:if>
-					<c:if test="${dto.uploadfile!='no image' }"><span style="font-size: 0.5em" class="glyphicon glyphicon-paperclip"></span></c:if>
+					<c:set value="${no-1 }" var="no" />
+					<td><a style="color: black;"
+						href="detail?num=${dto.num }&currentPage=${currentPage}">&nbsp;${dto.sangname }</a>
 					</td>
-					<td>${dto.readcount }</td>
-					<td><fmt:formatDate value="${dto.writeday }" pattern="yy-MM-dd HH:mm"/></td>
+					<td><div
+							style="width: 20px; height: 20px; border-radius: 5px; background-color: ${dto.color }"></div></td>
+					<td><fmt:formatNumber type="currency" value="${dto.price }" /></td>
+					<td>${dto.ipgoday }</td>
 				</tr>
 			</c:forEach>
 		</c:if>

@@ -20,4 +20,6 @@ public class BoardDto {
 	private MultipartFile upload;
 	private int readcount;
 	private Timestamp writeday;
+	
+	private int acount;
 }

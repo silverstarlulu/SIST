@@ -205,10 +205,10 @@ $(function(){
 		<tr>
 			<td>
 				<div class="alist"></div>
+				<input type="hidden" value="${dto.num }" id="anum">
 				
 				<c:if test="${sessionScope.loginOk!=null }">
 					<div class="form-inline" class="aform">
-						<input type="hidden" value="${dto.num }" id="anum">
 						<input type="text" class="form-control" id="acontent" placeholder="댓글을 입력하세요." size="80">
 						<button type="button" class="btn btn-info" id="aInsertBtn">댓글 등록</button>
 					</div>
