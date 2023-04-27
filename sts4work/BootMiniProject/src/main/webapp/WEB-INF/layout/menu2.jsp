@@ -63,7 +63,7 @@ ul.menu li a {
 		</c:if>
 		<li><a href="${root }/ipgo/list">상품목록</a></li>
 		<li><a href="${root }/board/list">간단게시판</a></li>
-		<li><a href="#">답변형게시판</a></li>
+		<li><a href="${root }/reboard/list">답변형게시판</a></li>
 		<li><a href="${root }/smart/list">스마트게시판</a></li>
 		<li><a href="${root }/login/main">로그인메인</a></li>
 		<c:if
