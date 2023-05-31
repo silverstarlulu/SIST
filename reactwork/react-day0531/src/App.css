@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.number {
+  font-size: 50px;
+  color: #9376e0;
+  font-weight: 600;
+  text-shadow: 5px 5px 5px lightgray;
+}
